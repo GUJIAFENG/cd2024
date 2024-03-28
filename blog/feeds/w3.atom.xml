@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w3</title><link href="./" rel="alternate"></link><link href="./feeds/w3.atom.xml" rel="self"></link><id>./</id><updated>2024-03-28T06:20:54+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-03-28T06:20:54+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
+
+
+&lt;h1&gt;團隊子模組&lt;/h1&gt;
+&lt;p&gt;今天課程要用codespaces將自己的github帳戶添加到團隊的子模組下&lt;/p&gt;
+&lt;p&gt;STEP1 進入團隊的codespaces&lt;/p&gt;
+&lt;p&gt;STEP2 使用 git clone recourse submoules git@自己倉儲網址.git 帳號名稱&lt;/p&gt;
+&lt;p&gt;STEP3 git add.&lt;/p&gt;
+&lt;p&gt;STEP4 git commit -m"輸入你要打的字"&lt;/p&gt;
+&lt;p&gt;STEP5 之後再git push 推上去，推上去前可以git pull看看&lt;/p&gt;
+&lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry></feed>
