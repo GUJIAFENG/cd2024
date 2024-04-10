@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w2</title><link href="./" rel="alternate"></link><link href="./feeds/w2.atom.xml" rel="self"></link><id>./</id><updated>2024-03-28T06:20:02+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-03-28T06:20:02+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w2</title><link href="./" rel="alternate"></link><link href="./feeds/w2.atom.xml" rel="self"></link><id>./</id><updated>2024-04-10T12:38:05+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-04-10T12:38:05+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
 
 
 &lt;h1&gt;課程說明:&lt;/h1&gt;
 &lt;p&gt;1.利用github classroom進行分組&lt;/p&gt;
 &lt;p&gt;2.利用code spaces維護倉儲&lt;/p&gt;
+&lt;p&gt;3.網誌設定&lt;/p&gt;
 &lt;h1&gt;團隊分組:&lt;/h1&gt;
 &lt;p&gt;組別：八&lt;/p&gt;
 &lt;p&gt;組員:41039138 41023132&lt;/p&gt;
@@ -16,4 +17,10 @@
 &lt;p&gt;但是可以利用 ssh-keygen 建立 .ssh 目錄下的 id_rsa 與 id_rsa.pub, 之後除了將公鑰送到 Github 之外, &lt;/p&gt;
 &lt;p&gt;還需要在.ssh目錄中建立ｃonfig, 且將倉儲 .git/config 中的 https 協定改為 SSH。&lt;/p&gt;
 &lt;p&gt;不過 Replit 的免費帳號環境會不定時刪除 /home/runner/.ssh 目錄中的授權資料,因此若要使用 Replit 維護從 Github Classroom取得授權&lt;/p&gt;
-&lt;p&gt;的分組倉儲, 必須使用程式方法配置 .ssh 中的 id_rsa 與 config 檔案。&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry></feed>
+&lt;p&gt;的分組倉儲, 必須使用程式方法配置 .ssh 中的 id_rsa 與 config 檔案。&lt;/p&gt;
+&lt;p&gt;網誌設定 :要編寫網誌可到markdown目錄下新增.md檔檔名不可重複1-12行為固定格式不可隨意更動，剛開始還需要到&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    local_publishconf.py   pelicanconf.py   publishconf.py 這三個檔案裏面去做設定
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://nfuedu-my.sharepoint.com/personal/yen_nfu_edu_tw/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024%2Fvideo%2Fcd2024%5F2a%5F1%5Fblog%5Fsetup%2Emp4&amp;amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;amp;ga=1&amp;amp;referrer=StreamWebApp%2EWeb&amp;amp;referrerScenario=AddressBarCopied%2Eview"&gt;網誌教學影片&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;若要查看網誌可在shell打  chmod u+x gen_blog Enter後再打./gen_blog 之後按Run在靜態中查看沒問題就推上去 &lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry></feed>

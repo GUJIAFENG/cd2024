@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w5</title><link href="./" rel="alternate"></link><link href="./feeds/w5.atom.xml" rel="self"></link><id>./</id><updated>2024-03-28T07:05:34+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-03-21T15:00:00+08:00</published><updated>2024-03-28T07:05:34+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-21:./2024-Spring-w5-blog-tutorial.html</id><content type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
-</content><category term="w5"></category><category term="網誌編寫"></category><category term="cd2024，W5"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w5</title><link href="./" rel="alternate"></link><link href="./feeds/w5.atom.xml" rel="self"></link><id>./</id><updated>2024-04-05T08:31:47+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-03-21T15:00:00+08:00</published><updated>2024-04-05T08:31:47+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-21:./2024-Spring-w5-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
+
+
+&lt;h1&gt;課程活動&lt;/h1&gt;
+&lt;h2&gt;教學影片和自評&lt;/h2&gt;
+&lt;p&gt;各組進行分工要將所有影片上字幕和寫逐字稿並自評&lt;/p&gt;
+&lt;h2&gt;統整網誌&lt;/h2&gt;
+&lt;h2&gt;利用 NX1872 協同繪製零組件&lt;/h2&gt;
+&lt;p&gt;從BGA0810的電腦 C:\Program Files\Siemens\NX1872 取得NX 套件目錄檔案, 再將 NX1872 目錄存入隨身碟後, 可利用 start_USB_nx1872.bat 啟動
+start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在 NX1872 目錄中新增 temp 目錄用來儲存 NX 的 Syslog 系統狀態檔案.&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category><category term="cd2024，W5"></category></entry></feed>
