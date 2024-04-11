@@ -1,5 +1,8 @@
 # cmsimde_site
 
+團隊倉儲:https://github.com/mdecd2024/2b-midbg8
+
+
 利用 init_replit 指令安裝所需 Python 模組
 
 chmod u+x init_replit
