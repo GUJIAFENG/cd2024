@@ -2,6 +2,8 @@
 
 團隊倉儲:https://github.com/mdecd2024/2b-midbg8
 
+個人網誌:https://gujiafeng.github.io/cd2024/blog/index.html
+
 
 利用 init_replit 指令安裝所需 Python 模組
 
