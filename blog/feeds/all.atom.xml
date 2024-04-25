@@ -118,14 +118,12 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
 &lt;p&gt;STEP3 git add.&lt;/p&gt;
 &lt;p&gt;STEP4 git commit -m"輸入你要打的字"&lt;/p&gt;
 &lt;p&gt;STEP5 之後再git push 推上去，推上去前可以git pull看看&lt;/p&gt;
-&lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-04-25T11:23:06+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="cmsimde/static/chimper/css/week2.css"&gt;&lt;/p&gt;
+&lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-04-25T11:45:26+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">
+&lt;/code&gt;&lt;/pre&gt;
 
-    2024 協同產品設計W2課程活動。
+</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mf"&gt;2024&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;協同產品設計W2課程活動&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-</summary><content type="html">&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="cmsimde/static/chimper/css/week2.css"&gt;&lt;/p&gt;
-&lt;div class="week2"&gt;
-    2024 協同產品設計W2課程活動。
-&lt;/div&gt;
 
 
 &lt;h1&gt;課程說明:&lt;/h1&gt;
