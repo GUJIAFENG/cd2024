@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T15:00:00+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w10-blog-tutorial.html" rel="alternate"></link><published>2024-04-25T15:00:00+08:00</published><updated>2024-04-25T06:14:23+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-25:./2024-Spring-w10-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T15:00:00+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w10-blog-tutorial.html" rel="alternate"></link><published>2024-04-25T15:00:00+08:00</published><updated>2024-04-25T06:20:44+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-25:./2024-Spring-w10-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
 
 
@@ -36,7 +36,11 @@
 &lt;p&gt;實驗平台由電阻式觸控屏、永磁直流電機、Kinetis K60數位控制器等組成。三種控制結構的仿真和實驗結果顯示,具有狀態觀測器的結構效果最佳,能夠有效抑制噪聲並實現穩定控制和軌跡追蹤。&lt;/p&gt;
 &lt;p&gt;此外,文中還提供了相關的數學推導過程,以及詳細的控制系統設計方法。該球平衡平台不僅可用於驗證各種控制理論,還有助於讓學生更直觀地理解控制原理,結合理論知識與實踐操作,成為極具教學價值的系統。&lt;/p&gt;
 &lt;h3&gt;A real time control system for balancing a ball on a platform with FPGA parallel implementation&lt;/h3&gt;
-&lt;p&gt;本篇論文提出一種新的基於PID控制器的解決方案,可以在實時系統中精準控制球體在平台上的位置。首先,建立了球體在平台上的運動數學模型並推導出其傳遞函數。接著,設計了PID控制器用於平衡球體在平台上的位置。該PID控制器的實作採用了FPGA上的並行計算架構,可顯著提高計算效率。最後,通過Matlab仿真驗證了該控制系統調節球體在平台上位置的精度。該PID控制器設計可以應用於需要對多個參數進行高速實時控制的物件系統中。&lt;/p&gt;</content><category term="w10"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w9-blog-tutorial.html" rel="alternate"></link><published>2024-04-18T15:00:00+08:00</published><updated>2024-04-25T05:48:57+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-18:./2024-Spring-w9-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W9課程&lt;/p&gt;
+&lt;p&gt;本篇論文提出一種新的基於PID控制器的解決方案,可以在實時系統中精準控制球體在平台上的位置。首先,建立了球體在平台上的運動數學模型並推導出其傳遞函數。接著,設計了PID控制器用於平衡球體在平台上的位置。該PID控制器的實作採用了FPGA上的並行計算架構,可顯著提高計算效率。最後,通過Matlab仿真驗證了該控制系統調節球體在平台上位置的精度。該PID控制器設計可以應用於需要對多個參數進行高速實時控制的物件系統中。&lt;/p&gt;
+&lt;h3&gt;Construction and theoretical study&lt;/h3&gt;
+&lt;p&gt;這篇論文的摘要涵蓋了控制理論及其應用對動態系統的重要性，特別是在補償對於本身不穩定或半穩定系統施加的干擾和外部行為方面。通過建構一個實物裝置來展示理論，並進一步比較從牛頓力學中得出的實際物理和電腦模擬結果。為了進行比較，設計一個滿足系統要求的滿意控制器是必要的。在裝置和控制方面，引入了一個比例-積分-微分（PID）控制器，用於平衡平台上的球。進一步進行分析以確定在穩定自然不穩定或半穩定系統時的限制，並檢查這些限制與理論期望之間的差異。&lt;/p&gt;
+&lt;p&gt;整篇論文中應用的控制是線性類型，僅能在線性控制範圍內正常運作。使用標準元件和微控制器，構建了一個裝置來維持平台上的球。通過使用Arduino庫和開源代碼進行編程。因此，出於研究目的，看看該裝置是否能夠在線性控制領域內正常運作。&lt;/p&gt;
+&lt;p&gt;總之，這篇論文將首先通過計算機輔助程序來涵蓋球在平台上的理論模型。然後將理論結果與從實物構造中獲得的結果進行比較。進一步檢查控制理論和系統實施方面的差異原因。&lt;/p&gt;</content><category term="w10"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w9-blog-tutorial.html" rel="alternate"></link><published>2024-04-18T15:00:00+08:00</published><updated>2024-04-25T05:48:57+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-18:./2024-Spring-w9-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W9課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W9課程&lt;/p&gt;
 
 
