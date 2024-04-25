@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w2</title><link href="./" rel="alternate"></link><link href="./feeds/w2.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T10:20:50+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-04-25T10:20:50+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;style&gt;
-  .week1 {
-    background-image: url('/images/1.jpg');
-    /* 你可以在這裡添加額外的 CSS 設置 */
-  }
-&lt;/style&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w2</title><link href="./" rel="alternate"></link><link href="./feeds/w2.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T10:48:46+08:00</updated><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-04-25T10:48:46+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="cmsimde/static/chimper/css/week1.css"&gt;&lt;/p&gt;
 
+    2024 協同產品設計W2課程活動。
 
-2024 協同產品設計W2課程活動。
-
-</summary><content type="html">&lt;style&gt;
-  .week1 {
-    background-image: url('/images/1.jpg');
-    /* 你可以在這裡添加額外的 CSS 設置 */
-  }
-&lt;/style&gt;
-
+</summary><content type="html">&lt;p&gt;&lt;link rel="stylesheet" type="text/css" href="cmsimde/static/chimper/css/week1.css"&gt;&lt;/p&gt;
 &lt;div class="week1"&gt;
-2024 協同產品設計W2課程活動。
+    2024 協同產品設計W2課程活動。
 &lt;/div&gt;
 
 
