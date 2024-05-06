@@ -267,39 +267,58 @@ init_mathjax();
 <span class="n">fetch_csv_data</span><span class="p">()</span>
 </code></pre></div>
 
-                <script>
-                // CSV 文件网址
-                const url = "https://mdecd2024.github.io/2bstud-2bsite/downloads/2b.txt";
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Fetch CSV Data</title>
+                    <script src="https://cdn.jsdelivr.net/npm/brython@3.9.0/brython.min.js"></script>
+                </head>
+                <body onload="brython()">
+                    <pre id="output"></pre>
 
-                // 发送 AJAX 请求
-                fetch(url)
-                  .then(response => response.text())
-                  .then(content => {
-                    // 依照换行符号拆分资料
-                    const lines = content.trim().split('\n');
+                    <script type="text/python">
+                from browser import window, ajax
 
-                    // 建立空列表儲存資料
-                    const data = [];
+                def fetch_csv_data():
+                    # CSV 文件网址
+                    url = "https://mdecd2024.github.io/2bstud-2bsite/downloads/2b.txt"
 
-                    // 遍历每一行资料
-                    for (const line of lines) {
-                      // 忽略空白行
-                      if (line.trim() === "") {
-                        continue;
-                      }
+                    def on_complete(req):
+                        if req.status == 200 or req.status == 0:
+                            # 读取 CSV 文件内容
+                            content = req.text
+                            # 依照换行符号拆分数据
+                            lines = content.split('\n')
+                            # 建立空列表储存数据
+                            data = []
+                            # 遍历每一行数据
+                            for line in lines:
+                                # 忽略空白行
+                                if line.strip() == "":
+                                    continue
+                                # 依照逗号拆分数据
+                                items = line.split(',')
+                                # 将拆分后的数据加入列表
+                                data.append(items)
+                            # 显示结果
+                            output = window.document.getElementById("output")
+                            output.textContent = str(data)
+                        else:
+                            print("Error:", req.text)
 
-                      // 依照逗號拆分資料
-                      const items = line.split(',');
+                    # 发送 AJAX 请求
+                    req = ajax.ajax()
+                    req.bind('complete', on_complete)
+                    req.open('GET', url, True)
+                    req.set_header('content-type', 'application/x-www-form-urlencoded')
+                    req.send()
 
-                      // 将拆分后的资料加入列表
-                      data.push(items);
-                    }
-
-                    // 打印结果
-                    console.log(data);
-                  })
-                  .catch(error => console.error("Error:", error));
-                </script>
+                # 调用函数读取 CSV 数据
+                fetch_csv_data()
+                    </script>
+                </body>
+                </html>
                 
             </section>
 
