@@ -266,60 +266,81 @@ init_mathjax();
 <span class="n">fetch_csv_data</span><span class="p">()</span>
 </code></pre></div>
 
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.5/brython.min.js"></script>
-                <script type="text/python">
-                from browser import window, ajax
+                
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Fetch CSV Data</title>
+                </head>
+                <body>
 
-                def fetch_csv_data():
-                    # CSV 檔案網址
-                    url = "https://mdecd2024.github.io/2bstud-2bsite/downloads/2b.txt"
-
-                    def on_complete(req):
-                        if req.status == 200 or req.status == 0:
-                            # 讀取 CSV 檔案內容
-                            content = req.text
-
-                            # 依照換行符號拆分資料
-                            lines = content.split('\n')
-
-                            # 建立空列表儲存資料
-                            data = []
-
-                            # 遍歷每一行資料
-                            for line in lines:
-                                # 忽略空白行
-                                if line.strip() == "":
-                                    continue
-
-                                # 依照逗號拆分資料
-                                items = line.split(',')
-
-                                # 將拆分後的資料加入列表
-                                data.append(items)
-
-                            # 印出結果
-                            print(data)
-                        else:
-                            print("Error:", req.text)
-
-                    # 發送 AJAX 請求
-                    req = ajax.ajax()
-                    req.bind('complete', on_complete)
-                    req.open('GET', url, True)
-                    req.set_header('content-type', 'application/x-www-form-urlencoded')
-                    req.send()
-
-                fetch_csv_data()
-                </script>
                 <script>
-                window.onload = function() {
-                    brython();
-                }
+                    // Python 代碼的 JavaScript 等效部分
+                    function fetch_csv_data() {
+                        var url = "https://mdecd2024.github.io/2bstud-2bsite/downloads/2b.txt";
+
+                        function on_complete(req) {
+                            if (req.status === 200 || req.status === 0) {
+                                var content = req.responseText;
+                                var lines = content.split('\n');
+                                var data = [];
+
+                                for (var i = 0; i < lines.length; i++) {
+                                    var line = lines[i].trim();
+                                    if (line === "") continue;
+
+                                    var items = line.split(',');
+                                    data.push(items);
+                                }
+
+                                console.log(data); // 可將結果輸出至控制台
+                            } else {
+                                console.log("Error:", req.responseText);
+                            }
+                        }
+
+                        var req = new XMLHttpRequest();
+                        req.addEventListener('load', function() {
+                            on_complete(req);
+                        });
+                        req.open('GET', url, true);
+                        req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                        req.send();
+                    }
+
+                    // 在頁面加載完成後調用函式
+                    window.addEventListener('load', function() {
+                        fetch_csv_data();
+                    });
                 </script>
+
+                </body>
+                </html>
 
             <section class="post-info">
                 <aside class="post-tags">
 <a href="./tag/wang-zhi-bian-xie.html">網誌編寫</a><a href="./tag/cd2024.html">cd2024</a>                </aside>
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
                 <div class="clear"></div>
 
