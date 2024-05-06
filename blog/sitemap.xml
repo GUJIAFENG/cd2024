@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2024-05-06T12:39:01-00:00</lastmod>
+<lastmod>2024-05-06T13:03:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2024-05-06T12:39:01-00:00</lastmod>
+<lastmod>2024-05-06T13:03:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2024-05-06T12:39:01-00:00</lastmod>
+<lastmod>2024-05-06T13:03:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2024-05-06T12:39:01-00:00</lastmod>
+<lastmod>2024-05-06T13:03:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -39,15 +39,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>./2024-Spring-w0-blog-tutorial.html</loc>
-<lastmod>2024-05-06T12:36:57+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>./2024-Spring-w11-blog-tutorial.html</loc>
-<lastmod>2024-05-05T04:39:15+08:00</lastmod>
+<lastmod>2024-05-06T13:02:20+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -123,13 +116,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>./category/w0.html</loc>
-<lastmod>2024-05-06T12:36:57+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>./category/w1.html</loc>
 <lastmod>2024-04-27T06:03:27+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -145,7 +131,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./category/w11.html</loc>
-<lastmod>2024-05-05T04:39:15+08:06</lastmod>
+<lastmod>2024-05-06T13:02:20+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -201,14 +187,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./tag/wang-zhi-bian-xie.html</loc>
-<lastmod>2024-05-06T12:36:57+08:06</lastmod>
+<lastmod>2024-05-06T13:02:20+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tag/cd2024.html</loc>
-<lastmod>2024-05-06T12:36:57+08:06</lastmod>
+<lastmod>2024-05-06T13:02:20+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -236,7 +222,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./author/41039138.html</loc>
-<lastmod>2024-05-06T12:36:57+08:06</lastmod>
+<lastmod>2024-05-06T13:02:20+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
