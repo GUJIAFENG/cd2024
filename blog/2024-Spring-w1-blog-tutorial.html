@@ -9,25 +9,27 @@
 
   <title>2024 Spring W1 課程</title>
     <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-    }
+      /* 其他样式保持原样 ... */
 
-    body {
-      background-image: url("./theme/images/1-1.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+      .content-bg {
+        position: fixed; /* 使用 fixed 而不是 absolute 以保证覆盖滚动的内容 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./theme/images/1-1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: -1; /* 确保这个背景在内容的下面 */
+      }
 
-    .post-meta {
-      background-color: rgba(255, 255, 255, 0.7); /* 添加半透明背景 */
-      position: relative; /* 使 z-index 生效 */
-      z-index: 10; /* 确保 post-meta 内容在背景之上 */
-      padding: 5px; /* 根据需要调整 */
-    }
+      /* 如果您的 `.post-meta` 需要更清晰的背景覆盖 */
+      .post-meta {
+        background-color: rgba(255, 255, 255, 0.7); /* 需要时，可调整背景透明度来提升文本可读性 */
+        padding: 5px; /* 按实际情况调整 */
+        /* position 和 z-index 样式可能不再需要 */
+      }
     </style>
               
   <meta name="HandheldFriendly" content="True" />
@@ -188,7 +190,7 @@ init_mathjax();
 </head>
 <!-- TODO : Body class -->
 <body class="home-template">
-
+      <div class="content-bg"></div>
 <nav id="menu">
   <a class="close-button">Close</a>
   <div class="nav-wrapper">
