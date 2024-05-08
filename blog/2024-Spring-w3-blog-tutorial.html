@@ -9,25 +9,27 @@
 
   <title>2024 Spring W3 課程</title>
     <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-    }
 
-    body {
-      background-image: url("./theme/images/3-1.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
 
-    .post-meta {
-      background-color: rgba(255, 255, 255, 0.7); /* 添加半透明背景 */
-      position: relative; /* 使 z-index 生效 */
-      z-index: 10; /* 确保 post-meta 内容在背景之上 */
-      padding: 5px; /* 根据需要调整 */
-    }
+      .content-bg {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./theme/images/3-1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: -1; 
+      }
+
+
+      .post-meta {
+        background-color: transparent;
+        padding: 5px; 
+
+      }
     </style>
 
   <meta name="HandheldFriendly" content="True" />
@@ -187,7 +189,7 @@ init_mathjax();
 </head>
 <!-- TODO : Body class -->
 <body class="home-template">
-
+    <div class="content-bg"></div>
 <nav id="menu">
   <a class="close-button">Close</a>
   <div class="nav-wrapper">
