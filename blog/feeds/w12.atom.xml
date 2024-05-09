@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w12</title><link href="./" rel="alternate"></link><link href="./feeds/w12.atom.xml" rel="self"></link><id>./</id><updated>2024-05-09T15:00:00+08:00</updated><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-09T11:47:33+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w12</title><link href="./" rel="alternate"></link><link href="./feeds/w12.atom.xml" rel="self"></link><id>./</id><updated>2024-05-09T16:28:19+08:00</updated><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-09T16:28:19+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 
 
@@ -9,7 +9,7 @@
 &lt;h2&gt;將各分組倉儲設為評分倉儲的子模組&lt;/h2&gt;
 &lt;p&gt;在codespace添加 git submodule add https://github.com/mdecd2024/2b-midag8 g8，之後就可以推上去了。&lt;/p&gt;
 &lt;h2&gt;cd2023足球機器人網際場景模擬&lt;/h2&gt;
-&lt;p&gt;到此&lt;a href="https://github.com/mdecd2023/2a3-pj3ag4"&gt;倉儲&lt;/a&gt;的downloads\zmq_football 目錄下下載相關檔案即可開始模擬&lt;/p&gt;
+&lt;p&gt;到此&lt;a href="https://github.com/mdecd2023/2a3-pj3ag4"&gt;倉儲&lt;/a&gt;的downloads\zmq_football 目錄下下載相關檔案即可開始模擬，要將IP改成目前IP&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -28,4 +28,4 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w12"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W12"></category></entry></feed>
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w12"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W12 模擬"></category></entry></feed>
