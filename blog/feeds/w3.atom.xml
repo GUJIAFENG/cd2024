@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w3</title><link href="./" rel="alternate"></link><link href="./feeds/w3.atom.xml" rel="self"></link><id>./</id><updated>2024-04-27T06:04:17+08:00</updated><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-04-27T06:04:17+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w3</title><link href="./" rel="alternate"></link><link href="./feeds/w3.atom.xml" rel="self"></link><id>./</id><updated>2024-05-09T11:42:40+08:00</updated><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-05-09T11:42:40+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 
 
@@ -11,7 +11,26 @@
 &lt;h2&gt;用Gitpod and Token取得改版權限&lt;/h2&gt;
 &lt;p&gt;進入到Gitpod先到C裡面的.git目錄下之後打 Vi config 就可以編輯Token了，之後再將你的Token貼上去後面加@之後就可以儲存了&lt;/p&gt;
 &lt;h2&gt;用Replit 檢視靜態網站&lt;/h2&gt;
-&lt;p&gt;只要將老師給的 main2.py檔案傳上去之後步驟跟開動態一樣只不過靜態是要打python3 main2.py&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-04-27T06:04:06+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
+&lt;p&gt;只要將老師給的 main2.py檔案傳上去之後步驟跟開動態一樣只不過靜態是要打python3 main2.py&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-05-09T11:42:32+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 
 
@@ -22,4 +41,23 @@
 &lt;p&gt;STEP3 git add.&lt;/p&gt;
 &lt;p&gt;STEP4 git commit -m"輸入你要打的字"&lt;/p&gt;
 &lt;p&gt;STEP5 之後再git push 推上去，推上去前可以git pull看看&lt;/p&gt;
-&lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry></feed>
+&lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry></feed>
