@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w3</title><link href="./" rel="alternate"></link><link href="./feeds/w3.atom.xml" rel="self"></link><id>./</id><updated>2024-05-09T11:42:40+08:00</updated><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-05-09T11:42:40+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w3</title><link href="./" rel="alternate"></link><link href="./feeds/w3.atom.xml" rel="self"></link><id>./</id><updated>2024-05-16T05:23:25+08:00</updated><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-05-16T05:23:25+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 
 
@@ -12,6 +12,11 @@
 &lt;p&gt;進入到Gitpod先到C裡面的.git目錄下之後打 Vi config 就可以編輯Token了，之後再將你的Token貼上去後面加@之後就可以儲存了&lt;/p&gt;
 &lt;h2&gt;用Replit 檢視靜態網站&lt;/h2&gt;
 &lt;p&gt;只要將老師給的 main2.py檔案傳上去之後步驟跟開動態一樣只不過靜態是要打python3 main2.py&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;今天用codspaces創建資料夾latex、images和.github/workflows並上傳資料並用git add .推好之後用Action的功能去run，之後再&lt;/p&gt;
+&lt;p&gt;到.gitignore改程序碼讓他去刪除latex的臨時文檔，用好之後我們這組把已完成的翻譯用成latex傳上去，今天課程活動較上禮拜多一些，今&lt;/p&gt;
+&lt;p&gt;天主要的問題是Action的ALL workflows沒有東西，後來發現我們在codespaces創資料夾的時候少打/workflows，結果這個錯誤讓我們用&lt;/p&gt;
+&lt;p&gt;了好久。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -30,7 +35,7 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-05-09T11:42:32+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-05-16T05:21:55+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 
 
@@ -42,6 +47,9 @@
 &lt;p&gt;STEP4 git commit -m"輸入你要打的字"&lt;/p&gt;
 &lt;p&gt;STEP5 之後再git push 推上去，推上去前可以git pull看看&lt;/p&gt;
 &lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這週利用Codespaces把自己github加入到團隊的子模組中，之後也可以利用codspaces來維護倉儲，相較於之前用可攜系統進入到網頁修改，&lt;/p&gt;
+&lt;p&gt;這學期的方法較多元且快速和方便。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  

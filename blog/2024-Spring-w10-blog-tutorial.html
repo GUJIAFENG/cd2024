@@ -60,7 +60,7 @@
 <meta property="og:url" content="./2024-Spring-w10-blog-tutorial.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-04-25 15:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-05-09 11:46:37.998017+08:00"/>
+<meta property="article:modified_time" content="2024-05-16 05:35:37.887670+08:00"/>
 <meta property="article:author" content="./author/41039138.html">
 <meta property="article:section" content="w10"/>
 <meta property="article:tag" content="網誌編寫"/>
@@ -76,7 +76,7 @@
   "name": "2024 Spring W10 課程",
   "headline": "2024 Spring W10 課程",
   "datePublished": "2024-04-25 15:00:00+08:00",
-  "dateModified": "2024-05-09 11:46:37.998017+08:00",
+  "dateModified": "2024-05-16 05:35:37.887670+08:00",
   "author": {
     "@type": "Person",
     "name": "41039138",
@@ -213,7 +213,7 @@ init_mathjax();
             | <time datetime="Thu 25 April 2024">Thu 25 April 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Thu 09 May 2024</span>
+            <span class="post-meta"> | Updated on Thu 16 May 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -279,6 +279,12 @@ init_mathjax();
 <p>這篇論文的摘要涵蓋了控制理論及其應用對動態系統的重要性，特別是在補償對於本身不穩定或半穩定系統施加的干擾和外部行為方面。通過建構一個實物裝置來展示理論，並進一步比較從牛頓力學中得出的實際物理和電腦模擬結果。為了進行比較，設計一個滿足系統要求的滿意控制器是必要的。在裝置和控制方面，引入了一個比例-積分-微分（PID）控制器，用於平衡平台上的球。進一步進行分析以確定在穩定自然不穩定或半穩定系統時的限制，並檢查這些限制與理論期望之間的差異。</p>
 <p>整篇論文中應用的控制是線性類型，僅能在線性控制範圍內正常運作。使用標準元件和微控制器，構建了一個裝置來維持平台上的球。通過使用Arduino庫和開源代碼進行編程。因此，出於研究目的，看看該裝置是否能夠在線性控制領域內正常運作。</p>
 <p>總之，這篇論文將首先通過計算機輔助程序來涵蓋球在平台上的理論模型。然後將理論結果與從實物構造中獲得的結果進行比較。進一步檢查控制理論和系統實施方面的差異原因。</p>
+<h2>心得</h2>
+<p>這次作業利用 PID 控制 CoppeliaSim 鋼球平衡台場景 ZMQ RemoteAPI Python 程式，結束後用matplotlib 畫出來可藉由改變</p>
+<p>controlMotor(0.3, 0.3, 0.05) 三個參數實現不同的座標繪製。</p>
+<p>controlMotor(0.3, 0.3, 0.05) 分別為最終期望的X Y 座標和模擬時間步長，在模擬過程中還發現q鍵按下的時機也會改變座標的圖形剛</p>
+<p>開始模擬都達不到老師給的圖形後來發現我模擬的時間不夠長，之後再用久一點出來的表就跟老師一樣了。</p>
+<p>而摘要的部分，老師說可以多利用AI，所以我是把PDF丟給Claud 3 讓他生成出摘要，省了我不少的時間。</p>
 <div id="disqus_thread"></div>
 <script>
     /**  

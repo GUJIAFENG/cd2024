@@ -23,7 +23,7 @@
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W13課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w13"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W13"></category></entry><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-16T05:15:13+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
+&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w13"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W13"></category></entry><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-16T05:37:45+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 
 
@@ -40,6 +40,7 @@
 &lt;h2&gt;得分&lt;/h2&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/u7Wzc-2tV84?si=EC1JUoo7W8eAp5K5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
 
+&lt;h2&gt;心得&lt;/h2&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -58,7 +59,7 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w12"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W12 模擬"></category></entry><entry><title>2024 Spring W11 課程</title><link href="./2024-Spring-w11-blog-tutorial.html" rel="alternate"></link><published>2024-05-02T15:00:00+08:00</published><updated>2024-05-09T16:36:43+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-02:./2024-Spring-w11-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W11課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w12"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W12 模擬"></category></entry><entry><title>2024 Spring W11 課程</title><link href="./2024-Spring-w11-blog-tutorial.html" rel="alternate"></link><published>2024-05-02T15:00:00+08:00</published><updated>2024-05-16T05:37:24+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-02:./2024-Spring-w11-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W11課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W11課程&lt;/p&gt;
 
 
@@ -96,6 +97,11 @@
 &lt;p&gt;'''&lt;/p&gt;
 &lt;h1&gt;新增Disqus&lt;/h1&gt;
 &lt;p&gt;在markdowm文件添加Disqus HTML 在/.gen_blog 就不會被刪掉，如果直接加在HTML中會被刪掉。&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這周要用NX1872畫圖，不過在用USB開NX1872時，去發現他跑不動，所以我現在只能用空閒的時間用學校的電腦畫了，這禮拜我還為每個blog新&lt;/p&gt;
+&lt;p&gt;增了Disqus留言區，不過這部分班上好樣沒甚麼人用這塊，我是在看老師的網頁無意中看到才去用的，不然我一般只會看blog說要做甚麼作業，&lt;/p&gt;
+&lt;p&gt;然後最近教同學新增Disqus時發現他網誌都有寫但他都沒有用./gen_blog指令導致他都有寫網誌但blog卻沒顯示，這部份是我們常會沒注意的&lt;/p&gt;
+&lt;p&gt;部分，雖然我之前也常常忘記。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -114,7 +120,7 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w11"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W10 課程</title><link href="./2024-Spring-w10-blog-tutorial.html" rel="alternate"></link><published>2024-04-25T15:00:00+08:00</published><updated>2024-05-09T11:46:37+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-25:./2024-Spring-w10-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w11"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W10 課程</title><link href="./2024-Spring-w10-blog-tutorial.html" rel="alternate"></link><published>2024-04-25T15:00:00+08:00</published><updated>2024-05-16T05:35:37+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-04-25:./2024-Spring-w10-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W10課程&lt;/p&gt;
 
 
@@ -161,6 +167,12 @@
 &lt;p&gt;這篇論文的摘要涵蓋了控制理論及其應用對動態系統的重要性，特別是在補償對於本身不穩定或半穩定系統施加的干擾和外部行為方面。通過建構一個實物裝置來展示理論，並進一步比較從牛頓力學中得出的實際物理和電腦模擬結果。為了進行比較，設計一個滿足系統要求的滿意控制器是必要的。在裝置和控制方面，引入了一個比例-積分-微分（PID）控制器，用於平衡平台上的球。進一步進行分析以確定在穩定自然不穩定或半穩定系統時的限制，並檢查這些限制與理論期望之間的差異。&lt;/p&gt;
 &lt;p&gt;整篇論文中應用的控制是線性類型，僅能在線性控制範圍內正常運作。使用標準元件和微控制器，構建了一個裝置來維持平台上的球。通過使用Arduino庫和開源代碼進行編程。因此，出於研究目的，看看該裝置是否能夠在線性控制領域內正常運作。&lt;/p&gt;
 &lt;p&gt;總之，這篇論文將首先通過計算機輔助程序來涵蓋球在平台上的理論模型。然後將理論結果與從實物構造中獲得的結果進行比較。進一步檢查控制理論和系統實施方面的差異原因。&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這次作業利用 PID 控制 CoppeliaSim 鋼球平衡台場景 ZMQ RemoteAPI Python 程式，結束後用matplotlib 畫出來可藉由改變&lt;/p&gt;
+&lt;p&gt;controlMotor(0.3, 0.3, 0.05) 三個參數實現不同的座標繪製。&lt;/p&gt;
+&lt;p&gt;controlMotor(0.3, 0.3, 0.05) 分別為最終期望的X Y 座標和模擬時間步長，在模擬過程中還發現q鍵按下的時機也會改變座標的圖形剛&lt;/p&gt;
+&lt;p&gt;開始模擬都達不到老師給的圖形後來發現我模擬的時間不夠長，之後再用久一點出來的表就跟老師一樣了。&lt;/p&gt;
+&lt;p&gt;而摘要的部分，老師說可以多利用AI，所以我是把PDF丟給Claud 3 讓他生成出摘要，省了我不少的時間。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -268,7 +280,7 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w7"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-03-28T15:00:00+08:00</published><updated>2024-05-09T11:44:03+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-28:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W6課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w7"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-03-28T15:00:00+08:00</published><updated>2024-05-16T05:31:49+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-28:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W6課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W6課程&lt;/p&gt;
 
 
@@ -279,6 +291,10 @@
 &lt;p&gt;在.github/workflows下的main.yml點進去修改 在sudo apt install -y texlive的下一行新增
     name: Initialize submodules
     run: git submodule update --init --recursive&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這禮拜課程進度主要修改了團隊main.yml的內容和製作中英並列的論文翻譯，還有下載可攜式的NX檔案中英並列的論文翻譯，不過我們組只有兩&lt;/p&gt;
+&lt;p&gt;個人，要翻譯的文字量非常多，當時又想在一個晚上的時間做好一半的翻譯，那時候做了非常久，用word中英文加起來可能有一萬多的字，做好的&lt;/p&gt;
+&lt;p&gt;當下讓我有一種解脫的感覺，終於可以休息了。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -297,7 +313,7 @@
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w6"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W5 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-03-21T15:00:00+08:00</published><updated>2024-05-09T11:42:47+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-21:./2024-Spring-w5-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w6"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W5 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-03-21T15:00:00+08:00</published><updated>2024-05-16T05:24:27+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-21:./2024-Spring-w5-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W5課程&lt;/p&gt;
 
 
@@ -308,6 +324,10 @@
 &lt;h2&gt;利用 NX1872 協同繪製零組件&lt;/h2&gt;
 &lt;p&gt;從BGA0810的電腦 C:\Program Files\Siemens\NX1872 取得NX 套件目錄檔案, 再將 NX1872 目錄存入隨身碟後, 可利用 start_USB_nx1872.bat 啟動
 start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在 NX1872 目錄中新增 temp 目錄用來儲存 NX 的 Syslog 系統狀態檔案.&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;今天作業是製作逐字稿，我將教學影片用成mp4後，丟到whisper Desktop請他自動產生txt檔，和srt檔之後對照影片確認去對稿，好了之後再&lt;/p&gt;
+&lt;p&gt;用上字幕的軟體將MP4和srt檔丟進去之後就開始播放影片看字幕塊有沒有跟聲音一致，還可以順便校閱第二次稿，好了之後在輸出成mp4檔，這過&lt;/p&gt;
+&lt;p&gt;程還蠻快速的，比自己照影片打字快很多，不過要處理的影片比較多目前還沒用好，之後再貼上去。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -326,7 +346,7 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w5"></category><category term="網誌編寫"></category><category term="cd2024，W5"></category></entry><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-05-09T11:42:40+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w5"></category><category term="網誌編寫"></category><category term="cd2024，W5"></category></entry><entry><title>2024 Spring W4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T15:00:00+08:00</published><updated>2024-05-16T05:23:25+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W4課程&lt;/p&gt;
 
 
@@ -339,6 +359,11 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
 &lt;p&gt;進入到Gitpod先到C裡面的.git目錄下之後打 Vi config 就可以編輯Token了，之後再將你的Token貼上去後面加@之後就可以儲存了&lt;/p&gt;
 &lt;h2&gt;用Replit 檢視靜態網站&lt;/h2&gt;
 &lt;p&gt;只要將老師給的 main2.py檔案傳上去之後步驟跟開動態一樣只不過靜態是要打python3 main2.py&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;今天用codspaces創建資料夾latex、images和.github/workflows並上傳資料並用git add .推好之後用Action的功能去run，之後再&lt;/p&gt;
+&lt;p&gt;到.gitignore改程序碼讓他去刪除latex的臨時文檔，用好之後我們這組把已完成的翻譯用成latex傳上去，今天課程活動較上禮拜多一些，今&lt;/p&gt;
+&lt;p&gt;天主要的問題是Action的ALL workflows沒有東西，後來發現我們在codespaces創資料夾的時候少打/workflows，結果這個錯誤讓我們用&lt;/p&gt;
+&lt;p&gt;了好久。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -357,7 +382,7 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-05-09T11:42:32+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024，W4"></category></entry><entry><title>2024 Spring W3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T15:00:00+08:00</published><updated>2024-05-16T05:21:55+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W3課程&lt;/p&gt;
 
 
@@ -369,6 +394,9 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
 &lt;p&gt;STEP4 git commit -m"輸入你要打的字"&lt;/p&gt;
 &lt;p&gt;STEP5 之後再git push 推上去，推上去前可以git pull看看&lt;/p&gt;
 &lt;p&gt;最後到團隊的Code選項去那邊看有沒有推成功，成功的話就會出現在頁面上&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這週利用Codespaces把自己github加入到團隊的子模組中，之後也可以利用codspaces來維護倉儲，相較於之前用可攜系統進入到網頁修改，&lt;/p&gt;
+&lt;p&gt;這學期的方法較多元且快速和方便。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
@@ -387,7 +415,7 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
     (d.head || d.body).appendChild(s);
     })();
 &lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W2 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-05-09T15:58:43+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w3"></category><category term="網誌編寫"></category><category term="cd2024"></category></entry><entry><title>2024 Spring W2 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-02-29T15:00:00+08:00</published><updated>2024-05-16T05:19:26+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-02-29:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W2課程活動。&lt;/p&gt;
 
 
@@ -410,6 +438,9 @@ start_USB_nx1872.bat 可以啟動 USB 隨身碟中的 NX1872, 但必須自行在
 &lt;p&gt;local_publishconf   pelicanconf.py   publishconf.py 這三個檔案裏面去做設定&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://nfuedu-my.sharepoint.com/personal/yen_nfu_edu_tw/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024%2Fvideo%2Fcd2024%5F2a%5F1%5Fblog%5Fsetup%2Emp4&amp;amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&amp;amp;ga=1&amp;amp;referrer=StreamWebApp%2EWeb&amp;amp;referrerScenario=AddressBarCopied%2Eview"&gt;網誌教學影片&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;若要查看網誌可在shell打  chmod u+x gen_blog Enter後再打./gen_blog 之後按Run在靜態中查看沒問題就推上去 &lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;今天要先分組找組員並確認組別，然後用github教室創建組別並把組員加進去，好了之後小組成員就要開始添加github項目的內容了，這一步比&lt;/p&gt;
+&lt;p&gt;較困難當時用了很久了。&lt;/p&gt;
 &lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
     /**  
