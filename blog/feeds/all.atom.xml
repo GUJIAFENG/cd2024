@@ -19,7 +19,7 @@
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W14課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w14"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W14"></category></entry><entry><title>2024 Spring W13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-05-16T15:00:00+08:00</published><updated>2024-05-23T05:58:07+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-16:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W13課程&lt;/p&gt;
+&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w14"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W14"></category></entry><entry><title>2024 Spring W13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-05-16T15:00:00+08:00</published><updated>2024-05-30T05:35:58+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-16:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W13課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W13課程&lt;/p&gt;
 
 
@@ -94,7 +94,27 @@
 &lt;p&gt;雙方陣營各有足球門與籃球框各一具&lt;/p&gt;
 &lt;p&gt;球場中由裁判程式於開場時, 在球場正中央落下 10 球&lt;/p&gt;
 &lt;p&gt;將球踢進對方球門者得 1 分, 將球投入對方籃框者得 5 分&lt;/p&gt;
-&lt;h2&gt;心得&lt;/h2&gt;</content><category term="w13"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W13"></category><category term="評分標準"></category></entry><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-16T05:55:48+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;這禮拜老師在blog中列出了每周實習任務和評分標準，後來發現我們缺少了期中報告，之後我們會再補上。&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w13"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W13"></category><category term="評分標準"></category></entry><entry><title>2024 Spring W12 課程</title><link href="./2024-Spring-w12-blog-tutorial.html" rel="alternate"></link><published>2024-05-09T15:00:00+08:00</published><updated>2024-05-16T05:55:48+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-09:./2024-Spring-w12-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W12課程&lt;/p&gt;
 
 
