@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w15</title><link href="./" rel="alternate"></link><link href="./feeds/w15.atom.xml" rel="self"></link><id>./</id><updated>2024-05-30T15:00:00+08:00</updated><entry><title>2024 Spring W15 課程</title><link href="./2024-Spring-w15-blog-tutorial.html" rel="alternate"></link><published>2024-05-30T15:00:00+08:00</published><updated>2024-05-08T12:39:29+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-30:./2024-Spring-w15-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習 - w15</title><link href="./" rel="alternate"></link><link href="./feeds/w15.atom.xml" rel="self"></link><id>./</id><updated>2024-05-30T15:00:00+08:00</updated><entry><title>2024 Spring W15 課程</title><link href="./2024-Spring-w15-blog-tutorial.html" rel="alternate"></link><published>2024-05-30T15:00:00+08:00</published><updated>2024-05-30T08:48:49+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-30:./2024-Spring-w15-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w15"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W15"></category></entry></feed>
+&lt;h1&gt;課程活動&lt;/h1&gt;
+&lt;h2&gt;製作鋼球組立件&lt;/h2&gt;
+&lt;h2&gt;分工&lt;/h2&gt;
+&lt;p&gt;41023132:鋼球組裝&lt;/p&gt;
+&lt;p&gt;41039138:在CoppeliaSim添加旋轉和球接讓它旋轉&lt;/p&gt;
+&lt;h2&gt;心得&lt;/h2&gt;
+&lt;p&gt;今天把接頭都用好了，確認可以轉了，之後就剩下motor旋轉時其他的零件不會跟他一起轉，現在的motor是旋轉360度的。&lt;/p&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w15"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W15"></category></entry></feed>
