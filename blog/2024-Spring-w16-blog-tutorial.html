@@ -61,7 +61,7 @@
 <meta property="og:url" content="./2024-Spring-w16-blog-tutorial.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-06-06 15:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-05-08 12:39:26.405496+08:00"/>
+<meta property="article:modified_time" content="2024-06-17 14:52:16.633588+08:00"/>
 <meta property="article:author" content="./author/41039138.html">
 <meta property="article:section" content="w16"/>
 <meta property="article:tag" content="網誌編寫"/>
@@ -78,7 +78,7 @@
   "name": "2024 Spring W16 課程",
   "headline": "2024 Spring W16 課程",
   "datePublished": "2024-06-06 15:00:00+08:00",
-  "dateModified": "2024-05-08 12:39:26.405496+08:00",
+  "dateModified": "2024-06-17 14:52:16.633588+08:00",
   "author": {
     "@type": "Person",
     "name": "41039138",
@@ -215,7 +215,7 @@ init_mathjax();
             | <time datetime="Thu 06 June 2024">Thu 06 June 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Wed 08 May 2024</span>
+            <span class="post-meta"> | Updated on Mon 17 June 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -239,6 +239,140 @@ init_mathjax();
 
 
 <h1>課程活動</h1>
+<h2>期末作業</h2>
+<p>在建立好模型後匯入到已有的.ttt檔的範本後將原本的機器人改成我自己畫的機器人，但是在模擬後他的前輪會自動轉90度，就算我用旋轉還是會自己跑回90度，目前雖然</p>
+<p>會動，但他的移動方式不是很正常</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d5DT6VU6z6g?si=n4AOpg3_JrARy68L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<h1>程式</h1>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;&#39;&#39;</span>
+
+<span class="s1">pip install pyzmq cbor keyboard</span>
+<span class="s1">from zmqRemoteApi import RemoteAPIClient</span>
+<span class="s1">from zmqRemoteApi_IPv6 import RemoteAPIClient</span>
+<span class="s1">import keyboard</span>
+<span class="s1">import random</span>
+<span class="s1">import math</span>
+
+
+
+<span class="s1">client = RemoteAPIClient(&#39;2001:b011:b807:37e6:f30b:3972:ce44:863c&#39;, 23000)</span>
+<span class="s1">#client = RemoteAPIClient(&#39;2001:288:6004:17:2023:cda:4:6&#39;, 23000)</span>
+
+<span class="s1">print(&#39;Program started&#39;)</span>
+<span class="s1">sim = client.getObject(&#39;sim&#39;)</span>
+<span class="s1">#sim.startSimulation()</span>
+<span class="s1">print(&#39;Simulation started&#39;)</span>
+
+<span class="s1">v=8</span>
+<span class="s1">a=40</span>
+
+<span class="s1">#選擇控制的球員</span>
+<span class="s1">player=&#39;/a_player1&#39;</span>
+<span class="s1">#player=&#39;/a_player2&#39;</span>
+<span class="s1">#player=&#39;/a_player3&#39;</span>
+<span class="s1">#player=&#39;/a_player4&#39;</span>
+<span class="s1">#player=&#39;/b_player1&#39;</span>
+<span class="s1">#player=&#39;/b_player2&#39;</span>
+<span class="s1">#player=&#39;/b_player3&#39;</span>
+<span class="s1">#player=&#39;/b_player4&#39;</span>
+
+
+
+<span class="s1">def setVelocity(lfwV, rfwV,lbwV, rbwV):</span>
+<span class="s1">    leftMotor1 = sim.getObject(player+&#39;/joint_lf&#39;)</span>
+<span class="s1">    rightMotor1 = sim.getObject(player+&#39;/joint_rf&#39;)</span>
+<span class="s1">    leftMotor2 = sim.getObject(player+&#39;/joint_lb&#39;)</span>
+<span class="s1">    rightMotor2 = sim.getObject(player+&#39;/joint_rb&#39;)</span>
+<span class="s1">    sim.setJointTargetVelocity(leftMotor1, lfwV)</span>
+<span class="s1">    sim.setJointTargetVelocity(rightMotor1, rfwV)</span>
+<span class="s1">    sim.setJointTargetVelocity(leftMotor2, lbwV)</span>
+<span class="s1">    sim.setJointTargetVelocity(rightMotor2, rbwV)</span>
+<span class="s1">    #輸入四個變數分別給四個軸速度</span>
+
+<span class="s1">def setangel(y):</span>
+<span class="s1">    ontology= sim.getObject(player)</span>
+<span class="s1">    angel = [90*math.pi/180, y*math.pi/180, 0*math.pi/180]</span>
+<span class="s1">    leftMotor = sim.getObject(player+&#39;/joint_lf&#39;)</span>
+<span class="s1">    rightMotor = sim.getObject(player+&#39;/joint_rf&#39;)</span>
+<span class="s1">    sim.setObjectOrientation(leftMotor, ontology, angel)</span>
+<span class="s1">    sim.setObjectOrientation(rightMotor, ontology, angel)</span>
+<span class="s1">    #輸入一個變數改變前輪方向</span>
+<span class="s1">def controlangel(y):</span>
+<span class="s1">    if keyboard.is_pressed(&#39;a&#39;):</span>
+<span class="s1">        setangel(-y)</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;d&#39;):</span>
+<span class="s1">        setangel(y)</span>
+<span class="s1">    else:</span>
+<span class="s1">        setangel(0)</span>
+<span class="s1">def turnover():</span>
+<span class="s1">    floor= sim.getObject(&#39;/Floor&#39;)</span>
+<span class="s1">    player1 = sim.getObject(player)</span>
+<span class="s1">    a=sim.getObjectOrientation(player1,floor)</span>
+<span class="s1">    b=sim.getObjectPosition(player1,floor)</span>
+<span class="s1">    a[0]=0</span>
+<span class="s1">    a[1]=0</span>
+<span class="s1">    b[2]=0.3</span>
+<span class="s1">    sim.setObjectPosition(player1,floor,b)</span>
+<span class="s1">    sim.setObjectOrientation(player1,floor,a)</span>
+<span class="s1">def playercontrol(x,y):</span>
+<span class="s1">    if keyboard.is_pressed(&#39;w&#39;):</span>
+<span class="s1">        setVelocity(x,x,x,x)</span>
+<span class="s1">        controlangel(y)</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;s&#39;):</span>
+<span class="s1">        setVelocity(-x,-x,-x,-x)</span>
+<span class="s1">        controlangel(y)</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;a&#39;):</span>
+<span class="s1">        setVelocity(-x,x,-x,x)</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;d&#39;):</span>
+<span class="s1">        setVelocity(x,-x,x,-x)</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;space&#39;):</span>
+<span class="s1">        turnover()</span>
+<span class="s1">    elif keyboard.is_pressed(&#39;q&#39;):</span>
+<span class="s1">        # stop simulation</span>
+<span class="s1">        sim.stopSimulation()</span>
+<span class="s1">    else:</span>
+<span class="s1">        setVelocity(0, 0, 0, 0)</span>
+<span class="s1">        setangel(0)</span>
+
+<span class="s1">while True:</span>
+<span class="s1">    if keyboard.is_pressed(&#39;shift&#39;):</span>
+<span class="s1">        playercontrol(v+4,a-20)</span>
+<span class="s1">    else:</span>
+<span class="s1">        playercontrol(v,a)</span>
+</code></pre></div>
+
+<p>目前問題應該是出在這邊</p>
+<div class="highlight"><pre><span></span><code>&#39;&#39;&#39;
+    def setangel(y):
+    ontology= sim.getObject(player)
+    angel = [90*math.pi/180, y*math.pi/180, 0*math.pi/180]
+    leftMotor = sim.getObject(player+&#39;/joint_lf&#39;)
+    rightMotor = sim.getObject(player+&#39;/joint_rf&#39;)
+    sim.setObjectOrientation(leftMotor, ontology, angel)
+    sim.setObjectOrientation(rightMotor, ontology, angel)
+    #輸入一個變數改變前輪方向
+</code></pre></div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
             <section class="post-info">

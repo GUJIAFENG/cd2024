@@ -1,17 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-06-20T15:00:00+08:00</updated><entry><title>2024 Spring W18 課程</title><link href="./2024-Spring-w18-blog-tutorial.html" rel="alternate"></link><published>2024-06-20T15:00:00+08:00</published><updated>2024-05-08T12:39:19+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-20:./2024-Spring-w18-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W18課程&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-06-20T15:00:00+08:00</updated><entry><title>2024 Spring W18 課程</title><link href="./2024-Spring-w18-blog-tutorial.html" rel="alternate"></link><published>2024-06-20T15:00:00+08:00</published><updated>2024-06-17T14:56:29+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-20:./2024-Spring-w18-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W18課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W18課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w18"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W18"></category></entry><entry><title>2024 Spring W17 課程</title><link href="./2024-Spring-w17-blog-tutorial.html" rel="alternate"></link><published>2024-06-13T15:00:00+08:00</published><updated>2024-05-08T12:39:22+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-13:./2024-Spring-w17-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W17課程&lt;/p&gt;
+&lt;h1&gt;課程活動&lt;/h1&gt;
+&lt;h2&gt;期末考周&lt;/h2&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w18"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W18"></category></entry><entry><title>2024 Spring W17 課程</title><link href="./2024-Spring-w17-blog-tutorial.html" rel="alternate"></link><published>2024-06-13T15:00:00+08:00</published><updated>2024-06-17T14:55:55+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-13:./2024-Spring-w17-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W17課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W17課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w17"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W17"></category></entry><entry><title>2024 Spring W16 課程</title><link href="./2024-Spring-w16-blog-tutorial.html" rel="alternate"></link><published>2024-06-06T15:00:00+08:00</published><updated>2024-05-08T12:39:26+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-06:./2024-Spring-w16-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W16課程&lt;/p&gt;
+&lt;h1&gt;課程活動&lt;/h1&gt;
+&lt;h2&gt;期末自評&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://forms.gle/kLp6CUyn9xy6ybRy6"&gt;自評&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=LdYhzhe-eEs"&gt;實習一&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LdYhzhe-eEs?si=XZGPpMcrpYEhNKa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=lKLA0nLA_8M"&gt;實習二&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/lKLA0nLA_8M?si=JINUjKtLaOA4zdXL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=-RXvD20jy50"&gt;實習三&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/-RXvD20jy50?si=nPCqYnYgm8pn937o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w17"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W17"></category></entry><entry><title>2024 Spring W16 課程</title><link href="./2024-Spring-w16-blog-tutorial.html" rel="alternate"></link><published>2024-06-06T15:00:00+08:00</published><updated>2024-06-17T14:52:16+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-06-06:./2024-Spring-w16-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W16課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W16課程&lt;/p&gt;
 
 
-&lt;h1&gt;課程活動&lt;/h1&gt;</content><category term="w16"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W16"></category></entry><entry><title>2024 Spring W15 課程</title><link href="./2024-Spring-w15-blog-tutorial.html" rel="alternate"></link><published>2024-05-30T15:00:00+08:00</published><updated>2024-06-06T06:08:55+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-30:./2024-Spring-w15-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
+&lt;h1&gt;課程活動&lt;/h1&gt;
+&lt;h2&gt;期末作業&lt;/h2&gt;
+&lt;p&gt;在建立好模型後匯入到已有的.ttt檔的範本後將原本的機器人改成我自己畫的機器人，但是在模擬後他的前輪會自動轉90度，就算我用旋轉還是會自己跑回90度，目前雖然&lt;/p&gt;
+&lt;p&gt;會動，但他的移動方式不是很正常&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/d5DT6VU6z6g?si=n4AOpg3_JrARy68L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h1&gt;程式&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+
+&lt;span class="s1"&gt;pip install pyzmq cbor keyboard&lt;/span&gt;
+&lt;span class="s1"&gt;from zmqRemoteApi import RemoteAPIClient&lt;/span&gt;
+&lt;span class="s1"&gt;from zmqRemoteApi_IPv6 import RemoteAPIClient&lt;/span&gt;
+&lt;span class="s1"&gt;import keyboard&lt;/span&gt;
+&lt;span class="s1"&gt;import random&lt;/span&gt;
+&lt;span class="s1"&gt;import math&lt;/span&gt;
+
+
+
+&lt;span class="s1"&gt;client = RemoteAPIClient(&amp;#39;2001:b011:b807:37e6:f30b:3972:ce44:863c&amp;#39;, 23000)&lt;/span&gt;
+&lt;span class="s1"&gt;#client = RemoteAPIClient(&amp;#39;2001:288:6004:17:2023:cda:4:6&amp;#39;, 23000)&lt;/span&gt;
+
+&lt;span class="s1"&gt;print(&amp;#39;Program started&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;sim = client.getObject(&amp;#39;sim&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;#sim.startSimulation()&lt;/span&gt;
+&lt;span class="s1"&gt;print(&amp;#39;Simulation started&amp;#39;)&lt;/span&gt;
+
+&lt;span class="s1"&gt;v=8&lt;/span&gt;
+&lt;span class="s1"&gt;a=40&lt;/span&gt;
+
+&lt;span class="s1"&gt;#選擇控制的球員&lt;/span&gt;
+&lt;span class="s1"&gt;player=&amp;#39;/a_player1&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/a_player2&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/a_player3&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/a_player4&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/b_player1&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/b_player2&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/b_player3&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;#player=&amp;#39;/b_player4&amp;#39;&lt;/span&gt;
+
+
+
+&lt;span class="s1"&gt;def setVelocity(lfwV, rfwV,lbwV, rbwV):&lt;/span&gt;
+&lt;span class="s1"&gt;    leftMotor1 = sim.getObject(player+&amp;#39;/joint_lf&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    rightMotor1 = sim.getObject(player+&amp;#39;/joint_rf&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    leftMotor2 = sim.getObject(player+&amp;#39;/joint_lb&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    rightMotor2 = sim.getObject(player+&amp;#39;/joint_rb&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setJointTargetVelocity(leftMotor1, lfwV)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setJointTargetVelocity(rightMotor1, rfwV)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setJointTargetVelocity(leftMotor2, lbwV)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setJointTargetVelocity(rightMotor2, rbwV)&lt;/span&gt;
+&lt;span class="s1"&gt;    #輸入四個變數分別給四個軸速度&lt;/span&gt;
+
+&lt;span class="s1"&gt;def setangel(y):&lt;/span&gt;
+&lt;span class="s1"&gt;    ontology= sim.getObject(player)&lt;/span&gt;
+&lt;span class="s1"&gt;    angel = [90*math.pi/180, y*math.pi/180, 0*math.pi/180]&lt;/span&gt;
+&lt;span class="s1"&gt;    leftMotor = sim.getObject(player+&amp;#39;/joint_lf&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    rightMotor = sim.getObject(player+&amp;#39;/joint_rf&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setObjectOrientation(leftMotor, ontology, angel)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setObjectOrientation(rightMotor, ontology, angel)&lt;/span&gt;
+&lt;span class="s1"&gt;    #輸入一個變數改變前輪方向&lt;/span&gt;
+&lt;span class="s1"&gt;def controlangel(y):&lt;/span&gt;
+&lt;span class="s1"&gt;    if keyboard.is_pressed(&amp;#39;a&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setangel(-y)&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;d&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setangel(y)&lt;/span&gt;
+&lt;span class="s1"&gt;    else:&lt;/span&gt;
+&lt;span class="s1"&gt;        setangel(0)&lt;/span&gt;
+&lt;span class="s1"&gt;def turnover():&lt;/span&gt;
+&lt;span class="s1"&gt;    floor= sim.getObject(&amp;#39;/Floor&amp;#39;)&lt;/span&gt;
+&lt;span class="s1"&gt;    player1 = sim.getObject(player)&lt;/span&gt;
+&lt;span class="s1"&gt;    a=sim.getObjectOrientation(player1,floor)&lt;/span&gt;
+&lt;span class="s1"&gt;    b=sim.getObjectPosition(player1,floor)&lt;/span&gt;
+&lt;span class="s1"&gt;    a[0]=0&lt;/span&gt;
+&lt;span class="s1"&gt;    a[1]=0&lt;/span&gt;
+&lt;span class="s1"&gt;    b[2]=0.3&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setObjectPosition(player1,floor,b)&lt;/span&gt;
+&lt;span class="s1"&gt;    sim.setObjectOrientation(player1,floor,a)&lt;/span&gt;
+&lt;span class="s1"&gt;def playercontrol(x,y):&lt;/span&gt;
+&lt;span class="s1"&gt;    if keyboard.is_pressed(&amp;#39;w&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setVelocity(x,x,x,x)&lt;/span&gt;
+&lt;span class="s1"&gt;        controlangel(y)&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;s&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setVelocity(-x,-x,-x,-x)&lt;/span&gt;
+&lt;span class="s1"&gt;        controlangel(y)&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;a&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setVelocity(-x,x,-x,x)&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;d&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        setVelocity(x,-x,x,-x)&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;space&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        turnover()&lt;/span&gt;
+&lt;span class="s1"&gt;    elif keyboard.is_pressed(&amp;#39;q&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        # stop simulation&lt;/span&gt;
+&lt;span class="s1"&gt;        sim.stopSimulation()&lt;/span&gt;
+&lt;span class="s1"&gt;    else:&lt;/span&gt;
+&lt;span class="s1"&gt;        setVelocity(0, 0, 0, 0)&lt;/span&gt;
+&lt;span class="s1"&gt;        setangel(0)&lt;/span&gt;
+
+&lt;span class="s1"&gt;while True:&lt;/span&gt;
+&lt;span class="s1"&gt;    if keyboard.is_pressed(&amp;#39;shift&amp;#39;):&lt;/span&gt;
+&lt;span class="s1"&gt;        playercontrol(v+4,a-20)&lt;/span&gt;
+&lt;span class="s1"&gt;    else:&lt;/span&gt;
+&lt;span class="s1"&gt;        playercontrol(v,a)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;目前問題應該是出在這邊&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;#39;&amp;#39;&amp;#39;
+    def setangel(y):
+    ontology= sim.getObject(player)
+    angel = [90*math.pi/180, y*math.pi/180, 0*math.pi/180]
+    leftMotor = sim.getObject(player+&amp;#39;/joint_lf&amp;#39;)
+    rightMotor = sim.getObject(player+&amp;#39;/joint_rf&amp;#39;)
+    sim.setObjectOrientation(leftMotor, ontology, angel)
+    sim.setObjectOrientation(rightMotor, ontology, angel)
+    #輸入一個變數改變前輪方向
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script&gt;
+    /**  
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-github-com-gujiafeng-github-io-cd2024.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><category term="w16"></category><category term="網誌編寫"></category><category term="cd2024"></category><category term="W16"></category></entry><entry><title>2024 Spring W15 課程</title><link href="./2024-Spring-w15-blog-tutorial.html" rel="alternate"></link><published>2024-05-30T15:00:00+08:00</published><updated>2024-06-06T06:08:55+08:00</updated><author><name>41039138</name></author><id>tag:None,2024-05-30:./2024-Spring-w15-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 協同產品設計W15課程&lt;/p&gt;
 
 
