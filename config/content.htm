@@ -157,129 +157,102 @@
 <p></p>
 <h2>W16</h2>
 <h2>W17</h2>
+<p><span>自評連結:<a href="https://forms.gle/kLp6CUyn9xy6ybRy6">https://forms.gle/kLp6CUyn9xy6ybRy6</a></span></p>
 <p>實習一</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/02nYdE5E5VY?si=HutPwJXbPiOfgYAQ" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LdYhzhe-eEs?si=K2Zr3voQah7A1rYW" title="YouTube video player" width="560"></iframe></p>
 <p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/O7NiX5bHhBY?si=zRMsqMhThLtvdYwf" title="YouTube video player" width="560"></iframe></p>
 <p></p>
 <p>實習二</p>
-<p>這是目前有錄程式的模型</p>
-<p> <a href="/downloads/5.zip">模型.py</a><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/u_Hq3zGxbcs?si=QIlbUYzgtQepyBpq" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lKLA0nLA_8M?si=U-aEcri2DGwAEr5X" title="YouTube video player" width="560"></iframe></p>
 <p>實習三</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/zKplfg0z3jg?si=PRc1ogNt5MPVE6eY" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/b4xO8x9NhS8?si=_bh17Glofb5rmaah" title="YouTube video player" width="560"></iframe></p>
-<p><a href="/downloads/cd2024_footbasketball_field_specification_step2.ttt">cd2024_footbasketball_field_specification_step2.ttt</a></p>
-<p><a href="/downloads/site.ttt">site.ttt</a></p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"># pip install pyzmq cbor keyboard
-from zmqRemoteApi import RemoteAPIClient
-from zmqRemoteApi_IPv6 import RemoteAPIClient
+<p></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-RXvD20jy50?si=nPCqYnYgm8pn937o" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p>程式</p>
+<p></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from zmqRemoteApi_IPv6 import RemoteAPIClient
 import keyboard
-import random
-import math
-import time
 
-# 創建遠程客戶端
-client = RemoteAPIClient('fe80::510d:5d19:ba9e:3297%14', 23000)
+client = RemoteAPIClient('lochost', 23000)
+
 print('Program started')
-# 獲取仿真實例
 sim = client.getObject('sim')
+sim.startSimulation()
 print('Simulation started')
 
-# 初始速度和角度
-v = 8
-a = 40
-
-# 選擇控制的球員
-player = '/a_player1'
-
-# 控制機器人速度的函數
-def setVelocity(lfwV, rfwV, lbwV, rbwV):
-    leftMotor1 = sim.getObject(player + '/joint_lf')
-    rightMotor1 = sim.getObject(player + '/joint_rf')
-    leftMotor2 = sim.getObject(player + '/joint_lb')
-    rightMotor2 = sim.getObject(player + '/joint_rb')
-    sim.setJointTargetVelocity(leftMotor1, lfwV)
-    sim.setJointTargetVelocity(rightMotor1, rfwV)
-    sim.setJointTargetVelocity(leftMotor2, lbwV)
-    sim.setJointTargetVelocity(rightMotor2, rbwV)
-
-# 控制機器人角度的函數
-def setAngle(y):
-    ontology = sim.getObject(player)
-    angle = [-90*math.pi/180, y*math.pi/180, 0*math.pi/180]
-    leftMotor = sim.getObject(player + '/joint_lf')
-    rightMotor = sim.getObject(player + '/joint_rf')
-    sim.setObjectOrientation(leftMotor, ontology, angle)
-    sim.setObjectOrientation(rightMotor, ontology, angle)
-
-# 控制機器人移動的函數
-def playerControl(x, y):
-    if keyboard.is_pressed('w'):
-        setVelocity(x, x, x, x)
-        controlAngle(y)
-    elif keyboard.is_pressed('s'):
-        setVelocity(-x, -x, -x, -x)
-        controlAngle(y)
-    elif keyboard.is_pressed('a'):
-        setVelocity(-x, x, -x, x)
-    elif keyboard.is_pressed('d'):
-        setVelocity(x, -x, x, -x)
-    elif keyboard.is_pressed('space'):
-        turnover()
-    elif keyboard.is_pressed('q'):
-        sim.stopSimulation()
-    else:
-        setVelocity(0, 0, 0, 0)
-        setAngle(0)
-
-# 控制角度的函數
-def controlAngle(y):
-    if keyboard.is_pressed('a'):
-        setAngle(-y)
-    elif keyboard.is_pressed('d'):
-        setAngle(y)
-    else:
-        setAngle(0)
-
-# 讓機器人轉身的函數
-def turnover():
-    floor = sim.getObject('/Floor')
-    player1 = sim.getObject(player)
-    orientation = sim.getObjectOrientation(player1, floor)
-    position = sim.getObjectPosition(player1, floor)
-    orientation[0] = 0
-    orientation[1] = 0
-    position[2] = 0.3
-    sim.setObjectPosition(player1, floor, position)
-    sim.setObjectOrientation(player1, floor, orientation)
-
-# 检测碰撞的函数
-def detectCollision():
-    distance = 0.05  # 需要根据实际情况设置
-    # 检查两个机器人之间的距离是否小于0.1mm
-    # 这里仅作示例，实际实现可能需要根据场景调整
-    return distance &lt; 0.1
-
-# 投球的函数
-def throwBall():
-    print("投籃中...")
-    time.sleep(2)  # 模拟投篮过程，等待2秒
-    if random.random() &lt; 0.8:  # 80%的成功率
-        print("投籃成功！")
-    else:
-        print("投籃失敗！")
-
-# 主循环
+def setWheelMotion(leftSpeed, rightSpeed, up1, up2, up3):
+    # Set target velocity for each wheel
+    frontLeftWheel = sim.getObject('/frontLeftJoint')
+    frontRightWheel = sim.getObject('/frontRightJoint')
+    rearLeftWheel = sim.getObject('/rearLeftJoint')
+    rearRightWheel = sim.getObject('/rearRightJoint')
+    upanddown1 = sim.getObject('/upanddown1')
+    upanddown2 = sim.getObject('/upanddown2')
+    upanddown3 = sim.getObject('/upanddown3')
+    sim.setJointTargetVelocity(frontLeftWheel, leftSpeed)
+    sim.setJointTargetVelocity(frontRightWheel, rightSpeed)
+    sim.setJointTargetVelocity(rearLeftWheel, leftSpeed)
+    sim.setJointTargetVelocity(rearRightWheel, rightSpeed)
+    sim.setJointTargetVelocity(upanddown1,up1)
+    sim.setJointTargetVelocity(upanddown2,up2) 
+    sim.setJointTargetVelocity(upanddown3,up3)
+# Initialize motion variables
+leftSpeed = 0
+rightSpeed = 0
+up1 = 0
+up2 = 0
+up3 = 0
+# Main loop
 while True:
-    if keyboard.is_pressed('shift'):
-        playerControl(v+4, a-20)
+    # Check keyboard input
+    if keyboard.is_pressed('w'):
+        leftSpeed = 10  # Forward motion
+        rightSpeed = 10  # Forward motion
+    elif keyboard.is_pressed('s'):
+        leftSpeed = -10  # Backward motion
+        rightSpeed = -10  # Backward motion
     else:
-        playerControl(v, a)
+        leftSpeed = 0
+        rightSpeed = 0
 
-    # 如果检测到按下 'j' 键并且检测到碰撞，则投球
-    if keyboard.is_pressed('j') and detectCollision():
-        throwBall()  # 投球
-</pre><h1>Disqus</h1>
+    if keyboard.is_pressed('a'):
+        leftSpeed -= 5  # Left turn
+        rightSpeed += 5  # Left turn
+    elif keyboard.is_pressed('d'):
+        leftSpeed += 5  # Right turn
+        rightSpeed -= 5  # Right turn
+        
+    if keyboard.is_pressed('1'):
+        up1 = 1  # Forward motion
+    elif keyboard.is_pressed('3'):
+        up1 = -1  # Backward motion
+    else:
+        up1 = 0
+        
+    if keyboard.is_pressed('4'):
+        up2 = 1  # Forward motion
+    elif keyboard.is_pressed('6'):
+        up2 = -1  # Backward motion
+    else:
+        up2 = 0
+        
+    if keyboard.is_pressed('7'):
+        up3 = 1  # Forward motion
+    elif keyboard.is_pressed('9'):
+        up3 = -1  # Backward motion
+    else:
+        up3 = 0
+        
+    if keyboard.is_pressed('q'):
+        break  # Quit
+
+    # Set motion for all wheels
+    setWheelMotion(leftSpeed, rightSpeed, up1, up2, up3)
+
+# Stop the simulation
+sim.stopSimulation()</pre>
+<p></p><h1>Disqus</h1>
 <p>個人blog 添加disqus 範例HTML</p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;div id="disqus_thread"&gt;&lt;/div&gt;
 &lt;script&gt;
