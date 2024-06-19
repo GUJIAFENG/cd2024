@@ -1,0 +1,3959 @@
+# NX 1872
+# Journal created by User on Mon Jun 17 15:31:39 2024 台北標準時間
+
+#
+import math
+import NXOpen
+import NXOpen.Annotations
+import NXOpen.Assemblies
+import NXOpen.Drawings
+import NXOpen.Features
+import NXOpen.GeometricUtilities
+import NXOpen.Preferences
+def main() : 
+
+    theSession  = NXOpen.Session.GetSession()
+    markId1 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    fileNew1 = theSession.Parts.FileNew()
+    
+    theSession.SetUndoMarkName(markId1, "New Dialog")
+    
+    markId2 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "New")
+    
+    theSession.DeleteUndoMark(markId2, None)
+    
+    markId3 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "New")
+    
+    fileNew1.TemplateFileName = "model-plain-1-mm-template.prt"
+    
+    fileNew1.UseBlankTemplate = False
+    
+    fileNew1.ApplicationName = "ModelTemplate"
+    
+    fileNew1.Units = NXOpen.Part.Units.Millimeters
+    
+    fileNew1.RelationType = ""
+    
+    fileNew1.UsesMasterModel = "No"
+    
+    fileNew1.TemplateType = NXOpen.FileNewTemplateType.Item
+    
+    fileNew1.TemplatePresentationName = "Model"
+    
+    fileNew1.ItemType = ""
+    
+    fileNew1.Specialization = ""
+    
+    fileNew1.SetCanCreateAltrep(False)
+    
+    fileNew1.NewFileName = "E:\\協同\W12\\W12\\model5.prt"
+    
+    fileNew1.MasterFileName = ""
+    
+    fileNew1.MakeDisplayedPart = True
+    
+    fileNew1.DisplayPartOption = NXOpen.DisplayPartOption.AllowAdditional
+    
+    nXObject1 = fileNew1.Commit()
+    
+    workPart = theSession.Parts.Work
+    displayPart = theSession.Parts.Display
+    theSession.DeleteUndoMark(markId3, None)
+    
+    fileNew1.Destroy()
+    
+    theSession.ApplicationSwitchImmediate("UG_APP_MODELING")
+    
+    markId4 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    sketchInPlaceBuilder1 = workPart.Sketches.CreateSketchInPlaceBuilder2(NXOpen.Sketch.Null)
+    
+    origin1 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal1 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane1 = workPart.Planes.CreatePlane(origin1, normal1, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder1.PlaneReference = plane1
+    
+    unit1 = workPart.UnitCollection.FindObject("MilliMeter")
+    expression1 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression2 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    sketchAlongPathBuilder1 = workPart.Sketches.CreateSketchAlongPathBuilder(NXOpen.Sketch.Null)
+    
+    sketchAlongPathBuilder1.PlaneLocation.Expression.SetFormula("0")
+    
+    theSession.SetUndoMarkName(markId4, "Create Sketch Dialog")
+    
+    sketchInPlaceBuilder1.OriginOptionInfer = NXOpen.OriginMethod.WorkPartOrigin
+    
+    coordinates1 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    point1 = workPart.Points.CreatePoint(coordinates1)
+    
+    datumAxis1 = workPart.Datums.FindObject("DATUM_CSYS(0) X axis")
+    direction1 = workPart.Directions.CreateDirection(datumAxis1, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    datumPlane1 = workPart.Datums.FindObject("DATUM_CSYS(0) XY plane")
+    xform1 = workPart.Xforms.CreateXformByPlaneXDirPoint(datumPlane1, direction1, point1, NXOpen.SmartObject.UpdateOption.WithinModeling, 0.625, False, False)
+    
+    cartesianCoordinateSystem1 = workPart.CoordinateSystems.CreateCoordinateSystem(xform1, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder1.Csystem = cartesianCoordinateSystem1
+    
+    origin2 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal2 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane2 = workPart.Planes.CreatePlane(origin2, normal2, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    plane2.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom1 = [NXOpen.NXObject.Null] * 1 
+    geom1[0] = datumPlane1
+    plane2.SetGeometry(geom1)
+    
+    plane2.SetFlip(False)
+    
+    plane2.SetExpression(None)
+    
+    plane2.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane2.Evaluate()
+    
+    origin3 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal3 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane3 = workPart.Planes.CreatePlane(origin3, normal3, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    expression3 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression4 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    plane3.SynchronizeToPlane(plane2)
+    
+    plane3.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom2 = [NXOpen.NXObject.Null] * 1 
+    geom2[0] = datumPlane1
+    plane3.SetGeometry(geom2)
+    
+    plane3.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane3.Evaluate()
+    
+    markId5 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.DeleteUndoMark(markId5, None)
+    
+    markId6 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.Preferences.Sketch.CreateInferredConstraints = True
+    
+    theSession.Preferences.Sketch.ContinuousAutoDimensioning = True
+    
+    theSession.Preferences.Sketch.DimensionLabel = NXOpen.Preferences.SketchPreferences.DimensionLabelType.Expression
+    
+    theSession.Preferences.Sketch.TextSizeFixed = True
+    
+    theSession.Preferences.Sketch.FixedTextSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayParenthesesOnReferenceDimensions = True
+    
+    theSession.Preferences.Sketch.DisplayReferenceGeometry = False
+    
+    theSession.Preferences.Sketch.ConstraintSymbolSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayObjectColor = False
+    
+    theSession.Preferences.Sketch.DisplayObjectName = True
+    
+    nXObject2 = sketchInPlaceBuilder1.Commit()
+    
+    sketch1 = nXObject2
+    feature1 = sketch1.Feature
+    
+    markId7 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "update")
+    
+    nErrs1 = theSession.UpdateManager.DoUpdate(markId7)
+    
+    sketch1.Activate(NXOpen.Sketch.ViewReorient.TrueValue)
+    
+    theSession.DeleteUndoMark(markId6, None)
+    
+    theSession.SetUndoMarkName(markId4, "Create Sketch")
+    
+    sketchInPlaceBuilder1.Destroy()
+    
+    sketchAlongPathBuilder1.Destroy()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression2)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression1)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane1.DestroyPlane()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression4)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression3)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane3.DestroyPlane()
+    
+    markId8 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Profile short list")
+    
+    markId9 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Rectangle")
+    
+    expression5 = workPart.Expressions.CreateSystemExpression("20")
+    
+    expression6 = workPart.Expressions.CreateSystemExpression("20")
+    
+    expression7 = workPart.Expressions.CreateSystemExpression("0")
+    
+    theSession.SetUndoMarkVisibility(markId9, "Create Rectangle", NXOpen.Session.MarkVisibility.Visible)
+    
+    # ----------------------------------------------
+    # Creating rectangle using From Center method 
+    # ----------------------------------------------
+    startPoint1 = NXOpen.Point3d(-10.000000000000011, -10.0, 0.0)
+    endPoint1 = NXOpen.Point3d(9.9999999999999893, -10.0, 0.0)
+    line1 = workPart.Curves.CreateLine(startPoint1, endPoint1)
+    
+    startPoint2 = NXOpen.Point3d(9.9999999999999893, -10.0, 0.0)
+    endPoint2 = NXOpen.Point3d(10.000000000000012, 10.0, 0.0)
+    line2 = workPart.Curves.CreateLine(startPoint2, endPoint2)
+    
+    startPoint3 = NXOpen.Point3d(10.000000000000012, 10.0, 0.0)
+    endPoint3 = NXOpen.Point3d(-9.9999999999999876, 10.0, 0.0)
+    line3 = workPart.Curves.CreateLine(startPoint3, endPoint3)
+    
+    startPoint4 = NXOpen.Point3d(-9.9999999999999876, 10.0, 0.0)
+    endPoint4 = NXOpen.Point3d(-10.000000000000011, -10.0, 0.0)
+    line4 = workPart.Curves.CreateLine(startPoint4, endPoint4)
+    
+    theSession.ActiveSketch.AddGeometry(line1, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    theSession.ActiveSketch.AddGeometry(line2, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    theSession.ActiveSketch.AddGeometry(line3, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    theSession.ActiveSketch.AddGeometry(line4, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    geom1_1 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_1.Geometry = line1
+    geom1_1.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom1_1.SplineDefiningPointIndex = 0
+    geom2_1 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_1.Geometry = line2
+    geom2_1.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom2_1.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint1 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_1, geom2_1)
+    
+    geom1_2 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_2.Geometry = line2
+    geom1_2.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom1_2.SplineDefiningPointIndex = 0
+    geom2_2 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_2.Geometry = line3
+    geom2_2.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom2_2.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint2 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_2, geom2_2)
+    
+    geom1_3 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_3.Geometry = line3
+    geom1_3.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom1_3.SplineDefiningPointIndex = 0
+    geom2_3 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_3.Geometry = line4
+    geom2_3.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom2_3.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint3 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_3, geom2_3)
+    
+    geom1_4 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_4.Geometry = line4
+    geom1_4.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom1_4.SplineDefiningPointIndex = 0
+    geom2_4 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_4.Geometry = line1
+    geom2_4.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom2_4.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint4 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_4, geom2_4)
+    
+    conGeom1_1 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_1.Geometry = line1
+    conGeom1_1.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_1.SplineDefiningPointIndex = 0
+    conGeom2_1 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_1.Geometry = line2
+    conGeom2_1.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_1.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint5 = theSession.ActiveSketch.CreatePerpendicularConstraint(conGeom1_1, conGeom2_1)
+    
+    conGeom1_2 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_2.Geometry = line2
+    conGeom1_2.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_2.SplineDefiningPointIndex = 0
+    conGeom2_2 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_2.Geometry = line3
+    conGeom2_2.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_2.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint6 = theSession.ActiveSketch.CreatePerpendicularConstraint(conGeom1_2, conGeom2_2)
+    
+    conGeom1_3 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_3.Geometry = line3
+    conGeom1_3.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_3.SplineDefiningPointIndex = 0
+    conGeom2_3 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_3.Geometry = line4
+    conGeom2_3.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_3.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint7 = theSession.ActiveSketch.CreatePerpendicularConstraint(conGeom1_3, conGeom2_3)
+    
+    conGeom1_4 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_4.Geometry = line4
+    conGeom1_4.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_4.SplineDefiningPointIndex = 0
+    conGeom2_4 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_4.Geometry = line1
+    conGeom2_4.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_4.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint8 = theSession.ActiveSketch.CreatePerpendicularConstraint(conGeom1_4, conGeom2_4)
+    
+    conGeom1_5 = NXOpen.Sketch.ConstraintGeometry()
+    
+    datumCsys1 = workPart.Features.FindObject("SKETCH(1:1B)")
+    point2 = datumCsys1.FindObject("POINT 1")
+    conGeom1_5.Geometry = point2
+    conGeom1_5.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_5.SplineDefiningPointIndex = 0
+    conGeom2_5 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_5.Geometry = line1
+    conGeom2_5.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_5.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint9 = theSession.ActiveSketch.CreateMidpointConstraint(conGeom1_5, conGeom2_5)
+    
+    conGeom1_6 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_6.Geometry = point2
+    conGeom1_6.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom1_6.SplineDefiningPointIndex = 0
+    conGeom2_6 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_6.Geometry = line2
+    conGeom2_6.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_6.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint10 = theSession.ActiveSketch.CreateMidpointConstraint(conGeom1_6, conGeom2_6)
+    
+    dimObject1_1 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_1.Geometry = line1
+    dimObject1_1.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_1.AssocValue = 0
+    dimObject1_1.HelpPoint.X = 0.0
+    dimObject1_1.HelpPoint.Y = 0.0
+    dimObject1_1.HelpPoint.Z = 0.0
+    dimObject1_1.View = NXOpen.NXObject.Null
+    dimObject2_1 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_1.Geometry = line1
+    dimObject2_1.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_1.AssocValue = 0
+    dimObject2_1.HelpPoint.X = 0.0
+    dimObject2_1.HelpPoint.Y = 0.0
+    dimObject2_1.HelpPoint.Z = 0.0
+    dimObject2_1.View = NXOpen.NXObject.Null
+    dimOrigin1 = NXOpen.Point3d(-1.0658141036401503e-14, -19.770801158026849, 0.0)
+    sketchDimensionalConstraint1 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.ParallelDim, dimObject1_1, dimObject2_1, dimOrigin1, expression5, NXOpen.Sketch.DimensionOption.CreateAsDriving)
+    
+    sketchHelpedDimensionalConstraint1 = sketchDimensionalConstraint1
+    dimension1 = sketchHelpedDimensionalConstraint1.AssociatedDimension
+    
+    dimObject1_2 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_2.Geometry = line2
+    dimObject1_2.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_2.AssocValue = 0
+    dimObject1_2.HelpPoint.X = 0.0
+    dimObject1_2.HelpPoint.Y = 0.0
+    dimObject1_2.HelpPoint.Z = 0.0
+    dimObject1_2.View = NXOpen.NXObject.Null
+    dimObject2_2 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_2.Geometry = line2
+    dimObject2_2.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_2.AssocValue = 0
+    dimObject2_2.HelpPoint.X = 0.0
+    dimObject2_2.HelpPoint.Y = 0.0
+    dimObject2_2.HelpPoint.Z = 0.0
+    dimObject2_2.View = NXOpen.NXObject.Null
+    dimOrigin2 = NXOpen.Point3d(19.770801158026849, -1.1281679151262574e-14, 0.0)
+    sketchDimensionalConstraint2 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.ParallelDim, dimObject1_2, dimObject2_2, dimOrigin2, expression6, NXOpen.Sketch.DimensionOption.CreateAsDriving)
+    
+    sketchHelpedDimensionalConstraint2 = sketchDimensionalConstraint2
+    dimension2 = sketchHelpedDimensionalConstraint2.AssociatedDimension
+    
+    dimObject1_3 = NXOpen.Sketch.DimensionGeometry()
+    
+    datumAxis2 = workPart.Datums.FindObject("SKETCH(1:1B) X axis")
+    dimObject1_3.Geometry = datumAxis2
+    dimObject1_3.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject1_3.AssocValue = 0
+    dimObject1_3.HelpPoint.X = 28.574999999999999
+    dimObject1_3.HelpPoint.Y = 0.0
+    dimObject1_3.HelpPoint.Z = 0.0
+    dimObject1_3.View = NXOpen.NXObject.Null
+    dimObject2_3 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_3.Geometry = line1
+    dimObject2_3.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_3.AssocValue = 0
+    dimObject2_3.HelpPoint.X = 9.9999999999999893
+    dimObject2_3.HelpPoint.Y = -10.0
+    dimObject2_3.HelpPoint.Z = 0.0
+    dimObject2_3.View = NXOpen.NXObject.Null
+    dimOrigin3 = NXOpen.Point3d(-1.0658141036401503e-14, -7.0, 0.0)
+    sketchDimensionalConstraint3 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.AngularDim, dimObject1_3, dimObject2_3, dimOrigin3, expression7, NXOpen.Sketch.DimensionOption.CreateAsDriving)
+    
+    dimension3 = sketchDimensionalConstraint3.AssociatedDimension
+    
+    theSession.Preferences.Sketch.AutoDimensionsToArcCenter = False
+    
+    theSession.ActiveSketch.Update()
+    
+    theSession.Preferences.Sketch.AutoDimensionsToArcCenter = True
+    
+    geoms1 = [NXOpen.SmartObject.Null] * 4 
+    geoms1[0] = line1
+    geoms1[1] = line2
+    geoms1[2] = line3
+    geoms1[3] = line4
+    theSession.ActiveSketch.UpdateConstraintDisplay(geoms1)
+    
+    geoms2 = [NXOpen.SmartObject.Null] * 4 
+    geoms2[0] = line1
+    geoms2[1] = line2
+    geoms2[2] = line3
+    geoms2[3] = line4
+    theSession.ActiveSketch.UpdateDimensionDisplay(geoms2)
+    
+    markId10 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+    
+    section1 = workPart.Sections.CreateSection(0.0094999999999999998, 0.01, 0.5)
+    
+    extrudeBuilder1.Section = section1
+    
+    extrudeBuilder1.AllowSelfIntersectingSection(True)
+    
+    unit2 = extrudeBuilder1.Draft.FrontDraftAngle.Units
+    
+    expression8 = workPart.Expressions.CreateSystemExpressionWithUnits("2.00", unit2)
+    
+    extrudeBuilder1.DistanceTolerance = 0.01
+    
+    extrudeBuilder1.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
+    
+    targetBodies1 = [NXOpen.Body.Null] * 1 
+    targetBodies1[0] = NXOpen.Body.Null
+    extrudeBuilder1.BooleanOperation.SetTargetBodies(targetBodies1)
+    
+    extrudeBuilder1.Limits.StartExtend.Value.SetFormula("0")
+    
+    extrudeBuilder1.Limits.EndExtend.Value.SetFormula("25")
+    
+    extrudeBuilder1.Draft.FrontDraftAngle.SetFormula("2")
+    
+    extrudeBuilder1.Draft.BackDraftAngle.SetFormula("2")
+    
+    extrudeBuilder1.Offset.StartOffset.SetFormula("0")
+    
+    extrudeBuilder1.Offset.EndOffset.SetFormula("5")
+    
+    smartVolumeProfileBuilder1 = extrudeBuilder1.SmartVolumeProfile
+    
+    smartVolumeProfileBuilder1.OpenProfileSmartVolumeOption = False
+    
+    smartVolumeProfileBuilder1.CloseProfileRule = NXOpen.GeometricUtilities.SmartVolumeProfileBuilder.CloseProfileRuleType.Fci
+    
+    theSession.SetUndoMarkName(markId10, "Extrude Dialog")
+    
+    section1.DistanceTolerance = 0.01
+    
+    section1.ChainingTolerance = 0.0094999999999999998
+    
+    section1.SetAllowedEntityTypes(NXOpen.Section.AllowTypes.OnlyCurves)
+    
+    markId11 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    curves1 = [NXOpen.ICurve.Null] * 4 
+    curves1[0] = line3
+    curves1[1] = line1
+    curves1[2] = line4
+    curves1[3] = line2
+    seedPoint1 = NXOpen.Point3d(-3.3333333333333295, -3.3333333333333335, 0.0)
+    regionBoundaryRule1 = workPart.ScRuleFactory.CreateRuleRegionBoundary(theSession.ActiveSketch, curves1, seedPoint1, 0.01)
+    
+    section1.AllowSelfIntersection(True)
+    
+    rules1 = [None] * 1 
+    rules1[0] = regionBoundaryRule1
+    helpPoint1 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    section1.AddToSection(rules1, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint1, NXOpen.Section.Mode.Create, False)
+    
+    theSession.DeleteUndoMark(markId11, None)
+    
+    markId12 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "section mark")
+    
+    markId13 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    theSession.DeleteUndoMark(markId13, None)
+    
+    direction2 = workPart.Directions.CreateDirection(theSession.ActiveSketch, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    extrudeBuilder1.Direction = direction2
+    
+    expression9 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    theSession.DeleteUndoMark(markId12, None)
+    
+    extrudeBuilder1.Limits.EndExtend.Value.SetFormula("12")
+    
+    markId14 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    theSession.DeleteUndoMark(markId14, None)
+    
+    markId15 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    extrudeBuilder1.ParentFeatureInternal = False
+    
+    markId16 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Deactivate Sketch")
+    
+    feature2 = extrudeBuilder1.CommitFeature()
+    
+    theSession.DeleteUndoMark(markId15, None)
+    
+    theSession.SetUndoMarkName(markId10, "Extrude")
+    
+    expression10 = extrudeBuilder1.Limits.StartExtend.Value
+    expression11 = extrudeBuilder1.Limits.EndExtend.Value
+    extrudeBuilder1.Destroy()
+    
+    workPart.Expressions.Delete(expression8)
+    
+    workPart.Expressions.Delete(expression9)
+    
+    rotMatrix1 = NXOpen.Matrix3x3()
+    
+    rotMatrix1.Xx = 0.71910256080504653
+    rotMatrix1.Xy = 0.56576078888488401
+    rotMatrix1.Xz = -0.40349254863501383
+    rotMatrix1.Yx = 0.057354040594651566
+    rotMatrix1.Yy = 0.53034273881946437
+    rotMatrix1.Yz = 0.845841056823879
+    rotMatrix1.Zx = 0.6925330469162404
+    rotMatrix1.Zy = -0.63138839801015079
+    rotMatrix1.Zz = 0.34892215433687307
+    translation1 = NXOpen.Point3d(2.420955291810083, -5.075046340943274, 3.9064670739787615)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix1, translation1, 0.92111177522084509)
+    
+    scaleAboutPoint1 = NXOpen.Point3d(14.505794728473409, 4.5958953595163194, 0.0)
+    viewCenter1 = NXOpen.Point3d(-14.505794728473409, -4.5958953595163194, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint1, viewCenter1)
+    
+    scaleAboutPoint2 = NXOpen.Point3d(11.604635782778725, 3.676716287613055, 0.0)
+    viewCenter2 = NXOpen.Point3d(-11.604635782778725, -3.676716287613055, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint2, viewCenter2)
+    
+    scaleAboutPoint3 = NXOpen.Point3d(9.28370862622298, 2.9413730300904439, 0.0)
+    viewCenter3 = NXOpen.Point3d(-9.28370862622298, -2.9413730300904439, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint3, viewCenter3)
+    
+    scaleAboutPoint4 = NXOpen.Point3d(1.5442208407974902, -0.14706865150452753, 0.0)
+    viewCenter4 = NXOpen.Point3d(-1.5442208407974902, 0.14706865150452753, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint4, viewCenter4)
+    
+    scaleAboutPoint5 = NXOpen.Point3d(1.2353766726379827, -0.11765492120362202, 0.0)
+    viewCenter5 = NXOpen.Point3d(-1.2353766726379827, 0.11765492120362202, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint5, viewCenter5)
+    
+    markId17 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    sketchInPlaceBuilder2 = workPart.Sketches.CreateSketchInPlaceBuilder2(NXOpen.Sketch.Null)
+    
+    origin4 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal4 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane4 = workPart.Planes.CreatePlane(origin4, normal4, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder2.PlaneReference = plane4
+    
+    expression12 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression13 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    sketchAlongPathBuilder2 = workPart.Sketches.CreateSketchAlongPathBuilder(NXOpen.Sketch.Null)
+    
+    sketchInPlaceBuilder2.OriginOptionInfer = NXOpen.OriginMethod.WorkPartOrigin
+    
+    sketchAlongPathBuilder2.PlaneLocation.Expression.SetFormula("0")
+    
+    theSession.SetUndoMarkName(markId17, "Create Sketch Dialog")
+    
+    coordinates2 = NXOpen.Point3d(0.0, 0.0, 12.0)
+    point3 = workPart.Points.CreatePoint(coordinates2)
+    
+    extrude1 = feature2
+    edge1 = extrude1.FindObject("EDGE * 130 * 150 {(-10,-10,12)(-0,-10,12)(10,-10,12) EXTRUDE(2)}")
+    direction3 = workPart.Directions.CreateDirection(edge1, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    face1 = extrude1.FindObject("FACE 130 {(0,0,12) EXTRUDE(2)}")
+    xform2 = workPart.Xforms.CreateXformByPlaneXDirPoint(face1, direction3, point3, NXOpen.SmartObject.UpdateOption.WithinModeling, 0.625, False, False)
+    
+    cartesianCoordinateSystem2 = workPart.CoordinateSystems.CreateCoordinateSystem(xform2, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder2.Csystem = cartesianCoordinateSystem2
+    
+    origin5 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal5 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane5 = workPart.Planes.CreatePlane(origin5, normal5, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    plane5.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom3 = [NXOpen.NXObject.Null] * 1 
+    geom3[0] = face1
+    plane5.SetGeometry(geom3)
+    
+    plane5.SetFlip(False)
+    
+    plane5.SetExpression(None)
+    
+    plane5.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane5.Evaluate()
+    
+    origin6 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal6 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane6 = workPart.Planes.CreatePlane(origin6, normal6, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    expression14 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression15 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    plane6.SynchronizeToPlane(plane5)
+    
+    plane6.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom4 = [NXOpen.NXObject.Null] * 1 
+    geom4[0] = face1
+    plane6.SetGeometry(geom4)
+    
+    plane6.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane6.Evaluate()
+    
+    markId18 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.DeleteUndoMark(markId18, None)
+    
+    markId19 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.Preferences.Sketch.CreateInferredConstraints = True
+    
+    theSession.Preferences.Sketch.ContinuousAutoDimensioning = True
+    
+    theSession.Preferences.Sketch.DimensionLabel = NXOpen.Preferences.SketchPreferences.DimensionLabelType.Expression
+    
+    theSession.Preferences.Sketch.TextSizeFixed = True
+    
+    theSession.Preferences.Sketch.FixedTextSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayParenthesesOnReferenceDimensions = True
+    
+    theSession.Preferences.Sketch.DisplayReferenceGeometry = False
+    
+    theSession.Preferences.Sketch.ConstraintSymbolSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayObjectColor = False
+    
+    theSession.Preferences.Sketch.DisplayObjectName = True
+    
+    nXObject3 = sketchInPlaceBuilder2.Commit()
+    
+    sketch2 = nXObject3
+    feature3 = sketch2.Feature
+    
+    markId20 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "update")
+    
+    nErrs2 = theSession.UpdateManager.DoUpdate(markId20)
+    
+    sketch2.Activate(NXOpen.Sketch.ViewReorient.TrueValue)
+    
+    theSession.DeleteUndoMark(markId19, None)
+    
+    theSession.SetUndoMarkName(markId17, "Create Sketch")
+    
+    sketchInPlaceBuilder2.Destroy()
+    
+    sketchAlongPathBuilder2.Destroy()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression13)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression12)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane4.DestroyPlane()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression15)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression14)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane6.DestroyPlane()
+    
+    markId21 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Profile short list")
+    
+    scaleAboutPoint6 = NXOpen.Point3d(10.87131471921432, -2.6354702349610482, 0.0)
+    viewCenter6 = NXOpen.Point3d(-10.87131471921432, 2.6354702349610482, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint6, viewCenter6)
+    
+    scaleAboutPoint7 = NXOpen.Point3d(4.8567951472853563, -3.9908549272267293, 0.0)
+    viewCenter7 = NXOpen.Point3d(-4.8567951472853501, 3.9908549272267293, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint7, viewCenter7)
+    
+    scaleAboutPoint8 = NXOpen.Point3d(2.2589744871094735, -4.0962737366251707, 0.0)
+    viewCenter8 = NXOpen.Point3d(-2.2589744871094637, 4.0962737366251707, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint8, viewCenter8)
+    
+    markId22 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId22, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    startPoint5 = NXOpen.Point3d(-6.2577358250410882, -10.0, 12.0)
+    endPoint5 = NXOpen.Point3d(-4.8266683597169937, -2.6377961241425218, 12.0)
+    line5 = workPart.Curves.CreateLine(startPoint5, endPoint5)
+    
+    theSession.ActiveSketch.AddGeometry(line5, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    conGeom1_7 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_7.Geometry = line5
+    conGeom1_7.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    conGeom1_7.SplineDefiningPointIndex = 0
+    conGeom2_7 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_7.Geometry = edge1
+    conGeom2_7.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_7.SplineDefiningPointIndex = 0
+    help1 = NXOpen.Sketch.ConstraintGeometryHelp()
+    
+    help1.Type = NXOpen.Sketch.ConstraintGeometryHelpType.Point
+    help1.Point.X = -6.2577358250410882
+    help1.Point.Y = -10.0
+    help1.Point.Z = 12.0
+    help1.Parameter = 0.0
+    sketchHelpedGeometricConstraint1 = theSession.ActiveSketch.CreatePointOnCurveConstraint(conGeom1_7, conGeom2_7, help1)
+    
+    dimObject1_4 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_4.Geometry = line5
+    dimObject1_4.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_4.AssocValue = 0
+    dimObject1_4.HelpPoint.X = 0.0
+    dimObject1_4.HelpPoint.Y = 0.0
+    dimObject1_4.HelpPoint.Z = 0.0
+    dimObject1_4.View = NXOpen.NXObject.Null
+    dimObject2_4 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_4.Geometry = line5
+    dimObject2_4.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_4.AssocValue = 0
+    dimObject2_4.HelpPoint.X = 0.0
+    dimObject2_4.HelpPoint.Y = 0.0
+    dimObject2_4.HelpPoint.Z = 0.0
+    dimObject2_4.View = NXOpen.NXObject.Null
+    dimOrigin4 = NXOpen.Point3d(-3.9330516550391161, -6.6316852215304927, 12.0)
+    sketchDimensionalConstraint4 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.ParallelDim, dimObject1_4, dimObject2_4, dimOrigin4, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    sketchHelpedDimensionalConstraint3 = sketchDimensionalConstraint4
+    dimension4 = sketchHelpedDimensionalConstraint3.AssociatedDimension
+    
+    expression16 = sketchHelpedDimensionalConstraint3.AssociatedExpression
+    
+    dimObject1_5 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_5.Geometry = line5
+    dimObject1_5.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_5.AssocValue = 0
+    dimObject1_5.HelpPoint.X = -6.2577358250410882
+    dimObject1_5.HelpPoint.Y = -10.0
+    dimObject1_5.HelpPoint.Z = 12.0
+    dimObject1_5.View = NXOpen.NXObject.Null
+    dimObject2_5 = NXOpen.Sketch.DimensionGeometry()
+    
+    datumAxis3 = workPart.Datums.FindObject("SKETCH(3:1B) X axis")
+    dimObject2_5.Geometry = datumAxis3
+    dimObject2_5.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_5.AssocValue = 0
+    dimObject2_5.HelpPoint.X = 28.574999999999999
+    dimObject2_5.HelpPoint.Y = 0.0
+    dimObject2_5.HelpPoint.Z = 12.0
+    dimObject2_5.View = NXOpen.NXObject.Null
+    dimOrigin5 = NXOpen.Point3d(-1.5619814266975149, -3.3383838858905466, 12.0)
+    sketchDimensionalConstraint5 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.AngularDim, dimObject1_5, dimObject2_5, dimOrigin5, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    dimension5 = sketchDimensionalConstraint5.AssociatedDimension
+    
+    expression17 = sketchDimensionalConstraint5.AssociatedExpression
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = False
+    
+    theSession.ActiveSketch.Update()
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = True
+    
+    markId23 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId23, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    startPoint6 = NXOpen.Point3d(-4.8266683597169937, -2.6377961241425218, 12.0)
+    endPoint6 = NXOpen.Point3d(5.1733316402830063, -2.6377961241425218, 12.0)
+    line6 = workPart.Curves.CreateLine(startPoint6, endPoint6)
+    
+    theSession.ActiveSketch.AddGeometry(line6, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    geom1_5 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_5.Geometry = line6
+    geom1_5.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom1_5.SplineDefiningPointIndex = 0
+    geom2_5 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_5.Geometry = line5
+    geom2_5.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom2_5.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint11 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_5, geom2_5)
+    
+    geom5 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom5.Geometry = line6
+    geom5.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    geom5.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint12 = theSession.ActiveSketch.CreateHorizontalConstraint(geom5)
+    
+    dimObject1_6 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_6.Geometry = line6
+    dimObject1_6.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_6.AssocValue = 0
+    dimObject1_6.HelpPoint.X = 0.0
+    dimObject1_6.HelpPoint.Y = 0.0
+    dimObject1_6.HelpPoint.Z = 0.0
+    dimObject1_6.View = NXOpen.NXObject.Null
+    dimObject2_6 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_6.Geometry = line6
+    dimObject2_6.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_6.AssocValue = 0
+    dimObject2_6.HelpPoint.X = 0.0
+    dimObject2_6.HelpPoint.Y = 0.0
+    dimObject2_6.HelpPoint.Z = 0.0
+    dimObject2_6.View = NXOpen.NXObject.Null
+    dimOrigin6 = NXOpen.Point3d(0.17333164028300629, -4.2770645393551874, 12.0)
+    sketchDimensionalConstraint6 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.ParallelDim, dimObject1_6, dimObject2_6, dimOrigin6, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    sketchHelpedDimensionalConstraint4 = sketchDimensionalConstraint6
+    dimension6 = sketchHelpedDimensionalConstraint4.AssociatedDimension
+    
+    expression18 = sketchHelpedDimensionalConstraint4.AssociatedExpression
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = False
+    
+    theSession.ActiveSketch.Update()
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = True
+    
+    markId24 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId24, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    startPoint7 = NXOpen.Point3d(5.1733316402830063, -2.6377961241425218, 12.0)
+    endPoint7 = NXOpen.Point3d(7.0431059550594517, -10.000000000000004, 12.0)
+    line7 = workPart.Curves.CreateLine(startPoint7, endPoint7)
+    
+    theSession.ActiveSketch.AddGeometry(line7, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    geom1_6 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_6.Geometry = line7
+    geom1_6.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom1_6.SplineDefiningPointIndex = 0
+    geom2_6 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_6.Geometry = line6
+    geom2_6.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom2_6.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint13 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_6, geom2_6)
+    
+    conGeom1_8 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom1_8.Geometry = line7
+    conGeom1_8.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    conGeom1_8.SplineDefiningPointIndex = 0
+    conGeom2_8 = NXOpen.Sketch.ConstraintGeometry()
+    
+    conGeom2_8.Geometry = edge1
+    conGeom2_8.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    conGeom2_8.SplineDefiningPointIndex = 0
+    help2 = NXOpen.Sketch.ConstraintGeometryHelp()
+    
+    help2.Type = NXOpen.Sketch.ConstraintGeometryHelpType.Point
+    help2.Point.X = 7.3804461451344778
+    help2.Point.Y = -10.0
+    help2.Point.Z = 12.0
+    help2.Parameter = 0.0
+    sketchHelpedGeometricConstraint2 = theSession.ActiveSketch.CreatePointOnCurveConstraint(conGeom1_8, conGeom2_8, help2)
+    
+    dimObject1_7 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_7.Geometry = line7
+    dimObject1_7.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_7.AssocValue = 0
+    dimObject1_7.HelpPoint.X = 0.0
+    dimObject1_7.HelpPoint.Y = 0.0
+    dimObject1_7.HelpPoint.Z = 0.0
+    dimObject1_7.View = NXOpen.NXObject.Null
+    dimObject2_7 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_7.Geometry = line7
+    dimObject2_7.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_7.AssocValue = 0
+    dimObject2_7.HelpPoint.X = 0.0
+    dimObject2_7.HelpPoint.Y = 0.0
+    dimObject2_7.HelpPoint.Z = 0.0
+    dimObject2_7.View = NXOpen.NXObject.Null
+    dimOrigin7 = NXOpen.Point3d(4.5193898354479192, -6.7224119601147416, 12.0)
+    sketchDimensionalConstraint7 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.ParallelDim, dimObject1_7, dimObject2_7, dimOrigin7, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    sketchHelpedDimensionalConstraint5 = sketchDimensionalConstraint7
+    dimension7 = sketchHelpedDimensionalConstraint5.AssociatedDimension
+    
+    expression19 = sketchHelpedDimensionalConstraint5.AssociatedExpression
+    
+    dimObject1_8 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_8.Geometry = line6
+    dimObject1_8.AssocType = NXOpen.Sketch.AssocType.StartPoint
+    dimObject1_8.AssocValue = 0
+    dimObject1_8.HelpPoint.X = -4.8266683597169937
+    dimObject1_8.HelpPoint.Y = -2.6377961241425218
+    dimObject1_8.HelpPoint.Z = 12.0
+    dimObject1_8.View = NXOpen.NXObject.Null
+    dimObject2_8 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject2_8.Geometry = line7
+    dimObject2_8.AssocType = NXOpen.Sketch.AssocType.EndPoint
+    dimObject2_8.AssocValue = 0
+    dimObject2_8.HelpPoint.X = 7.0431059550594517
+    dimObject2_8.HelpPoint.Y = -10.000000000000004
+    dimObject2_8.HelpPoint.Z = 12.0
+    dimObject2_8.View = NXOpen.NXObject.Null
+    dimOrigin8 = NXOpen.Point3d(4.1669188648891753, -3.9317568123544677, 12.0)
+    sketchDimensionalConstraint8 = theSession.ActiveSketch.CreateDimension(NXOpen.Sketch.ConstraintType.AngularDim, dimObject1_8, dimObject2_8, dimOrigin8, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    dimension8 = sketchDimensionalConstraint8.AssociatedDimension
+    
+    expression20 = sketchDimensionalConstraint8.AssociatedExpression
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = False
+    
+    theSession.ActiveSketch.Update()
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = True
+    
+    markId25 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId25, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    startPoint8 = NXOpen.Point3d(7.0431059550594517, -10.000000000000004, 12.0)
+    endPoint8 = NXOpen.Point3d(-6.2577358250410891, -9.9999999999999893, 12.0)
+    line8 = workPart.Curves.CreateLine(startPoint8, endPoint8)
+    
+    theSession.ActiveSketch.AddGeometry(line8, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    geom1_7 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_7.Geometry = line8
+    geom1_7.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom1_7.SplineDefiningPointIndex = 0
+    geom2_7 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_7.Geometry = line7
+    geom2_7.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom2_7.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint14 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_7, geom2_7)
+    
+    geom6 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom6.Geometry = line8
+    geom6.PointType = NXOpen.Sketch.ConstraintPointType.NotSet
+    geom6.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint15 = theSession.ActiveSketch.CreateHorizontalConstraint(geom6)
+    
+    geom1_8 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom1_8.Geometry = line8
+    geom1_8.PointType = NXOpen.Sketch.ConstraintPointType.EndVertex
+    geom1_8.SplineDefiningPointIndex = 0
+    geom2_8 = NXOpen.Sketch.ConstraintGeometry()
+    
+    geom2_8.Geometry = line5
+    geom2_8.PointType = NXOpen.Sketch.ConstraintPointType.StartVertex
+    geom2_8.SplineDefiningPointIndex = 0
+    sketchGeometricConstraint16 = theSession.ActiveSketch.CreateCoincidentConstraint(geom1_8, geom2_8)
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = False
+    
+    theSession.ActiveSketch.Update()
+    
+    theSession.ActiveSketch.Preferences.ContinuousAutoDimensioningSetting = True
+    
+    inferredConstraintsBuilder1 = workPart.Sketches.CreateInferredConstraintsBuilder()
+    
+    rules2 = inferredConstraintsBuilder1.GetRules()
+    
+    rules3 = [None] * 5 
+    rules3[0] = NXOpen.Sketch.AutoDimensioningRule.Symmetric
+    rules3[1] = NXOpen.Sketch.AutoDimensioningRule.AdjacentAngle
+    rules3[2] = NXOpen.Sketch.AutoDimensioningRule.Length
+    rules3[3] = NXOpen.Sketch.AutoDimensioningRule.HorizontalVertical
+    rules3[4] = NXOpen.Sketch.AutoDimensioningRule.ReferenceAxes
+    inferredConstraintsBuilder1.SetRules(rules3)
+    
+    nXObject4 = inferredConstraintsBuilder1.Commit()
+    
+    theSession.ActiveSketch.Update()
+    
+    rules4 = [None] * 5 
+    rules4[0] = NXOpen.Sketch.AutoDimensioningRule.Symmetric
+    rules4[1] = NXOpen.Sketch.AutoDimensioningRule.AdjacentAngle
+    rules4[2] = NXOpen.Sketch.AutoDimensioningRule.Length
+    rules4[3] = NXOpen.Sketch.AutoDimensioningRule.HorizontalVertical
+    rules4[4] = NXOpen.Sketch.AutoDimensioningRule.ReferenceAxes
+    inferredConstraintsBuilder1.SetRules(rules4)
+    
+    nXObject5 = inferredConstraintsBuilder1.Commit()
+    
+    inferredConstraintsBuilder1.Destroy()
+    
+    markId26 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.ActiveSketch.Update()
+    
+    scaleAboutPoint9 = NXOpen.Point3d(-2.3372856026625906, -3.3734019007501361, 0.0)
+    viewCenter9 = NXOpen.Point3d(2.3372856026626065, 3.3734019007501441, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint9, viewCenter9)
+    
+    scaleAboutPoint10 = NXOpen.Point3d(-1.8698284821300726, -2.6987215206001056, 0.0)
+    viewCenter10 = NXOpen.Point3d(1.8698284821300852, 2.6987215206001154, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint10, viewCenter10)
+    
+    scaleAboutPoint11 = NXOpen.Point3d(-1.4958627857040581, -2.1589772164800847, 0.0)
+    viewCenter11 = NXOpen.Point3d(1.4958627857040734, 2.1589772164800922, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint11, viewCenter11)
+    
+    theSession.DeleteUndoMark(markId26, "Curve")
+    
+    markId27 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    parallelDimension1 = dimension6
+    sketchLinearDimensionBuilder1 = workPart.Sketches.CreateLinearDimensionBuilder(parallelDimension1)
+    
+    sketchLinearDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId27, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits1 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits2 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder1.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits3 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits4 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits5 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits6 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder1.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder1.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits7 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits8 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits9 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits10 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits11 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits12 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits13 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits14 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits15 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits16 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits17 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits18 = sketchLinearDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId28 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId28, None)
+    
+    markId29 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder1.Driving.ExpressionValue.SetFormula("12")
+    
+    sketchLinearDimensionBuilder1.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject6 = sketchLinearDimensionBuilder1.Commit()
+    
+    point1_1 = NXOpen.Point3d(-4.8266683597169937, -2.6377961241425218, 12.0)
+    point2_1 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder1.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Start, line6, NXOpen.View.Null, point1_1, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_1)
+    
+    point1_2 = NXOpen.Point3d(7.1733316402830063, -2.6377961241425183, 12.0)
+    point2_2 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder1.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.End, line6, NXOpen.View.Null, point1_2, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_2)
+    
+    sketchLinearDimensionBuilder1.Driving.ExpressionValue.SetFormula("12")
+    
+    theSession.SetUndoMarkName(markId29, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId29, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId27, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId30 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    markId31 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject7 = sketchLinearDimensionBuilder1.Commit()
+    
+    theSession.DeleteUndoMark(markId31, None)
+    
+    theSession.SetUndoMarkName(markId27, "Linear Dimension")
+    
+    expression21 = sketchLinearDimensionBuilder1.Driving.ExpressionValue
+    sketchLinearDimensionBuilder1.Destroy()
+    
+    theSession.DeleteUndoMark(markId30, None)
+    
+    theSession.SetUndoMarkVisibility(markId27, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId29, None)
+    
+    markId32 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    perpendicularDimension1 = theSession.ActiveSketch.FindObject("ENTITY 26 3 1")
+    sketchLinearDimensionBuilder2 = workPart.Sketches.CreateLinearDimensionBuilder(perpendicularDimension1)
+    
+    sketchLinearDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId32, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits19 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits20 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder2.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits21 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits22 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits23 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits24 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder2.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder2.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits25 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits26 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits27 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits28 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits29 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits30 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits31 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits32 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits33 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits34 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits35 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits36 = sketchLinearDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId33 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId33, None)
+    
+    markId34 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder2.Driving.ExpressionValue.SetFormula("6")
+    
+    sketchLinearDimensionBuilder2.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject8 = sketchLinearDimensionBuilder2.Commit()
+    
+    taggedObject1 = sketchLinearDimensionBuilder2.FirstAssociativity.Value
+    
+    line9 = taggedObject1
+    point1_3 = NXOpen.Point3d(0.0, 14.2875, 12.0)
+    point2_3 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder2.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line9, NXOpen.View.Null, point1_3, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_3)
+    
+    point1_4 = NXOpen.Point3d(-6.0, -2.6377961241425183, 12.0)
+    point2_4 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder2.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.End, line5, NXOpen.View.Null, point1_4, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_4)
+    
+    sketchLinearDimensionBuilder2.Driving.ExpressionValue.SetFormula("6")
+    
+    theSession.SetUndoMarkName(markId34, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId34, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId32, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId35 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    markId36 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject9 = sketchLinearDimensionBuilder2.Commit()
+    
+    theSession.DeleteUndoMark(markId36, None)
+    
+    theSession.SetUndoMarkName(markId32, "Linear Dimension")
+    
+    expression22 = sketchLinearDimensionBuilder2.Driving.ExpressionValue
+    sketchLinearDimensionBuilder2.Destroy()
+    
+    theSession.DeleteUndoMark(markId35, None)
+    
+    theSession.SetUndoMarkVisibility(markId32, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId34, None)
+    
+    markId37 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    parallelDimension2 = theSession.ActiveSketch.FindObject("ENTITY 26 4 1")
+    sketchLinearDimensionBuilder3 = workPart.Sketches.CreateLinearDimensionBuilder(parallelDimension2)
+    
+    sketchLinearDimensionBuilder3.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder3.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId37, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder3.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits37 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits38 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder3.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits39 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits40 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits41 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits42 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder3.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder3.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder3.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder3.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder3.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits43 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits44 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits45 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits46 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits47 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits48 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits49 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits50 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits51 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits52 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits53 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits54 = sketchLinearDimensionBuilder3.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId38 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId38, None)
+    
+    markId39 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder3.Driving.ExpressionValue.SetFormula("9")
+    
+    sketchLinearDimensionBuilder3.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder3.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject10 = sketchLinearDimensionBuilder3.Commit()
+    
+    point1_5 = NXOpen.Point3d(6.0, -1.2769254093420059, 12.0)
+    point2_5 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder3.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Start, line7, NXOpen.View.Null, point1_5, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_5)
+    
+    point1_6 = NXOpen.Point3d(8.2153937992638859, -10.0, 12.0)
+    point2_6 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder3.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.End, line7, NXOpen.View.Null, point1_6, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_6)
+    
+    sketchLinearDimensionBuilder3.Driving.ExpressionValue.SetFormula("9")
+    
+    theSession.SetUndoMarkName(markId39, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId39, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId37, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId40 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    markId41 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject11 = sketchLinearDimensionBuilder3.Commit()
+    
+    theSession.DeleteUndoMark(markId41, None)
+    
+    theSession.SetUndoMarkName(markId37, "Linear Dimension")
+    
+    expression23 = sketchLinearDimensionBuilder3.Driving.ExpressionValue
+    sketchLinearDimensionBuilder3.Destroy()
+    
+    theSession.DeleteUndoMark(markId40, None)
+    
+    theSession.SetUndoMarkVisibility(markId37, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId39, None)
+    
+    markId42 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    minorAngularDimension1 = theSession.ActiveSketch.FindObject("ENTITY 26 1 1")
+    sketchAngularDimensionBuilder1 = workPart.Sketches.CreateAngularDimensionBuilder(minorAngularDimension1)
+    
+    sketchAngularDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchAngularDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId42, "Angular Dimension Dialog")
+    
+    sketchAngularDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder1.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    sketchAngularDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder1.FirstVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder1.SecondVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder1.FirstVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder1.SecondVector = NXOpen.Direction.Null
+    
+    markId43 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    theSession.DeleteUndoMark(markId43, None)
+    
+    markId44 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    sketchAngularDimensionBuilder1.Driving.ExpressionValue.SetFormula("60")
+    
+    sketchAngularDimensionBuilder1.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    nXObject12 = sketchAngularDimensionBuilder1.Commit()
+    
+    point1_7 = NXOpen.Point3d(6.0, -2.2057713659400537, 12.0)
+    point2_7 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder1.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line7, NXOpen.View.Null, point1_7, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_7)
+    
+    point1_8 = NXOpen.Point3d(-7.5150445713786276, -10.0, 12.0)
+    point2_8 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder1.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line8, NXOpen.View.Null, point1_8, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_8)
+    
+    sketchAngularDimensionBuilder1.Driving.ExpressionValue.SetFormula("60")
+    
+    theSession.SetUndoMarkName(markId44, "Angular Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId44, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId42, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId45 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    sketchAngularDimensionBuilder1.Origin.SetInferRelativeToGeometryFromLeader(False)
+    
+    assocOrigin1 = NXOpen.Annotations.Annotation.AssociativeOriginData()
+    
+    assocOrigin1.OriginType = NXOpen.Annotations.AssociativeOriginType.RelativeToGeometry
+    assocOrigin1.View = NXOpen.View.Null
+    assocOrigin1.ViewOfGeometry = workPart.ModelingViews.WorkView
+    point4 = workPart.Points.FindObject("ENTITY 2 2")
+    assocOrigin1.PointOnGeometry = point4
+    assocOrigin1.VertAnnotation = NXOpen.Annotations.Annotation.Null
+    assocOrigin1.VertAlignmentPosition = NXOpen.Annotations.AlignmentPosition.TopLeft
+    assocOrigin1.HorizAnnotation = NXOpen.Annotations.Annotation.Null
+    assocOrigin1.HorizAlignmentPosition = NXOpen.Annotations.AlignmentPosition.TopLeft
+    assocOrigin1.AlignedAnnotation = NXOpen.Annotations.Annotation.Null
+    assocOrigin1.DimensionLine = 0
+    assocOrigin1.AssociatedView = NXOpen.View.Null
+    assocOrigin1.AssociatedPoint = NXOpen.Point.Null
+    assocOrigin1.OffsetAnnotation = NXOpen.Annotations.Annotation.Null
+    assocOrigin1.OffsetAlignmentPosition = NXOpen.Annotations.AlignmentPosition.TopLeft
+    assocOrigin1.XOffsetFactor = 0.0
+    assocOrigin1.YOffsetFactor = 0.0
+    assocOrigin1.StackAlignmentPosition = NXOpen.Annotations.StackAlignmentPosition.Above
+    sketchAngularDimensionBuilder1.Origin.SetAssociativeOrigin(assocOrigin1)
+    
+    point5 = NXOpen.Point3d(6.6390687902610432, -7.8372800616456173, 12.0)
+    sketchAngularDimensionBuilder1.Origin.Origin.SetValue(NXOpen.TaggedObject.Null, NXOpen.View.Null, point5)
+    
+    sketchAngularDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder1.Style.LineArrowStyle.LeaderOrientation = NXOpen.Annotations.LeaderSide.Left
+    
+    sketchAngularDimensionBuilder1.Style.DimensionStyle.TextCentered = False
+    
+    theSession.SetUndoMarkName(markId45, "Angular Dimension - Specify Location")
+    
+    theSession.SetUndoMarkVisibility(markId45, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId42, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId46 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    sketchAngularDimensionBuilder1.Driving.ExpressionValue.SetFormula("75")
+    
+    sketchAngularDimensionBuilder1.Driving.ExpressionValue.SetFormula("75")
+    
+    nXObject13 = sketchAngularDimensionBuilder1.Commit()
+    
+    point1_9 = NXOpen.Point3d(6.0, -1.3066675633983849, 12.0)
+    point2_9 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder1.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line7, NXOpen.View.Null, point1_9, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_9)
+    
+    point1_10 = NXOpen.Point3d(-7.6898126464635723, -10.0, 12.0)
+    point2_10 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder1.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line8, NXOpen.View.Null, point1_10, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_10)
+    
+    theSession.SetUndoMarkName(markId46, "Angular Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId46, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId42, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId47 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    markId48 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    nXObject14 = sketchAngularDimensionBuilder1.Commit()
+    
+    theSession.DeleteUndoMark(markId48, None)
+    
+    theSession.SetUndoMarkName(markId42, "Angular Dimension")
+    
+    expression24 = sketchAngularDimensionBuilder1.Driving.ExpressionValue
+    sketchAngularDimensionBuilder1.Destroy()
+    
+    theSession.DeleteUndoMark(markId47, None)
+    
+    theSession.SetUndoMarkVisibility(markId42, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId46, None)
+    
+    theSession.DeleteUndoMark(markId45, None)
+    
+    theSession.DeleteUndoMark(markId44, None)
+    
+    markId49 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    minorAngularDimension2 = theSession.ActiveSketch.FindObject("ENTITY 26 2 1")
+    sketchAngularDimensionBuilder2 = workPart.Sketches.CreateAngularDimensionBuilder(minorAngularDimension2)
+    
+    sketchAngularDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchAngularDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId49, "Angular Dimension Dialog")
+    
+    sketchAngularDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder2.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    sketchAngularDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchAngularDimensionBuilder2.FirstVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder2.SecondVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder2.FirstVector = NXOpen.Direction.Null
+    
+    sketchAngularDimensionBuilder2.SecondVector = NXOpen.Direction.Null
+    
+    markId50 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    theSession.DeleteUndoMark(markId50, None)
+    
+    markId51 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    sketchAngularDimensionBuilder2.Driving.ExpressionValue.SetFormula("75")
+    
+    sketchAngularDimensionBuilder2.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    nXObject15 = sketchAngularDimensionBuilder2.Commit()
+    
+    point1_11 = NXOpen.Point3d(8.3293714059226858, -10.0, 12.0)
+    point2_11 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder2.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line8, NXOpen.View.Null, point1_11, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_11)
+    
+    point1_12 = NXOpen.Point3d(-6.0, -1.3066675633983849, 12.0)
+    point2_12 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder2.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line5, NXOpen.View.Null, point1_12, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_12)
+    
+    sketchAngularDimensionBuilder2.Driving.ExpressionValue.SetFormula("75")
+    
+    theSession.SetUndoMarkName(markId51, "Angular Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId51, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId49, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId52 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    sketchAngularDimensionBuilder2.Driving.ExpressionValue.SetFormula("75")
+    
+    nXObject16 = sketchAngularDimensionBuilder2.Commit()
+    
+    point1_13 = NXOpen.Point3d(8.3293714059226858, -10.0, 12.0)
+    point2_13 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder2.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line8, NXOpen.View.Null, point1_13, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_13)
+    
+    point1_14 = NXOpen.Point3d(-6.0, -1.3066675633983849, 12.0)
+    point2_14 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchAngularDimensionBuilder2.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line5, NXOpen.View.Null, point1_14, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_14)
+    
+    theSession.SetUndoMarkName(markId52, "Angular Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId52, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId49, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId53 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    markId54 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Angular Dimension")
+    
+    nXObject17 = sketchAngularDimensionBuilder2.Commit()
+    
+    theSession.DeleteUndoMark(markId54, None)
+    
+    theSession.SetUndoMarkName(markId49, "Angular Dimension")
+    
+    expression25 = sketchAngularDimensionBuilder2.Driving.ExpressionValue
+    sketchAngularDimensionBuilder2.Destroy()
+    
+    theSession.DeleteUndoMark(markId53, None)
+    
+    theSession.SetUndoMarkVisibility(markId49, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId52, None)
+    
+    theSession.DeleteUndoMark(markId51, None)
+    
+    markId55 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    extrudeBuilder2 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+    
+    section2 = workPart.Sections.CreateSection(0.0094999999999999998, 0.01, 0.5)
+    
+    extrudeBuilder2.Section = section2
+    
+    extrudeBuilder2.AllowSelfIntersectingSection(True)
+    
+    expression26 = workPart.Expressions.CreateSystemExpressionWithUnits("2.00", unit2)
+    
+    extrudeBuilder2.DistanceTolerance = 0.01
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
+    
+    targetBodies2 = [NXOpen.Body.Null] * 1 
+    targetBodies2[0] = NXOpen.Body.Null
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies2)
+    
+    extrudeBuilder2.Limits.StartExtend.Value.SetFormula("0")
+    
+    extrudeBuilder2.Limits.EndExtend.Value.SetFormula("12")
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
+    
+    targetBodies3 = [NXOpen.Body.Null] * 1 
+    targetBodies3[0] = NXOpen.Body.Null
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies3)
+    
+    extrudeBuilder2.Draft.FrontDraftAngle.SetFormula("2")
+    
+    extrudeBuilder2.Draft.BackDraftAngle.SetFormula("2")
+    
+    extrudeBuilder2.Offset.StartOffset.SetFormula("0")
+    
+    extrudeBuilder2.Offset.EndOffset.SetFormula("5")
+    
+    smartVolumeProfileBuilder2 = extrudeBuilder2.SmartVolumeProfile
+    
+    smartVolumeProfileBuilder2.OpenProfileSmartVolumeOption = False
+    
+    smartVolumeProfileBuilder2.CloseProfileRule = NXOpen.GeometricUtilities.SmartVolumeProfileBuilder.CloseProfileRuleType.Fci
+    
+    theSession.SetUndoMarkName(markId55, "Extrude Dialog")
+    
+    section2.DistanceTolerance = 0.01
+    
+    section2.ChainingTolerance = 0.0094999999999999998
+    
+    section2.SetAllowedEntityTypes(NXOpen.Section.AllowTypes.OnlyCurves)
+    
+    markId56 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    curves2 = [NXOpen.ICurve.Null] * 4 
+    curves2[0] = line6
+    curves2[1] = line5
+    curves2[2] = line8
+    curves2[3] = line7
+    seedPoint2 = NXOpen.Point3d(2.0000000000000013, -7.1022225211327941, 12.0)
+    regionBoundaryRule2 = workPart.ScRuleFactory.CreateRuleRegionBoundary(theSession.ActiveSketch, curves2, seedPoint2, 0.01)
+    
+    section2.AllowSelfIntersection(True)
+    
+    rules5 = [None] * 1 
+    rules5[0] = regionBoundaryRule2
+    helpPoint2 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    section2.AddToSection(rules5, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint2, NXOpen.Section.Mode.Create, False)
+    
+    theSession.DeleteUndoMark(markId56, None)
+    
+    markId57 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "section mark")
+    
+    markId58 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    theSession.DeleteUndoMark(markId58, None)
+    
+    direction4 = workPart.Directions.CreateDirection(theSession.ActiveSketch, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    extrudeBuilder2.Direction = direction4
+    
+    targetBodies4 = [NXOpen.Body.Null] * 1 
+    body1 = workPart.Bodies.FindObject("EXTRUDE(2)")
+    targetBodies4[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies4)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Unite
+    
+    targetBodies5 = [NXOpen.Body.Null] * 1 
+    targetBodies5[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies5)
+    
+    expression27 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    theSession.DeleteUndoMark(markId57, None)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Unite
+    
+    targetBodies6 = [NXOpen.Body.Null] * 1 
+    targetBodies6[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies6)
+    
+    success1 = direction4.ReverseDirection()
+    
+    extrudeBuilder2.Direction = direction4
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies7 = [NXOpen.Body.Null] * 1 
+    targetBodies7[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies7)
+    
+    rotMatrix2 = NXOpen.Matrix3x3()
+    
+    rotMatrix2.Xx = 1.0
+    rotMatrix2.Xy = 0.0
+    rotMatrix2.Xz = 0.0
+    rotMatrix2.Yx = 0.0
+    rotMatrix2.Yy = -0.13826555901613552
+    rotMatrix2.Yz = 0.99039519142105981
+    rotMatrix2.Zx = 0.0
+    rotMatrix2.Zy = -0.99039519142105981
+    rotMatrix2.Zz = -0.13826555901613552
+    translation2 = NXOpen.Point3d(-2.4568214966224637, -4.4996194943724683, -7.2133712748843397)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix2, translation2, 10.72315237509139)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies8 = [NXOpen.Body.Null] * 1 
+    targetBodies8[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies8)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies9 = [NXOpen.Body.Null] * 1 
+    targetBodies9[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies9)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies10 = [NXOpen.Body.Null] * 1 
+    targetBodies10[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies10)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies11 = [NXOpen.Body.Null] * 1 
+    targetBodies11[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies11)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies12 = [NXOpen.Body.Null] * 1 
+    targetBodies12[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies12)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies13 = [NXOpen.Body.Null] * 1 
+    targetBodies13[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies13)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies14 = [NXOpen.Body.Null] * 1 
+    targetBodies14[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies14)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies15 = [NXOpen.Body.Null] * 1 
+    targetBodies15[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies15)
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies16 = [NXOpen.Body.Null] * 1 
+    targetBodies16[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies16)
+    
+    extrudeBuilder2.Limits.EndExtend.Value.SetFormula("16.5")
+    
+    extrudeBuilder2.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies17 = [NXOpen.Body.Null] * 1 
+    targetBodies17[0] = body1
+    extrudeBuilder2.BooleanOperation.SetTargetBodies(targetBodies17)
+    
+    markId59 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    theSession.DeleteUndoMark(markId59, None)
+    
+    markId60 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    extrudeBuilder2.ParentFeatureInternal = False
+    
+    markId61 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Deactivate Sketch")
+    
+    feature4 = extrudeBuilder2.CommitFeature()
+    
+    theSession.DeleteUndoMark(markId60, None)
+    
+    theSession.SetUndoMarkName(markId55, "Extrude")
+    
+    expression28 = extrudeBuilder2.Limits.StartExtend.Value
+    expression29 = extrudeBuilder2.Limits.EndExtend.Value
+    extrudeBuilder2.Destroy()
+    
+    workPart.Expressions.Delete(expression26)
+    
+    workPart.Expressions.Delete(expression27)
+    
+    rotMatrix3 = NXOpen.Matrix3x3()
+    
+    rotMatrix3.Xx = 0.99090762267032206
+    rotMatrix3.Xy = 0.12239129048700002
+    rotMatrix3.Xz = -0.055878934731952254
+    rotMatrix3.Yx = 0.0036599969376062292
+    rotMatrix3.Yy = 0.39064638360183412
+    rotMatrix3.Yz = 0.92053354496250073
+    rotMatrix3.Zx = 0.13449419227709303
+    rotMatrix3.Zy = -0.91236822335707102
+    rotMatrix3.Zz = 0.38664652753128015
+    translation3 = NXOpen.Point3d(-2.1215478882307504, -4.0804496156211139, -10.362843794168834)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix3, translation3, 10.72315237509139)
+    
+    scaleAboutPoint12 = NXOpen.Point3d(-5.1938823322178056, 2.0726181278208893, 0.0)
+    viewCenter12 = NXOpen.Point3d(5.1938823322178225, -2.0726181278208813, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint12, viewCenter12)
+    
+    scaleAboutPoint13 = NXOpen.Point3d(-4.1353666455092863, 1.7173121630515942, 0.0)
+    viewCenter13 = NXOpen.Point3d(4.1353666455092961, -1.7173121630515893, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint13, viewCenter13)
+    
+    scaleAboutPoint14 = NXOpen.Point3d(-3.7504518503425497, 1.9897134027080532, 0.0)
+    viewCenter14 = NXOpen.Point3d(3.7504518503425626, -1.9897134027080481, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint14, viewCenter14)
+    
+    scaleAboutPoint15 = NXOpen.Point3d(-4.7078040331931472, 2.3687064317952986, 0.0)
+    viewCenter15 = NXOpen.Point3d(4.7078040331931605, -2.3687064317952955, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint15, viewCenter15)
+    
+    scaleAboutPoint16 = NXOpen.Point3d(-5.8354069908290347, 2.5660986344449075, 0.0)
+    viewCenter16 = NXOpen.Point3d(5.8354069908290462, -2.566098634444903, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint16, viewCenter16)
+    
+    scaleAboutPoint17 = NXOpen.Point3d(-7.2942587385362954, 3.2076232930561344, 0.0)
+    viewCenter17 = NXOpen.Point3d(7.2942587385363105, -3.207623293056129, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint17, viewCenter17)
+    
+    rotMatrix4 = NXOpen.Matrix3x3()
+    
+    rotMatrix4.Xx = 0.36532871988784615
+    rotMatrix4.Xy = -0.83386559882341049
+    rotMatrix4.Xz = 0.4137669507391642
+    rotMatrix4.Yx = 0.54522682852476578
+    rotMatrix4.Yy = 0.55194576005475271
+    rotMatrix4.Yz = 0.63093865265523996
+    rotMatrix4.Zx = -0.75449495152846069
+    rotMatrix4.Zy = -0.0049031680024241749
+    rotMatrix4.Zz = 0.65628753383072047
+    translation4 = NXOpen.Point3d(-8.4705538087372858, -0.5678308794509519, -11.980689831965478)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix4, translation4, 6.8628175200584911)
+    
+    markId62 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    sketchInPlaceBuilder3 = workPart.Sketches.CreateSketchInPlaceBuilder2(NXOpen.Sketch.Null)
+    
+    origin7 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal7 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane7 = workPart.Planes.CreatePlane(origin7, normal7, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder3.PlaneReference = plane7
+    
+    expression30 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression31 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    sketchAlongPathBuilder3 = workPart.Sketches.CreateSketchAlongPathBuilder(NXOpen.Sketch.Null)
+    
+    sketchInPlaceBuilder3.OriginOptionInfer = NXOpen.OriginMethod.WorkPartOrigin
+    
+    sketchAlongPathBuilder3.PlaneLocation.Expression.SetFormula("0")
+    
+    theSession.SetUndoMarkName(markId62, "Create Sketch Dialog")
+    
+    coordinates3 = NXOpen.Point3d(-9.9999999999999982, 1.1275702593849245e-14, 0.0)
+    point6 = workPart.Points.CreatePoint(coordinates3)
+    
+    edge2 = extrude1.FindObject("EDGE * 120 * 140 {(-10,10,0)(-10,0,0)(-10,-10,0) EXTRUDE(2)}")
+    direction5 = workPart.Directions.CreateDirection(edge2, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    face2 = extrude1.FindObject("FACE 140 {(-10,0,6) EXTRUDE(2)}")
+    xform3 = workPart.Xforms.CreateXformByPlaneXDirPoint(face2, direction5, point6, NXOpen.SmartObject.UpdateOption.WithinModeling, 0.625, False, False)
+    
+    cartesianCoordinateSystem3 = workPart.CoordinateSystems.CreateCoordinateSystem(xform3, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    sketchInPlaceBuilder3.Csystem = cartesianCoordinateSystem3
+    
+    origin8 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal8 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane8 = workPart.Planes.CreatePlane(origin8, normal8, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    plane8.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom7 = [NXOpen.NXObject.Null] * 1 
+    geom7[0] = face2
+    plane8.SetGeometry(geom7)
+    
+    plane8.SetFlip(False)
+    
+    plane8.SetExpression(None)
+    
+    plane8.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane8.Evaluate()
+    
+    origin9 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal9 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane9 = workPart.Planes.CreatePlane(origin9, normal9, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    expression32 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression33 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    plane9.SynchronizeToPlane(plane8)
+    
+    plane9.SetMethod(NXOpen.PlaneTypes.MethodType.Coincident)
+    
+    geom8 = [NXOpen.NXObject.Null] * 1 
+    geom8[0] = face2
+    plane9.SetGeometry(geom8)
+    
+    plane9.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
+    
+    plane9.Evaluate()
+    
+    markId63 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.DeleteUndoMark(markId63, None)
+    
+    markId64 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Create Sketch")
+    
+    theSession.Preferences.Sketch.CreateInferredConstraints = True
+    
+    theSession.Preferences.Sketch.ContinuousAutoDimensioning = True
+    
+    theSession.Preferences.Sketch.DimensionLabel = NXOpen.Preferences.SketchPreferences.DimensionLabelType.Expression
+    
+    theSession.Preferences.Sketch.TextSizeFixed = True
+    
+    theSession.Preferences.Sketch.FixedTextSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayParenthesesOnReferenceDimensions = True
+    
+    theSession.Preferences.Sketch.DisplayReferenceGeometry = False
+    
+    theSession.Preferences.Sketch.ConstraintSymbolSize = 3.0
+    
+    theSession.Preferences.Sketch.DisplayObjectColor = False
+    
+    theSession.Preferences.Sketch.DisplayObjectName = True
+    
+    nXObject18 = sketchInPlaceBuilder3.Commit()
+    
+    sketch3 = nXObject18
+    feature5 = sketch3.Feature
+    
+    markId65 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "update")
+    
+    nErrs3 = theSession.UpdateManager.DoUpdate(markId65)
+    
+    sketch3.Activate(NXOpen.Sketch.ViewReorient.TrueValue)
+    
+    theSession.DeleteUndoMark(markId64, None)
+    
+    theSession.SetUndoMarkName(markId62, "Create Sketch")
+    
+    sketchInPlaceBuilder3.Destroy()
+    
+    sketchAlongPathBuilder3.Destroy()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression31)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression30)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane7.DestroyPlane()
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression33)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression32)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    plane9.DestroyPlane()
+    
+    scaleAboutPoint18 = NXOpen.Point3d(-1.0602120259500345, 1.5035734186200675, 0.0)
+    viewCenter18 = NXOpen.Point3d(1.0602120259500503, -1.503573418620058, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint18, viewCenter18)
+    
+    scaleAboutPoint19 = NXOpen.Point3d(-0.75564202576802564, 1.5112840515360639, 0.0)
+    viewCenter19 = NXOpen.Point3d(0.75564202576804096, -1.5112840515360564, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint19, viewCenter19)
+    
+    markId66 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Profile short list")
+    
+    markId67 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId67, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    nXMatrix1 = theSession.ActiveSketch.Orientation
+    
+    center1 = NXOpen.Point3d(-9.9999999999999982, 7.1000000000000121, 2.4000000000000004)
+    arc1 = workPart.Curves.CreateArc(center1, nXMatrix1, 0.85736677009477213, 0.0, ( 360.0 * math.pi/180.0 ))
+    
+    theSession.ActiveSketch.AddGeometry(arc1, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    dimObject1_9 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_9.Geometry = arc1
+    dimObject1_9.AssocType = NXOpen.Sketch.AssocType.NotSet
+    dimObject1_9.AssocValue = 0
+    dimObject1_9.HelpPoint.X = 0.0
+    dimObject1_9.HelpPoint.Y = 0.0
+    dimObject1_9.HelpPoint.Z = 0.0
+    dimObject1_9.View = NXOpen.NXObject.Null
+    dimOrigin9 = NXOpen.Point3d(-9.9999999999999982, 7.1000000000000121, 2.6797684761962954)
+    sketchDimensionalConstraint9 = theSession.ActiveSketch.CreateDiameterDimension(dimObject1_9, dimOrigin9, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    dimension9 = sketchDimensionalConstraint9.AssociatedDimension
+    
+    expression34 = sketchDimensionalConstraint9.AssociatedExpression
+    
+    theSession.ActiveSketch.Update()
+    
+    markId68 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Curve")
+    
+    theSession.SetUndoMarkVisibility(markId68, "Curve", NXOpen.Session.MarkVisibility.Visible)
+    
+    nXMatrix2 = theSession.ActiveSketch.Orientation
+    
+    center2 = NXOpen.Point3d(-9.9999999999999982, -4.7813634712117992, 2.4000000000000004)
+    arc2 = workPart.Curves.CreateArc(center2, nXMatrix2, 0.54447289460841819, 0.0, ( 360.0 * math.pi/180.0 ))
+    
+    theSession.ActiveSketch.AddGeometry(arc2, NXOpen.Sketch.InferConstraintsOption.InferNoConstraints)
+    
+    dimObject1_10 = NXOpen.Sketch.DimensionGeometry()
+    
+    dimObject1_10.Geometry = arc2
+    dimObject1_10.AssocType = NXOpen.Sketch.AssocType.NotSet
+    dimObject1_10.AssocValue = 0
+    dimObject1_10.HelpPoint.X = 0.0
+    dimObject1_10.HelpPoint.Y = 0.0
+    dimObject1_10.HelpPoint.Z = 0.0
+    dimObject1_10.View = NXOpen.NXObject.Null
+    dimOrigin10 = NXOpen.Point3d(-9.9999999999999982, -4.7813634712117992, 2.6797684761962954)
+    sketchDimensionalConstraint10 = theSession.ActiveSketch.CreateDiameterDimension(dimObject1_10, dimOrigin10, NXOpen.Expression.Null, NXOpen.Sketch.DimensionOption.CreateAsAutomatic)
+    
+    dimension10 = sketchDimensionalConstraint10.AssociatedDimension
+    
+    expression35 = sketchDimensionalConstraint10.AssociatedExpression
+    
+    theSession.ActiveSketch.Update()
+    
+    scaleAboutPoint20 = NXOpen.Point3d(-4.4783355976129782, 1.3323973678848584, 0.0)
+    viewCenter20 = NXOpen.Point3d(4.4783355976129906, -1.3323973678848502, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint20, viewCenter20)
+    
+    scaleAboutPoint21 = NXOpen.Point3d(-3.582668478090381, 1.0659178943078866, 0.0)
+    viewCenter21 = NXOpen.Point3d(3.5826684780903939, -1.0659178943078802, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint21, viewCenter21)
+    
+    scaleAboutPoint22 = NXOpen.Point3d(-2.6924296441406472, 0.85273431544631217, 0.0)
+    viewCenter22 = NXOpen.Point3d(2.6924296441406641, -0.85273431544630307, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint22, viewCenter22)
+    
+    markId69 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    perpendicularDimension2 = theSession.ActiveSketch.FindObject("ENTITY 26 5 1")
+    sketchLinearDimensionBuilder4 = workPart.Sketches.CreateLinearDimensionBuilder(perpendicularDimension2)
+    
+    sketchLinearDimensionBuilder4.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder4.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId69, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder4.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits55 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits56 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder4.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits57 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits58 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits59 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits60 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder4.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder4.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder4.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder4.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder4.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits61 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits62 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits63 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits64 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits65 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits66 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits67 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits68 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits69 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits70 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits71 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits72 = sketchLinearDimensionBuilder4.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId70 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId70, None)
+    
+    markId71 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder4.Driving.ExpressionValue.SetFormula("8")
+    
+    sketchLinearDimensionBuilder4.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder4.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject19 = sketchLinearDimensionBuilder4.Commit()
+    
+    taggedObject2 = sketchLinearDimensionBuilder4.FirstAssociativity.Value
+    
+    line10 = taggedObject2
+    point1_15 = NXOpen.Point3d(-9.9999999999999982, 1.1275702593849245e-14, 14.2875)
+    point2_15 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder4.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line10, NXOpen.View.Null, point1_15, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_15)
+    
+    point1_16 = NXOpen.Point3d(-9.9999999999999982, 8.0000000000000124, 2.7042253521126765)
+    point2_16 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder4.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Center, arc1, NXOpen.View.Null, point1_16, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_16)
+    
+    sketchLinearDimensionBuilder4.Driving.ExpressionValue.SetFormula("8")
+    
+    theSession.SetUndoMarkName(markId71, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId71, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId69, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId72 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    markId73 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject20 = sketchLinearDimensionBuilder4.Commit()
+    
+    theSession.DeleteUndoMark(markId73, None)
+    
+    theSession.SetUndoMarkName(markId69, "Linear Dimension")
+    
+    expression36 = sketchLinearDimensionBuilder4.Driving.ExpressionValue
+    sketchLinearDimensionBuilder4.Destroy()
+    
+    theSession.DeleteUndoMark(markId72, None)
+    
+    theSession.SetUndoMarkVisibility(markId69, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId71, None)
+    
+    markId74 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    perpendicularDimension3 = theSession.ActiveSketch.FindObject("ENTITY 26 4 1")
+    sketchLinearDimensionBuilder5 = workPart.Sketches.CreateLinearDimensionBuilder(perpendicularDimension3)
+    
+    sketchLinearDimensionBuilder5.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder5.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId74, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder5.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits73 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits74 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder5.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits75 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits76 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits77 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits78 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder5.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder5.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder5.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder5.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder5.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits79 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits80 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits81 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits82 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits83 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits84 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits85 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits86 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits87 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits88 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits89 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits90 = sketchLinearDimensionBuilder5.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId75 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId75, None)
+    
+    markId76 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder5.Driving.ExpressionValue.SetFormula("2")
+    
+    sketchLinearDimensionBuilder5.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder5.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject21 = sketchLinearDimensionBuilder5.Commit()
+    
+    taggedObject3 = sketchLinearDimensionBuilder5.FirstAssociativity.Value
+    
+    line11 = taggedObject3
+    point1_17 = NXOpen.Point3d(-10.000000000000018, -14.287499999999989, 0.0)
+    point2_17 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder5.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line11, NXOpen.View.Null, point1_17, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_17)
+    
+    point1_18 = NXOpen.Point3d(-9.9999999999999982, 8.0000000000000107, 2.0)
+    point2_18 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder5.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Center, arc1, NXOpen.View.Null, point1_18, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_18)
+    
+    sketchLinearDimensionBuilder5.Driving.ExpressionValue.SetFormula("2")
+    
+    theSession.SetUndoMarkName(markId76, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId76, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId74, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId77 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    markId78 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject22 = sketchLinearDimensionBuilder5.Commit()
+    
+    theSession.DeleteUndoMark(markId78, None)
+    
+    theSession.SetUndoMarkName(markId74, "Linear Dimension")
+    
+    expression37 = sketchLinearDimensionBuilder5.Driving.ExpressionValue
+    sketchLinearDimensionBuilder5.Destroy()
+    
+    theSession.DeleteUndoMark(markId77, None)
+    
+    theSession.SetUndoMarkVisibility(markId74, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId76, None)
+    
+    markId79 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    diameterDimension1 = dimension9
+    sketchRadialDimensionBuilder1 = workPart.Sketches.CreateRadialDimensionBuilder(diameterDimension1)
+    
+    sketchRadialDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchRadialDimensionBuilder1.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId79, "Radial Dimension Dialog")
+    
+    sketchRadialDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits91 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits92 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchRadialDimensionBuilder1.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits93 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits94 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits95 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits96 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchRadialDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchRadialDimensionBuilder1.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchRadialDimensionBuilder1.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchRadialDimensionBuilder1.Measurement.DirectionView = NXOpen.View.Null
+    
+    dimensionlinearunits97 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits98 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits99 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits100 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits101 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits102 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits103 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits104 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits105 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits106 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits107 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits108 = sketchRadialDimensionBuilder1.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId80 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    theSession.DeleteUndoMark(markId80, None)
+    
+    markId81 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    sketchRadialDimensionBuilder1.Driving.ExpressionValue.SetFormula("3")
+    
+    sketchRadialDimensionBuilder1.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    nXObject23 = sketchRadialDimensionBuilder1.Commit()
+    
+    point1_19 = NXOpen.Point3d(-9.9999999999999982, 8.0000000000000107, 2.0)
+    point2_19 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchRadialDimensionBuilder1.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, arc1, NXOpen.View.Null, point1_19, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_19)
+    
+    sketchRadialDimensionBuilder1.Driving.ExpressionValue.SetFormula("3")
+    
+    theSession.SetUndoMarkName(markId81, "Radial Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId81, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId79, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId82 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    markId83 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    nXObject24 = sketchRadialDimensionBuilder1.Commit()
+    
+    theSession.DeleteUndoMark(markId83, None)
+    
+    theSession.SetUndoMarkName(markId79, "Radial Dimension")
+    
+    expression38 = sketchRadialDimensionBuilder1.Driving.ExpressionValue
+    sketchRadialDimensionBuilder1.Destroy()
+    
+    theSession.DeleteUndoMark(markId82, None)
+    
+    theSession.SetUndoMarkVisibility(markId79, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId81, None)
+    
+    markId84 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    diameterDimension2 = dimension10
+    sketchRadialDimensionBuilder2 = workPart.Sketches.CreateRadialDimensionBuilder(diameterDimension2)
+    
+    sketchRadialDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchRadialDimensionBuilder2.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId84, "Radial Dimension Dialog")
+    
+    sketchRadialDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits109 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits110 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchRadialDimensionBuilder2.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits111 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits112 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits113 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits114 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchRadialDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchRadialDimensionBuilder2.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchRadialDimensionBuilder2.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchRadialDimensionBuilder2.Measurement.DirectionView = NXOpen.View.Null
+    
+    dimensionlinearunits115 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits116 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits117 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits118 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits119 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits120 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits121 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits122 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits123 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits124 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits125 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits126 = sketchRadialDimensionBuilder2.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId85 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    theSession.DeleteUndoMark(markId85, None)
+    
+    markId86 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    sketchRadialDimensionBuilder2.Driving.ExpressionValue.SetFormula("3")
+    
+    sketchRadialDimensionBuilder2.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    nXObject25 = sketchRadialDimensionBuilder2.Commit()
+    
+    point1_20 = NXOpen.Point3d(-9.9999999999999982, -5.3874517985485078, 2.7042253521126765)
+    point2_20 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchRadialDimensionBuilder2.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, arc2, NXOpen.View.Null, point1_20, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_20)
+    
+    sketchRadialDimensionBuilder2.Driving.ExpressionValue.SetFormula("3")
+    
+    theSession.SetUndoMarkName(markId86, "Radial Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId86, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId84, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId87 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    markId88 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Radial Dimension")
+    
+    nXObject26 = sketchRadialDimensionBuilder2.Commit()
+    
+    theSession.DeleteUndoMark(markId88, None)
+    
+    theSession.SetUndoMarkName(markId84, "Radial Dimension")
+    
+    expression39 = sketchRadialDimensionBuilder2.Driving.ExpressionValue
+    sketchRadialDimensionBuilder2.Destroy()
+    
+    theSession.DeleteUndoMark(markId87, None)
+    
+    theSession.SetUndoMarkVisibility(markId84, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId86, None)
+    
+    markId89 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    perpendicularDimension4 = theSession.ActiveSketch.FindObject("ENTITY 26 2 1")
+    sketchLinearDimensionBuilder6 = workPart.Sketches.CreateLinearDimensionBuilder(perpendicularDimension4)
+    
+    sketchLinearDimensionBuilder6.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder6.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId89, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder6.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits127 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits128 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder6.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits129 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits130 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits131 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits132 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder6.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder6.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder6.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder6.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder6.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits133 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits134 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits135 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits136 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits137 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits138 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits139 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits140 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits141 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits142 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits143 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits144 = sketchLinearDimensionBuilder6.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId90 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId90, None)
+    
+    markId91 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    sketchLinearDimensionBuilder6.Driving.ExpressionValue.SetFormula("2")
+    
+    sketchLinearDimensionBuilder6.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder6.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject27 = sketchLinearDimensionBuilder6.Commit()
+    
+    point1_21 = NXOpen.Point3d(-10.000000000000018, -14.287499999999989, 0.0)
+    point2_21 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder6.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line11, NXOpen.View.Null, point1_21, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_21)
+    
+    point1_22 = NXOpen.Point3d(-9.9999999999999982, -5.3874517985485078, 2.0)
+    point2_22 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder6.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Center, arc2, NXOpen.View.Null, point1_22, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_22)
+    
+    sketchLinearDimensionBuilder6.Driving.ExpressionValue.SetFormula("2")
+    
+    theSession.SetUndoMarkName(markId91, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId91, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId89, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId92 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    scaleAboutPoint23 = NXOpen.Point3d(2.9877283793044764, -1.2759431979270635, 0.0)
+    viewCenter23 = NXOpen.Point3d(-2.9877283793044627, 1.2759431979270719, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint23, viewCenter23)
+    
+    scaleAboutPoint24 = NXOpen.Point3d(2.3901827034435827, -1.02075455834165, 0.0)
+    viewCenter24 = NXOpen.Point3d(-2.3901827034435685, 1.0207545583416591, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint24, viewCenter24)
+    
+    scaleAboutPoint25 = NXOpen.Point3d(3.2057757020393396, 1.5766110010029548, 0.0)
+    viewCenter25 = NXOpen.Point3d(-3.2057757020393249, -1.5766110010029462, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint25, viewCenter25)
+    
+    scaleAboutPoint26 = NXOpen.Point3d(4.0375390698761509, 2.011189674356332, 0.0)
+    viewCenter26 = NXOpen.Point3d(-4.0375390698761375, -2.0111896743563213, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint26, viewCenter26)
+    
+    scaleAboutPoint27 = NXOpen.Point3d(5.185887948010512, 2.6024187997324391, 0.0)
+    viewCenter27 = NXOpen.Point3d(-5.1858879480104969, -2.6024187997324284, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint27, viewCenter27)
+    
+    scaleAboutPoint28 = NXOpen.Point3d(7.2561373693995996, 1.6265117498327744, 0.0)
+    viewCenter28 = NXOpen.Point3d(-7.2561373693995863, -1.6265117498327653, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint28, viewCenter28)
+    
+    markId93 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject28 = sketchLinearDimensionBuilder6.Commit()
+    
+    theSession.DeleteUndoMark(markId93, None)
+    
+    theSession.SetUndoMarkName(markId89, "Linear Dimension")
+    
+    expression40 = sketchLinearDimensionBuilder6.Driving.ExpressionValue
+    sketchLinearDimensionBuilder6.Destroy()
+    
+    theSession.DeleteUndoMark(markId92, None)
+    
+    theSession.SetUndoMarkVisibility(markId89, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId91, None)
+    
+    markId94 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    perpendicularDimension5 = theSession.ActiveSketch.FindObject("ENTITY 26 1 1")
+    sketchLinearDimensionBuilder7 = workPart.Sketches.CreateLinearDimensionBuilder(perpendicularDimension5)
+    
+    sketchLinearDimensionBuilder7.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Inferred
+    
+    sketchLinearDimensionBuilder7.Driving.DrivingMethod = NXOpen.Annotations.DrivingValueBuilder.DrivingValueMethod.Driving
+    
+    theSession.SetUndoMarkName(markId94, "Linear Dimension Dialog")
+    
+    sketchLinearDimensionBuilder7.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits145 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits146 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder7.Style.OrdinateStyle.DoglegCreationOption = NXOpen.Annotations.OrdinateDoglegCreationOption.No
+    
+    dimensionlinearunits147 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits148 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits149 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits150 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    sketchLinearDimensionBuilder7.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder7.Origin.SetInferRelativeToGeometry(True)
+    
+    sketchLinearDimensionBuilder7.Measurement.Direction = NXOpen.Direction.Null
+    
+    sketchLinearDimensionBuilder7.Measurement.DirectionView = NXOpen.View.Null
+    
+    sketchLinearDimensionBuilder7.Origin.SetInferRelativeToGeometry(True)
+    
+    dimensionlinearunits151 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits152 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits153 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits154 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits155 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits156 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits157 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits158 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits159 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits160 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits161 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    dimensionlinearunits162 = sketchLinearDimensionBuilder7.Style.UnitsStyle.DimensionLinearUnits
+    
+    markId95 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    theSession.DeleteUndoMark(markId95, None)
+    
+    markId96 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    scaleAboutPoint29 = NXOpen.Point3d(10.550613231621558, 2.4674025331201039, 0.0)
+    viewCenter29 = NXOpen.Point3d(-10.550613231621545, -2.4674025331200959, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint29, viewCenter29)
+    
+    scaleAboutPoint30 = NXOpen.Point3d(8.4404905852972476, 1.9739220264960855, 0.0)
+    viewCenter30 = NXOpen.Point3d(-8.4404905852972334, -1.9739220264960764, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint30, viewCenter30)
+    
+    scaleAboutPoint31 = NXOpen.Point3d(6.7523924682378, 1.5791376211968684, 0.0)
+    viewCenter31 = NXOpen.Point3d(-6.7523924682377858, -1.5791376211968602, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint31, viewCenter31)
+    
+    scaleAboutPoint32 = NXOpen.Point3d(5.4019139745902418, 1.263310096957496, 0.0)
+    viewCenter32 = NXOpen.Point3d(-5.4019139745902303, -1.2633100969574869, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint32, viewCenter32)
+    
+    scaleAboutPoint33 = NXOpen.Point3d(6.7523924682378, 1.5538714192577199, 0.0)
+    viewCenter33 = NXOpen.Point3d(-6.7523924682377858, -1.5538714192577094, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint33, viewCenter33)
+    
+    scaleAboutPoint34 = NXOpen.Point3d(8.4404905852972494, 1.9423392740721501, 0.0)
+    viewCenter34 = NXOpen.Point3d(-8.4404905852972316, -1.942339274072137, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint34, viewCenter34)
+    
+    scaleAboutPoint35 = NXOpen.Point3d(10.570352451886519, 2.3884456520602622, 0.0)
+    viewCenter35 = NXOpen.Point3d(-10.570352451886503, -2.3884456520602524, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint35, viewCenter35)
+    
+    scaleAboutPoint36 = NXOpen.Point3d(13.311636666182952, 2.7881648624257176, 0.0)
+    viewCenter36 = NXOpen.Point3d(-13.311636666182933, -2.7881648624257074, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint36, viewCenter36)
+    
+    scaleAboutPoint37 = NXOpen.Point3d(16.639545832728682, 3.4235210147041446, 0.0)
+    viewCenter37 = NXOpen.Point3d(-16.639545832728668, -3.4235210147041348, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint37, viewCenter37)
+    
+    scaleAboutPoint38 = NXOpen.Point3d(20.837985455490859, 4.2022949392201765, 0.0)
+    viewCenter38 = NXOpen.Point3d(-20.837985455490841, -4.2022949392201641, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint38, viewCenter38)
+    
+    scaleAboutPoint39 = NXOpen.Point3d(26.143864730813565, 4.3372310152501825, 0.0)
+    viewCenter39 = NXOpen.Point3d(-26.143864730813547, -4.3372310152501665, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint39, viewCenter39)
+    
+    scaleAboutPoint40 = NXOpen.Point3d(32.679830913516959, 5.4215387690627281, 0.0)
+    viewCenter40 = NXOpen.Point3d(-32.67983091351693, -5.4215387690627077, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint40, viewCenter40)
+    
+    scaleAboutPoint41 = NXOpen.Point3d(45.668934214396387, 17.092906952461643, 0.0)
+    viewCenter41 = NXOpen.Point3d(-45.668934214396359, -17.092906952461625, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint41, viewCenter41)
+    
+    scaleAboutPoint42 = NXOpen.Point3d(36.655626010829621, 13.794804201281819, 0.0)
+    viewCenter42 = NXOpen.Point3d(-36.655626010829593, -13.794804201281799, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint42, viewCenter42)
+    
+    scaleAboutPoint43 = NXOpen.Point3d(29.3245008086637, 11.035843361025456, 0.0)
+    viewCenter43 = NXOpen.Point3d(-29.324500808663675, -11.035843361025441, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint43, viewCenter43)
+    
+    scaleAboutPoint44 = NXOpen.Point3d(22.380112038690921, 6.7853569660802817, 0.0)
+    viewCenter44 = NXOpen.Point3d(-22.380112038690893, -6.7853569660802693, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint44, viewCenter44)
+    
+    scaleAboutPoint45 = NXOpen.Point3d(17.90408963095274, 5.4282855728642314, 0.0)
+    viewCenter45 = NXOpen.Point3d(-17.904089630952715, -5.4282855728642136, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint45, viewCenter45)
+    
+    scaleAboutPoint46 = NXOpen.Point3d(12.028587348960501, 2.6647947357697164, 0.0)
+    viewCenter46 = NXOpen.Point3d(-12.028587348960473, -2.6647947357697017, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint46, viewCenter46)
+    
+    scaleAboutPoint47 = NXOpen.Point3d(7.6686870729372867, -1.6580945022567006, 0.0)
+    viewCenter47 = NXOpen.Point3d(-7.6686870729372547, 1.6580945022567186, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint47, viewCenter47)
+    
+    scaleAboutPoint48 = NXOpen.Point3d(6.134949658349834, -1.3264756018053581, 0.0)
+    viewCenter48 = NXOpen.Point3d(-6.1349496583498002, 1.3264756018053749, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint48, viewCenter48)
+    
+    scaleAboutPoint49 = NXOpen.Point3d(2.8866635715478832, -1.4275404095619564, 0.0)
+    viewCenter49 = NXOpen.Point3d(-2.8866635715478521, 1.4275404095619753, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint49, viewCenter49)
+    
+    sketchLinearDimensionBuilder7.Driving.ExpressionValue.SetFormula("5")
+    
+    sketchLinearDimensionBuilder7.Driving.ExpressionMode = NXOpen.Annotations.DrivingValueBuilder.DrivingExpressionMode.KeepExpression
+    
+    sketchLinearDimensionBuilder7.Origin.SetInferRelativeToGeometry(True)
+    
+    nXObject29 = sketchLinearDimensionBuilder7.Commit()
+    
+    point1_23 = NXOpen.Point3d(-9.9999999999999982, 1.1275702593849245e-14, 14.2875)
+    point2_23 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder7.FirstAssociativity.SetValue(NXOpen.InferSnapType.SnapType.NotSet, line10, NXOpen.View.Null, point1_23, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_23)
+    
+    point1_24 = NXOpen.Point3d(-9.9999999999999982, -4.9999999999999885, 2.0)
+    point2_24 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    sketchLinearDimensionBuilder7.SecondAssociativity.SetValue(NXOpen.InferSnapType.SnapType.Center, arc2, NXOpen.View.Null, point1_24, NXOpen.TaggedObject.Null, NXOpen.View.Null, point2_24)
+    
+    sketchLinearDimensionBuilder7.Driving.ExpressionValue.SetFormula("5")
+    
+    theSession.SetUndoMarkName(markId96, "Linear Dimension - =")
+    
+    theSession.SetUndoMarkVisibility(markId96, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.SetUndoMarkVisibility(markId94, None, NXOpen.Session.MarkVisibility.Invisible)
+    
+    markId97 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    scaleAboutPoint50 = NXOpen.Point3d(6.0717841535019605, -2.716116708458598, 0.0)
+    viewCenter50 = NXOpen.Point3d(-6.0717841535019268, 2.7161167084586175, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint50, viewCenter50)
+    
+    scaleAboutPoint51 = NXOpen.Point3d(4.8574273228015725, -2.1728933667668753, 0.0)
+    viewCenter51 = NXOpen.Point3d(-4.857427322801537, 2.1728933667668953, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint51, viewCenter51)
+    
+    scaleAboutPoint52 = NXOpen.Point3d(3.8859418582412624, -1.738314693413499, 0.0)
+    viewCenter52 = NXOpen.Point3d(-3.8859418582412273, 1.7383146934135192, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint52, viewCenter52)
+    
+    scaleAboutPoint53 = NXOpen.Point3d(2.9713053480440368, -1.3421406470076298, 0.0)
+    viewCenter53 = NXOpen.Point3d(-2.9713053480440035, 1.34214064700765, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint53, viewCenter53)
+    
+    scaleAboutPoint54 = NXOpen.Point3d(3.714131685055043, -1.6776758087595407, 0.0)
+    viewCenter54 = NXOpen.Point3d(-3.7141316850550088, 1.67767580875956, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint54, viewCenter54)
+    
+    scaleAboutPoint55 = NXOpen.Point3d(4.6426646063187986, -2.0970947609494277, 0.0)
+    viewCenter55 = NXOpen.Point3d(-4.642664606318764, 2.0970947609494464, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint55, viewCenter55)
+    
+    markId98 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Linear Dimension")
+    
+    nXObject30 = sketchLinearDimensionBuilder7.Commit()
+    
+    theSession.DeleteUndoMark(markId98, None)
+    
+    theSession.SetUndoMarkName(markId94, "Linear Dimension")
+    
+    expression41 = sketchLinearDimensionBuilder7.Driving.ExpressionValue
+    sketchLinearDimensionBuilder7.Destroy()
+    
+    theSession.DeleteUndoMark(markId97, None)
+    
+    theSession.SetUndoMarkVisibility(markId94, None, NXOpen.Session.MarkVisibility.Visible)
+    
+    theSession.DeleteUndoMark(markId96, None)
+    
+    markId99 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    extrudeBuilder3 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+    
+    section3 = workPart.Sections.CreateSection(0.0094999999999999998, 0.01, 0.5)
+    
+    extrudeBuilder3.Section = section3
+    
+    extrudeBuilder3.AllowSelfIntersectingSection(True)
+    
+    expression42 = workPart.Expressions.CreateSystemExpressionWithUnits("2.00", unit2)
+    
+    extrudeBuilder3.DistanceTolerance = 0.01
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
+    
+    targetBodies18 = [NXOpen.Body.Null] * 1 
+    targetBodies18[0] = NXOpen.Body.Null
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies18)
+    
+    extrudeBuilder3.Limits.StartExtend.Value.SetFormula("0")
+    
+    extrudeBuilder3.Limits.EndExtend.Value.SetFormula("16.5")
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
+    
+    targetBodies19 = [NXOpen.Body.Null] * 1 
+    targetBodies19[0] = NXOpen.Body.Null
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies19)
+    
+    extrudeBuilder3.Draft.FrontDraftAngle.SetFormula("2")
+    
+    extrudeBuilder3.Draft.BackDraftAngle.SetFormula("2")
+    
+    extrudeBuilder3.Offset.StartOffset.SetFormula("0")
+    
+    extrudeBuilder3.Offset.EndOffset.SetFormula("5")
+    
+    smartVolumeProfileBuilder3 = extrudeBuilder3.SmartVolumeProfile
+    
+    smartVolumeProfileBuilder3.OpenProfileSmartVolumeOption = False
+    
+    smartVolumeProfileBuilder3.CloseProfileRule = NXOpen.GeometricUtilities.SmartVolumeProfileBuilder.CloseProfileRuleType.Fci
+    
+    theSession.SetUndoMarkName(markId99, "Extrude Dialog")
+    
+    section3.DistanceTolerance = 0.01
+    
+    section3.ChainingTolerance = 0.0094999999999999998
+    
+    section3.SetAllowedEntityTypes(NXOpen.Section.AllowTypes.OnlyCurves)
+    
+    markId100 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    curves3 = [NXOpen.ICurve.Null] * 2 
+    curves3[0] = arc1
+    curves3[1] = arc2
+    seedPoint3 = NXOpen.Point3d(-9.9999999999999982, -4.9999999999999893, 2.5)
+    regionBoundaryRule3 = workPart.ScRuleFactory.CreateRuleRegionBoundary(theSession.ActiveSketch, curves3, seedPoint3, 0.01)
+    
+    curves4 = [NXOpen.ICurve.Null] * 2 
+    curves4[0] = arc1
+    curves4[1] = arc2
+    seedPoint4 = NXOpen.Point3d(-9.9999999999999982, 8.0000000000000107, 1.5)
+    regionBoundaryRule4 = workPart.ScRuleFactory.CreateRuleRegionBoundary(theSession.ActiveSketch, curves4, seedPoint4, 0.01)
+    
+    section3.AllowSelfIntersection(True)
+    
+    rules6 = [None] * 2 
+    rules6[0] = regionBoundaryRule3
+    rules6[1] = regionBoundaryRule4
+    helpPoint3 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    section3.AddToSection(rules6, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint3, NXOpen.Section.Mode.Create, False)
+    
+    theSession.DeleteUndoMark(markId100, None)
+    
+    markId101 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "section mark")
+    
+    markId102 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, None)
+    
+    theSession.DeleteUndoMark(markId102, None)
+    
+    direction6 = workPart.Directions.CreateDirection(theSession.ActiveSketch, NXOpen.Sense.Forward, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    extrudeBuilder3.Direction = direction6
+    
+    targetBodies20 = [NXOpen.Body.Null] * 1 
+    targetBodies20[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies20)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Unite
+    
+    targetBodies21 = [NXOpen.Body.Null] * 1 
+    targetBodies21[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies21)
+    
+    expression43 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression44 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    theSession.DeleteUndoMark(markId101, None)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Unite
+    
+    targetBodies22 = [NXOpen.Body.Null] * 1 
+    targetBodies22[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies22)
+    
+    rotMatrix5 = NXOpen.Matrix3x3()
+    
+    rotMatrix5.Xx = -0.74622316439584291
+    rotMatrix5.Xy = -0.66484772577430518
+    rotMatrix5.Xz = 0.033593011948752964
+    rotMatrix5.Yx = 0.044971834159730328
+    rotMatrix5.Yy = 0.0
+    rotMatrix5.Yz = 0.99898825525243795
+    rotMatrix5.Zx = -0.66417506957982464
+    rotMatrix5.Zy = 0.7469789163910413
+    rotMatrix5.Zz = 0.029899421664995939
+    translation5 = NXOpen.Point3d(-4.8465947447443378, -3.9111707059438539, -7.2811938692553388)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix5, translation5, 16.754925586080304)
+    
+    success2 = direction6.ReverseDirection()
+    
+    extrudeBuilder3.Direction = direction6
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies23 = [NXOpen.Body.Null] * 1 
+    targetBodies23[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies23)
+    
+    scaleAboutPoint56 = NXOpen.Point3d(-5.0927188283598728, -0.9001084440822037, 0.0)
+    viewCenter56 = NXOpen.Point3d(5.0927188283599039, 0.9001084440822219, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint56, viewCenter56)
+    
+    scaleAboutPoint57 = NXOpen.Point3d(-4.074175062687897, -0.72008675526576182, 0.0)
+    viewCenter57 = NXOpen.Point3d(4.0741750626879236, 0.72008675526577959, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint57, viewCenter57)
+    
+    scaleAboutPoint58 = NXOpen.Point3d(-3.2896594924772931, -0.56596292343694765, 0.0)
+    viewCenter58 = NXOpen.Point3d(3.2896594924773241, 0.56596292343696686, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint58, viewCenter58)
+    
+    scaleAboutPoint59 = NXOpen.Point3d(-4.1120743655966194, -0.70745365429618645, 0.0)
+    viewCenter59 = NXOpen.Point3d(4.1120743655966505, 0.70745365429620521, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint59, viewCenter59)
+    
+    scaleAboutPoint60 = NXOpen.Point3d(-5.1400929569957787, -0.88431706787023445, 0.0)
+    viewCenter60 = NXOpen.Point3d(5.1400929569958098, 0.88431706787025399, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint60, viewCenter60)
+    
+    scaleAboutPoint61 = NXOpen.Point3d(-6.4251161962447245, -1.1053963348377964, 0.0)
+    viewCenter61 = NXOpen.Point3d(6.4251161962447592, 1.1053963348378175, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint61, viewCenter61)
+    
+    scaleAboutPoint62 = NXOpen.Point3d(-8.0313952453059105, -1.3817454185472455, 0.0)
+    viewCenter62 = NXOpen.Point3d(8.0313952453059461, 1.38174541854727, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint62, viewCenter62)
+    
+    rotMatrix6 = NXOpen.Matrix3x3()
+    
+    rotMatrix6.Xx = -0.99760471839078202
+    rotMatrix6.Xy = 0.019622292846532954
+    rotMatrix6.Xz = 0.06633092391859384
+    rotMatrix6.Yx = 0.06216962547260918
+    rotMatrix6.Yy = -0.16608114808922708
+    rotMatrix6.Yz = 0.98415038988863979
+    rotMatrix6.Zx = 0.030327603153643079
+    rotMatrix6.Zy = 0.98591684125630596
+    rotMatrix6.Zz = 0.16446342637238823
+    translation6 = NXOpen.Point3d(-5.9474259704761891, -5.9369513989835516, -1.2549940592749582)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix6, translation6, 8.5785219000731168)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies24 = [NXOpen.Body.Null] * 1 
+    targetBodies24[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies24)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies25 = [NXOpen.Body.Null] * 1 
+    targetBodies25[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies25)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies26 = [NXOpen.Body.Null] * 1 
+    targetBodies26[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies26)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies27 = [NXOpen.Body.Null] * 1 
+    targetBodies27[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies27)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies28 = [NXOpen.Body.Null] * 1 
+    targetBodies28[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies28)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies29 = [NXOpen.Body.Null] * 1 
+    targetBodies29[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies29)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies30 = [NXOpen.Body.Null] * 1 
+    targetBodies30[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies30)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies31 = [NXOpen.Body.Null] * 1 
+    targetBodies31[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies31)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies32 = [NXOpen.Body.Null] * 1 
+    targetBodies32[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies32)
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies33 = [NXOpen.Body.Null] * 1 
+    targetBodies33[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies33)
+    
+    extrudeBuilder3.Limits.EndExtend.Value.SetFormula("23")
+    
+    extrudeBuilder3.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Subtract
+    
+    targetBodies34 = [NXOpen.Body.Null] * 1 
+    targetBodies34[0] = body1
+    extrudeBuilder3.BooleanOperation.SetTargetBodies(targetBodies34)
+    
+    markId103 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    theSession.DeleteUndoMark(markId103, None)
+    
+    markId104 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Extrude")
+    
+    extrudeBuilder3.ParentFeatureInternal = False
+    
+    markId105 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Deactivate Sketch")
+    
+    feature6 = extrudeBuilder3.CommitFeature()
+    
+    theSession.DeleteUndoMark(markId104, None)
+    
+    theSession.SetUndoMarkName(markId99, "Extrude")
+    
+    expression45 = extrudeBuilder3.Limits.StartExtend.Value
+    expression46 = extrudeBuilder3.Limits.EndExtend.Value
+    extrudeBuilder3.Destroy()
+    
+    workPart.Expressions.Delete(expression42)
+    
+    workPart.Expressions.Delete(expression43)
+    
+    workPart.Expressions.Delete(expression44)
+    
+    rotMatrix7 = NXOpen.Matrix3x3()
+    
+    rotMatrix7.Xx = 0.43535300608249566
+    rotMatrix7.Xy = -0.89805438626835743
+    rotMatrix7.Xz = 0.062976816362099952
+    rotMatrix7.Yx = 0.53840305635154651
+    rotMatrix7.Yy = 0.31579144783378771
+    rotMatrix7.Yz = 0.78127966208417243
+    rotMatrix7.Zx = -0.72151916745589939
+    rotMatrix7.Zy = -0.3062255390708159
+    rotMatrix7.Zz = 0.62099598244637666
+    translation7 = NXOpen.Point3d(-5.9273013251372237, -4.7197270321567473, -3.9941893957188883)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix7, translation7, 8.5785219000731168)
+    
+    markId106 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    edgeBlendBuilder1 = workPart.Features.CreateEdgeBlendBuilder(NXOpen.Features.Feature.Null)
+    
+    expression47 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression48 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    blendLimitsData1 = edgeBlendBuilder1.LimitsListData
+    
+    origin10 = NXOpen.Point3d(0.0, 0.0, 0.0)
+    normal10 = NXOpen.Vector3d(0.0, 0.0, 1.0)
+    plane10 = workPart.Planes.CreatePlane(origin10, normal10, NXOpen.SmartObject.UpdateOption.WithinModeling)
+    
+    facePlaneSelectionBuilder1 = workPart.FacePlaneSelectionBuilderData.Create()
+    
+    expression49 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    expression50 = workPart.Expressions.CreateSystemExpressionWithUnits("0", unit1)
+    
+    theSession.SetUndoMarkName(markId106, "Edge Blend Dialog")
+    
+    scCollector1 = workPart.ScCollectors.CreateCollector()
+    
+    seedEdges1 = [NXOpen.Edge.Null] * 1 
+    edge3 = extrude1.FindObject("EDGE * 130 * 140 {(-10,10,12)(-10,0,12)(-10,-10,12) EXTRUDE(2)}")
+    seedEdges1[0] = edge3
+    edgeMultipleSeedTangentRule1 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges1, 0.5, True)
+    
+    rules7 = [None] * 1 
+    rules7[0] = edgeMultipleSeedTangentRule1
+    scCollector1.ReplaceRules(rules7, False)
+    
+    scCollector1.AddEvaluationFilter(NXOpen.ScEvaluationFiltertype.LaminarEdge)
+    
+    seedEdges2 = [NXOpen.Edge.Null] * 2 
+    seedEdges2[0] = edge3
+    seedEdges2[1] = edge1
+    edgeMultipleSeedTangentRule2 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges2, 0.5, True)
+    
+    rules8 = [None] * 1 
+    rules8[0] = edgeMultipleSeedTangentRule2
+    scCollector1.ReplaceRules(rules8, False)
+    
+    seedEdges3 = [NXOpen.Edge.Null] * 3 
+    seedEdges3[0] = edge3
+    seedEdges3[1] = edge1
+    extrude2 = feature4
+    edge4 = extrude2.FindObject("EDGE * 140 EXTRUDE(2) 130 {(-6,-1.3066675633984,12)(-7.1646857029613,-5.6533337816992,12)(-8.3293714059227,-10,12) EXTRUDE(2)}")
+    seedEdges3[2] = edge4
+    edgeMultipleSeedTangentRule3 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges3, 0.5, True)
+    
+    rules9 = [None] * 1 
+    rules9[0] = edgeMultipleSeedTangentRule3
+    scCollector1.ReplaceRules(rules9, False)
+    
+    rotMatrix8 = NXOpen.Matrix3x3()
+    
+    rotMatrix8.Xx = 0.78394769618935034
+    rotMatrix8.Xy = -0.52778174278385814
+    rotMatrix8.Xz = -0.32691350786324269
+    rotMatrix8.Yx = 0.53840305635154651
+    rotMatrix8.Yy = 0.31579144783378771
+    rotMatrix8.Yz = 0.78127966208417243
+    rotMatrix8.Zx = -0.30910865169181201
+    rotMatrix8.Zy = -0.78849362296665493
+    rotMatrix8.Zz = 0.53172328140697001
+    translation8 = NXOpen.Point3d(-3.5879593797851683, -4.7197270321567473, -3.4585531894824482)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix8, translation8, 8.5785219000731168)
+    
+    seedEdges4 = [NXOpen.Edge.Null] * 4 
+    seedEdges4[0] = edge3
+    seedEdges4[1] = edge1
+    seedEdges4[2] = edge4
+    edge5 = extrude2.FindObject("EDGE * 170 EXTRUDE(2) 130 {(6,-1.3066675633984,12)(0,-1.3066675633984,12)(-6,-1.3066675633984,12) EXTRUDE(2)}")
+    seedEdges4[3] = edge5
+    edgeMultipleSeedTangentRule4 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges4, 0.5, True)
+    
+    rules10 = [None] * 1 
+    rules10[0] = edgeMultipleSeedTangentRule4
+    scCollector1.ReplaceRules(rules10, False)
+    
+    seedEdges5 = [NXOpen.Edge.Null] * 5 
+    seedEdges5[0] = edge3
+    seedEdges5[1] = edge1
+    seedEdges5[2] = edge4
+    seedEdges5[3] = edge5
+    edge6 = extrude2.FindObject("EDGE * 160 EXTRUDE(2) 130 {(8.3293714059227,-10,12)(7.1646857029613,-5.6533337816992,12)(6,-1.3066675633984,12) EXTRUDE(2)}")
+    seedEdges5[4] = edge6
+    edgeMultipleSeedTangentRule5 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges5, 0.5, True)
+    
+    rules11 = [None] * 1 
+    rules11[0] = edgeMultipleSeedTangentRule5
+    scCollector1.ReplaceRules(rules11, False)
+    
+    seedEdges6 = [NXOpen.Edge.Null] * 6 
+    seedEdges6[0] = edge3
+    seedEdges6[1] = edge1
+    seedEdges6[2] = edge4
+    seedEdges6[3] = edge5
+    seedEdges6[4] = edge6
+    edge7 = extrude2.FindObject("EDGE * 160 * 170 {(6,-1.3066675633984,12)(6,-1.3066675633984,6)(6,-1.3066675633984,0) EXTRUDE(2)}")
+    seedEdges6[5] = edge7
+    edgeMultipleSeedTangentRule6 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges6, 0.5, True)
+    
+    rules12 = [None] * 1 
+    rules12[0] = edgeMultipleSeedTangentRule6
+    scCollector1.ReplaceRules(rules12, False)
+    
+    seedEdges7 = [NXOpen.Edge.Null] * 7 
+    seedEdges7[0] = edge3
+    seedEdges7[1] = edge1
+    seedEdges7[2] = edge4
+    seedEdges7[3] = edge5
+    seedEdges7[4] = edge6
+    seedEdges7[5] = edge7
+    edge8 = extrude1.FindObject("EDGE * 120 EXTRUDE(4) 170 {(6,-1.3066675633984,0)(-0,-1.3066675633984,0)(-6,-1.3066675633984,0) EXTRUDE(2)}")
+    seedEdges7[6] = edge8
+    edgeMultipleSeedTangentRule7 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges7, 0.5, True)
+    
+    rules13 = [None] * 1 
+    rules13[0] = edgeMultipleSeedTangentRule7
+    scCollector1.ReplaceRules(rules13, False)
+    
+    seedEdges8 = [NXOpen.Edge.Null] * 8 
+    seedEdges8[0] = edge3
+    seedEdges8[1] = edge1
+    seedEdges8[2] = edge4
+    seedEdges8[3] = edge5
+    seedEdges8[4] = edge6
+    seedEdges8[5] = edge7
+    seedEdges8[6] = edge8
+    edge9 = extrude1.FindObject("EDGE * 120 EXTRUDE(4) 160 {(8.3293714059227,-10,0)(7.1646857029613,-5.6533337816992,0)(6,-1.3066675633984,0) EXTRUDE(2)}")
+    seedEdges8[7] = edge9
+    edgeMultipleSeedTangentRule8 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges8, 0.5, True)
+    
+    rules14 = [None] * 1 
+    rules14[0] = edgeMultipleSeedTangentRule8
+    scCollector1.ReplaceRules(rules14, False)
+    
+    seedEdges9 = [NXOpen.Edge.Null] * 9 
+    seedEdges9[0] = edge3
+    seedEdges9[1] = edge1
+    seedEdges9[2] = edge4
+    seedEdges9[3] = edge5
+    seedEdges9[4] = edge6
+    seedEdges9[5] = edge7
+    seedEdges9[6] = edge8
+    seedEdges9[7] = edge9
+    edge10 = extrude2.FindObject("EDGE * 160 EXTRUDE(2) 150 {(8.3293714059227,-10,0)(8.3293714059227,-10,6)(8.3293714059227,-10,12) EXTRUDE(2)}")
+    seedEdges9[8] = edge10
+    edgeMultipleSeedTangentRule9 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges9, 0.5, True)
+    
+    rules15 = [None] * 1 
+    rules15[0] = edgeMultipleSeedTangentRule9
+    scCollector1.ReplaceRules(rules15, False)
+    
+    seedEdges10 = [NXOpen.Edge.Null] * 10 
+    seedEdges10[0] = edge3
+    seedEdges10[1] = edge1
+    seedEdges10[2] = edge4
+    seedEdges10[3] = edge5
+    seedEdges10[4] = edge6
+    seedEdges10[5] = edge7
+    seedEdges10[6] = edge8
+    seedEdges10[7] = edge9
+    seedEdges10[8] = edge10
+    edge11 = extrude1.FindObject("EDGE * 130 * 160 {(10,-10,12)(10,0,12)(10,10,12) EXTRUDE(2)}")
+    seedEdges10[9] = edge11
+    edgeMultipleSeedTangentRule10 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges10, 0.5, True)
+    
+    rules16 = [None] * 1 
+    rules16[0] = edgeMultipleSeedTangentRule10
+    scCollector1.ReplaceRules(rules16, False)
+    
+    seedEdges11 = [NXOpen.Edge.Null] * 11 
+    seedEdges11[0] = edge3
+    seedEdges11[1] = edge1
+    seedEdges11[2] = edge4
+    seedEdges11[3] = edge5
+    seedEdges11[4] = edge6
+    seedEdges11[5] = edge7
+    seedEdges11[6] = edge8
+    seedEdges11[7] = edge9
+    seedEdges11[8] = edge10
+    seedEdges11[9] = edge11
+    edge12 = extrude1.FindObject("EDGE * 130 * 170 {(10,10,12)(0,10,12)(-10,10,12) EXTRUDE(2)}")
+    seedEdges11[10] = edge12
+    edgeMultipleSeedTangentRule11 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges11, 0.5, True)
+    
+    rules17 = [None] * 1 
+    rules17[0] = edgeMultipleSeedTangentRule11
+    scCollector1.ReplaceRules(rules17, False)
+    
+    seedEdges12 = [NXOpen.Edge.Null] * 12 
+    seedEdges12[0] = edge3
+    seedEdges12[1] = edge1
+    seedEdges12[2] = edge4
+    seedEdges12[3] = edge5
+    seedEdges12[4] = edge6
+    seedEdges12[5] = edge7
+    seedEdges12[6] = edge8
+    seedEdges12[7] = edge9
+    seedEdges12[8] = edge10
+    seedEdges12[9] = edge11
+    seedEdges12[10] = edge12
+    edge13 = extrude1.FindObject("EDGE * 130 * 150 1 {(8.3293714059227,-10,12)(9.1646857029613,-10,12)(10,-10,12) EXTRUDE(2)}")
+    seedEdges12[11] = edge13
+    edgeMultipleSeedTangentRule12 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges12, 0.5, True)
+    
+    rules18 = [None] * 1 
+    rules18[0] = edgeMultipleSeedTangentRule12
+    scCollector1.ReplaceRules(rules18, False)
+    
+    seedEdges13 = [NXOpen.Edge.Null] * 13 
+    seedEdges13[0] = edge3
+    seedEdges13[1] = edge1
+    seedEdges13[2] = edge4
+    seedEdges13[3] = edge5
+    seedEdges13[4] = edge6
+    seedEdges13[5] = edge7
+    seedEdges13[6] = edge8
+    seedEdges13[7] = edge9
+    seedEdges13[8] = edge10
+    seedEdges13[9] = edge11
+    seedEdges13[10] = edge12
+    seedEdges13[11] = edge13
+    edge14 = extrude1.FindObject("EDGE * 150 * 160 {(10,-10,12)(10,-10,6)(10,-10,0) EXTRUDE(2)}")
+    seedEdges13[12] = edge14
+    edgeMultipleSeedTangentRule13 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges13, 0.5, True)
+    
+    rules19 = [None] * 1 
+    rules19[0] = edgeMultipleSeedTangentRule13
+    scCollector1.ReplaceRules(rules19, False)
+    
+    seedEdges14 = [NXOpen.Edge.Null] * 14 
+    seedEdges14[0] = edge3
+    seedEdges14[1] = edge1
+    seedEdges14[2] = edge4
+    seedEdges14[3] = edge5
+    seedEdges14[4] = edge6
+    seedEdges14[5] = edge7
+    seedEdges14[6] = edge8
+    seedEdges14[7] = edge9
+    seedEdges14[8] = edge10
+    seedEdges14[9] = edge11
+    seedEdges14[10] = edge12
+    seedEdges14[11] = edge13
+    seedEdges14[12] = edge14
+    edge15 = extrude1.FindObject("EDGE * 120 * 150 1 {(8.3293714059227,-10,0)(9.1646857029613,-10,0)(10,-10,0) EXTRUDE(2)}")
+    seedEdges14[13] = edge15
+    edgeMultipleSeedTangentRule14 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges14, 0.5, True)
+    
+    rules20 = [None] * 1 
+    rules20[0] = edgeMultipleSeedTangentRule14
+    scCollector1.ReplaceRules(rules20, False)
+    
+    seedEdges15 = [NXOpen.Edge.Null] * 15 
+    seedEdges15[0] = edge3
+    seedEdges15[1] = edge1
+    seedEdges15[2] = edge4
+    seedEdges15[3] = edge5
+    seedEdges15[4] = edge6
+    seedEdges15[5] = edge7
+    seedEdges15[6] = edge8
+    seedEdges15[7] = edge9
+    seedEdges15[8] = edge10
+    seedEdges15[9] = edge11
+    seedEdges15[10] = edge12
+    seedEdges15[11] = edge13
+    seedEdges15[12] = edge14
+    seedEdges15[13] = edge15
+    edge16 = extrude1.FindObject("EDGE * 150 EXTRUDE(4) 140 {(-8.3293714059227,-10,0)(-8.3293714059227,-10,6)(-8.3293714059227,-10,12) EXTRUDE(2)}")
+    seedEdges15[14] = edge16
+    edgeMultipleSeedTangentRule15 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges15, 0.5, True)
+    
+    rules21 = [None] * 1 
+    rules21[0] = edgeMultipleSeedTangentRule15
+    scCollector1.ReplaceRules(rules21, False)
+    
+    seedEdges16 = [NXOpen.Edge.Null] * 16 
+    seedEdges16[0] = edge3
+    seedEdges16[1] = edge1
+    seedEdges16[2] = edge4
+    seedEdges16[3] = edge5
+    seedEdges16[4] = edge6
+    seedEdges16[5] = edge7
+    seedEdges16[6] = edge8
+    seedEdges16[7] = edge9
+    seedEdges16[8] = edge10
+    seedEdges16[9] = edge11
+    seedEdges16[10] = edge12
+    seedEdges16[11] = edge13
+    seedEdges16[12] = edge14
+    seedEdges16[13] = edge15
+    seedEdges16[14] = edge16
+    edge17 = extrude1.FindObject("EDGE * 140 * 170 {(-10,10,12)(-10,10,6)(-10,10,0) EXTRUDE(2)}")
+    seedEdges16[15] = edge17
+    edgeMultipleSeedTangentRule16 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges16, 0.5, True)
+    
+    rules22 = [None] * 1 
+    rules22[0] = edgeMultipleSeedTangentRule16
+    scCollector1.ReplaceRules(rules22, False)
+    
+    seedEdges17 = [NXOpen.Edge.Null] * 17 
+    seedEdges17[0] = edge3
+    seedEdges17[1] = edge1
+    seedEdges17[2] = edge4
+    seedEdges17[3] = edge5
+    seedEdges17[4] = edge6
+    seedEdges17[5] = edge7
+    seedEdges17[6] = edge8
+    seedEdges17[7] = edge9
+    seedEdges17[8] = edge10
+    seedEdges17[9] = edge11
+    seedEdges17[10] = edge12
+    seedEdges17[11] = edge13
+    seedEdges17[12] = edge14
+    seedEdges17[13] = edge15
+    seedEdges17[14] = edge16
+    seedEdges17[15] = edge17
+    seedEdges17[16] = edge2
+    edgeMultipleSeedTangentRule17 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges17, 0.5, True)
+    
+    rules23 = [None] * 1 
+    rules23[0] = edgeMultipleSeedTangentRule17
+    scCollector1.ReplaceRules(rules23, False)
+    
+    seedEdges18 = [NXOpen.Edge.Null] * 18 
+    seedEdges18[0] = edge3
+    seedEdges18[1] = edge1
+    seedEdges18[2] = edge4
+    seedEdges18[3] = edge5
+    seedEdges18[4] = edge6
+    seedEdges18[5] = edge7
+    seedEdges18[6] = edge8
+    seedEdges18[7] = edge9
+    seedEdges18[8] = edge10
+    seedEdges18[9] = edge11
+    seedEdges18[10] = edge12
+    seedEdges18[11] = edge13
+    seedEdges18[12] = edge14
+    seedEdges18[13] = edge15
+    seedEdges18[14] = edge16
+    seedEdges18[15] = edge17
+    seedEdges18[16] = edge2
+    edge18 = extrude1.FindObject("EDGE * 140 * 150 {(-10,-10,12)(-10,-10,6)(-10,-10,0) EXTRUDE(2)}")
+    seedEdges18[17] = edge18
+    edgeMultipleSeedTangentRule18 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges18, 0.5, True)
+    
+    rules24 = [None] * 1 
+    rules24[0] = edgeMultipleSeedTangentRule18
+    scCollector1.ReplaceRules(rules24, False)
+    
+    seedEdges19 = [NXOpen.Edge.Null] * 19 
+    seedEdges19[0] = edge3
+    seedEdges19[1] = edge1
+    seedEdges19[2] = edge4
+    seedEdges19[3] = edge5
+    seedEdges19[4] = edge6
+    seedEdges19[5] = edge7
+    seedEdges19[6] = edge8
+    seedEdges19[7] = edge9
+    seedEdges19[8] = edge10
+    seedEdges19[9] = edge11
+    seedEdges19[10] = edge12
+    seedEdges19[11] = edge13
+    seedEdges19[12] = edge14
+    seedEdges19[13] = edge15
+    seedEdges19[14] = edge16
+    seedEdges19[15] = edge17
+    seedEdges19[16] = edge2
+    seedEdges19[17] = edge18
+    edge19 = extrude1.FindObject("EDGE * 120 * 150 {(-10,-10,0)(-9.1646857029613,-10,0)(-8.3293714059227,-10,0) EXTRUDE(2)}")
+    seedEdges19[18] = edge19
+    edgeMultipleSeedTangentRule19 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges19, 0.5, True)
+    
+    rules25 = [None] * 1 
+    rules25[0] = edgeMultipleSeedTangentRule19
+    scCollector1.ReplaceRules(rules25, False)
+    
+    rotMatrix9 = NXOpen.Matrix3x3()
+    
+    rotMatrix9.Xx = 0.71490988003442657
+    rotMatrix9.Xy = 0.31965753083379256
+    rotMatrix9.Xz = -0.6218705061428883
+    rotMatrix9.Yx = 0.53840305635154651
+    rotMatrix9.Yy = 0.31579144783378771
+    rotMatrix9.Yz = 0.78127966208417243
+    rotMatrix9.Zx = 0.44612331517247794
+    rotMatrix9.Zy = -0.89336153065614565
+    rotMatrix9.Zz = 0.053657834500047796
+    translation9 = NXOpen.Point3d(-1.8182173901072951, -4.7197270321567473, -0.59016050804091491)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix9, translation9, 8.5785219000731168)
+    
+    seedEdges20 = [NXOpen.Edge.Null] * 20 
+    seedEdges20[0] = edge3
+    seedEdges20[1] = edge1
+    seedEdges20[2] = edge4
+    seedEdges20[3] = edge5
+    seedEdges20[4] = edge6
+    seedEdges20[5] = edge7
+    seedEdges20[6] = edge8
+    seedEdges20[7] = edge9
+    seedEdges20[8] = edge10
+    seedEdges20[9] = edge11
+    seedEdges20[10] = edge12
+    seedEdges20[11] = edge13
+    seedEdges20[12] = edge14
+    seedEdges20[13] = edge15
+    seedEdges20[14] = edge16
+    seedEdges20[15] = edge17
+    seedEdges20[16] = edge2
+    seedEdges20[17] = edge18
+    seedEdges20[18] = edge19
+    edge20 = extrude1.FindObject("EDGE * 120 EXTRUDE(4) 140 {(-6,-1.3066675633984,0)(-7.1646857029613,-5.6533337816992,0)(-8.3293714059227,-10,0) EXTRUDE(2)}")
+    seedEdges20[19] = edge20
+    edgeMultipleSeedTangentRule20 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges20, 0.5, True)
+    
+    rules26 = [None] * 1 
+    rules26[0] = edgeMultipleSeedTangentRule20
+    scCollector1.ReplaceRules(rules26, False)
+    
+    seedEdges21 = [NXOpen.Edge.Null] * 21 
+    seedEdges21[0] = edge3
+    seedEdges21[1] = edge1
+    seedEdges21[2] = edge4
+    seedEdges21[3] = edge5
+    seedEdges21[4] = edge6
+    seedEdges21[5] = edge7
+    seedEdges21[6] = edge8
+    seedEdges21[7] = edge9
+    seedEdges21[8] = edge10
+    seedEdges21[9] = edge11
+    seedEdges21[10] = edge12
+    seedEdges21[11] = edge13
+    seedEdges21[12] = edge14
+    seedEdges21[13] = edge15
+    seedEdges21[14] = edge16
+    seedEdges21[15] = edge17
+    seedEdges21[16] = edge2
+    seedEdges21[17] = edge18
+    seedEdges21[18] = edge19
+    seedEdges21[19] = edge20
+    edge21 = extrude2.FindObject("EDGE * 140 * 170 {(-6,-1.3066675633984,12)(-6,-1.3066675633984,6)(-6,-1.3066675633984,0) EXTRUDE(2)}")
+    seedEdges21[20] = edge21
+    edgeMultipleSeedTangentRule21 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges21, 0.5, True)
+    
+    rules27 = [None] * 1 
+    rules27[0] = edgeMultipleSeedTangentRule21
+    scCollector1.ReplaceRules(rules27, False)
+    
+    rotMatrix10 = NXOpen.Matrix3x3()
+    
+    rotMatrix10.Xx = 0.6487335950542803
+    rotMatrix10.Xy = -0.66836743433163637
+    rotMatrix10.Xz = -0.36390891081821819
+    rotMatrix10.Yx = 0.56832535897712211
+    rotMatrix10.Yy = 0.10747279224352256
+    rotMatrix10.Yz = 0.81575479481944269
+    rotMatrix10.Zx = -0.506113632489267
+    rotMatrix10.Zy = -0.7360262031017204
+    rotMatrix10.Zz = 0.44957137292780575
+    translation10 = NXOpen.Point3d(-3.3659869620553153, -4.9265778285683686, -2.9656417386074625)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix10, translation10, 8.5785219000731168)
+    
+    rotMatrix11 = NXOpen.Matrix3x3()
+    
+    rotMatrix11.Xx = -0.48852885475176372
+    rotMatrix11.Xy = -0.81157327698615811
+    rotMatrix11.Xz = -0.32045026783712854
+    rotMatrix11.Yx = 0.068137470080594717
+    rotMatrix11.Yy = -0.40162007841651803
+    rotMatrix11.Yz = 0.91326808648048807
+    rotMatrix11.Zx = -0.86988323540918611
+    rotMatrix11.Zy = 0.42432314183257558
+    rotMatrix11.Zz = 0.25150154683298875
+    translation11 = NXOpen.Point3d(-3.6267388199418535, -5.5116575785346411, -1.7772227820385604)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix11, translation11, 8.5785219000731168)
+    
+    seedEdges22 = [NXOpen.Edge.Null] * 22 
+    seedEdges22[0] = edge3
+    seedEdges22[1] = edge1
+    seedEdges22[2] = edge4
+    seedEdges22[3] = edge5
+    seedEdges22[4] = edge6
+    seedEdges22[5] = edge7
+    seedEdges22[6] = edge8
+    seedEdges22[7] = edge9
+    seedEdges22[8] = edge10
+    seedEdges22[9] = edge11
+    seedEdges22[10] = edge12
+    seedEdges22[11] = edge13
+    seedEdges22[12] = edge14
+    seedEdges22[13] = edge15
+    seedEdges22[14] = edge16
+    seedEdges22[15] = edge17
+    seedEdges22[16] = edge2
+    seedEdges22[17] = edge18
+    seedEdges22[18] = edge19
+    seedEdges22[19] = edge20
+    seedEdges22[20] = edge21
+    edge22 = extrude1.FindObject("EDGE * 160 * 170 {(10,10,12)(10,10,6)(10,10,0) EXTRUDE(2)}")
+    seedEdges22[21] = edge22
+    edgeMultipleSeedTangentRule22 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges22, 0.5, True)
+    
+    rules28 = [None] * 1 
+    rules28[0] = edgeMultipleSeedTangentRule22
+    scCollector1.ReplaceRules(rules28, False)
+    
+    seedEdges23 = [NXOpen.Edge.Null] * 23 
+    seedEdges23[0] = edge3
+    seedEdges23[1] = edge1
+    seedEdges23[2] = edge4
+    seedEdges23[3] = edge5
+    seedEdges23[4] = edge6
+    seedEdges23[5] = edge7
+    seedEdges23[6] = edge8
+    seedEdges23[7] = edge9
+    seedEdges23[8] = edge10
+    seedEdges23[9] = edge11
+    seedEdges23[10] = edge12
+    seedEdges23[11] = edge13
+    seedEdges23[12] = edge14
+    seedEdges23[13] = edge15
+    seedEdges23[14] = edge16
+    seedEdges23[15] = edge17
+    seedEdges23[16] = edge2
+    seedEdges23[17] = edge18
+    seedEdges23[18] = edge19
+    seedEdges23[19] = edge20
+    seedEdges23[20] = edge21
+    seedEdges23[21] = edge22
+    edge23 = extrude1.FindObject("EDGE * 120 * 170 {(10,10,0)(0,10,0)(-10,10,0) EXTRUDE(2)}")
+    seedEdges23[22] = edge23
+    edgeMultipleSeedTangentRule23 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges23, 0.5, True)
+    
+    rules29 = [None] * 1 
+    rules29[0] = edgeMultipleSeedTangentRule23
+    scCollector1.ReplaceRules(rules29, False)
+    
+    rotMatrix12 = NXOpen.Matrix3x3()
+    
+    rotMatrix12.Xx = 0.40843158334801377
+    rotMatrix12.Xy = 0.72120367122023343
+    rotMatrix12.Xz = 0.55950773573051893
+    rotMatrix12.Yx = -0.31200534639214927
+    rotMatrix12.Yy = -0.46573855952207566
+    rotMatrix12.Yz = 0.82809435331791592
+    rotMatrix12.Zx = 0.8578090146102163
+    rotMatrix12.Zy = -0.51278929278287322
+    rotMatrix12.Zz = 0.034797063966533814
+    translation12 = NXOpen.Point3d(-8.9064868413477374, -5.0006151795592082, -0.47699588483983069)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix12, translation12, 8.5785219000731168)
+    
+    seedEdges24 = [NXOpen.Edge.Null] * 24 
+    seedEdges24[0] = edge3
+    seedEdges24[1] = edge1
+    seedEdges24[2] = edge4
+    seedEdges24[3] = edge5
+    seedEdges24[4] = edge6
+    seedEdges24[5] = edge7
+    seedEdges24[6] = edge8
+    seedEdges24[7] = edge9
+    seedEdges24[8] = edge10
+    seedEdges24[9] = edge11
+    seedEdges24[10] = edge12
+    seedEdges24[11] = edge13
+    seedEdges24[12] = edge14
+    seedEdges24[13] = edge15
+    seedEdges24[14] = edge16
+    seedEdges24[15] = edge17
+    seedEdges24[16] = edge2
+    seedEdges24[17] = edge18
+    seedEdges24[18] = edge19
+    seedEdges24[19] = edge20
+    seedEdges24[20] = edge21
+    seedEdges24[21] = edge22
+    seedEdges24[22] = edge23
+    edge24 = extrude1.FindObject("EDGE * 120 * 160 {(10,-10,0)(10,0,0)(10,10,0) EXTRUDE(2)}")
+    seedEdges24[23] = edge24
+    edgeMultipleSeedTangentRule24 = workPart.ScRuleFactory.CreateRuleEdgeMultipleSeedTangent(seedEdges24, 0.5, True)
+    
+    rules30 = [None] * 1 
+    rules30[0] = edgeMultipleSeedTangentRule24
+    scCollector1.ReplaceRules(rules30, False)
+    
+    rotMatrix13 = NXOpen.Matrix3x3()
+    
+    rotMatrix13.Xx = 0.92634976979935968
+    rotMatrix13.Xy = 0.36239596978574856
+    rotMatrix13.Xz = -0.10269014108337654
+    rotMatrix13.Yx = 0.042186596006935126
+    rotMatrix13.Yy = 0.17109356920081595
+    rotMatrix13.Yz = 0.98435119835121632
+    rotMatrix13.Zx = 0.37429452989594347
+    rotMatrix13.Zy = -0.91618565349015113
+    rotMatrix13.Zz = 0.14320423607143271
+    translation13 = NXOpen.Point3d(-4.9332995804643618, -5.9381562497590101, -1.1274389174692239)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix13, translation13, 8.5785219000731168)
+    
+    markId107 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Edge Blend")
+    
+    theSession.DeleteUndoMark(markId107, None)
+    
+    markId108 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Edge Blend")
+    
+    edgeBlendBuilder1.Tolerance = 0.01
+    
+    edgeBlendBuilder1.AllInstancesOption = False
+    
+    edgeBlendBuilder1.RemoveSelfIntersection = True
+    
+    edgeBlendBuilder1.PatchComplexGeometryAreas = True
+    
+    edgeBlendBuilder1.LimitFailingAreas = True
+    
+    edgeBlendBuilder1.ConvexConcaveY = False
+    
+    edgeBlendBuilder1.RollOverSmoothEdge = True
+    
+    edgeBlendBuilder1.RollOntoEdge = True
+    
+    edgeBlendBuilder1.MoveSharpEdge = True
+    
+    edgeBlendBuilder1.TrimmingOption = False
+    
+    edgeBlendBuilder1.OverlapOption = NXOpen.Features.EdgeBlendBuilder.Overlap.AnyConvexityRollOver
+    
+    edgeBlendBuilder1.BlendOrder = NXOpen.Features.EdgeBlendBuilder.OrderOfBlending.ConvexFirst
+    
+    edgeBlendBuilder1.SetbackOption = NXOpen.Features.EdgeBlendBuilder.Setback.SeparateFromCorner
+    
+    edgeBlendBuilder1.BlendFaceContinuity = NXOpen.Features.EdgeBlendBuilder.FaceContinuity.Tangent
+    
+    csIndex1 = edgeBlendBuilder1.AddChainset(scCollector1, "0.5")
+    
+    feature7 = edgeBlendBuilder1.CommitFeature()
+    
+    theSession.DeleteUndoMark(markId108, None)
+    
+    theSession.SetUndoMarkName(markId106, "Edge Blend")
+    
+    workPart.FacePlaneSelectionBuilderData.Destroy(facePlaneSelectionBuilder1)
+    
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression50)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    try:
+        # Expression is still in use.
+        workPart.Expressions.Delete(expression49)
+    except NXOpen.NXException as ex:
+        ex.AssertErrorCode(1050029)
+        
+    edgeBlendBuilder1.Destroy()
+    
+    workPart.Expressions.Delete(expression47)
+    
+    workPart.Expressions.Delete(expression48)
+    
+    rotMatrix14 = NXOpen.Matrix3x3()
+    
+    rotMatrix14.Xx = 0.093629500176655125
+    rotMatrix14.Xy = -0.94385560303029847
+    rotMatrix14.Xz = -0.3168124324028071
+    rotMatrix14.Yx = 0.11820096680457615
+    rotMatrix14.Yy = -0.30542162037789045
+    rotMatrix14.Yz = 0.94485245686943542
+    rotMatrix14.Zx = -0.988565651913486
+    rotMatrix14.Zy = -0.12591359908309094
+    rotMatrix14.Zz = 0.082968171142971628
+    translation14 = NXOpen.Point3d(-3.6485658325477783, -5.7011638008683247, -0.76602252789845515)
+    workPart.ModelingViews.WorkView.SetRotationTranslationScale(rotMatrix14, translation14, 8.5785219000731168)
+    
+    scaleAboutPoint63 = NXOpen.Point3d(-5.2278091170481984, -8.2041134226243226, 0.0)
+    viewCenter63 = NXOpen.Point3d(5.2278091170482348, 8.2041134226243528, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint63, viewCenter63)
+    
+    scaleAboutPoint64 = NXOpen.Point3d(-4.2809433949633569, -6.1191582821378399, 0.0)
+    viewCenter64 = NXOpen.Point3d(4.2809433949633915, 6.1191582821378647, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint64, viewCenter64)
+    
+    scaleAboutPoint65 = NXOpen.Point3d(-3.444493936235645, -4.3821068988212897, 0.0)
+    viewCenter65 = NXOpen.Point3d(3.4444939362356775, 4.382106898821311, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(1.25, scaleAboutPoint65, viewCenter65)
+    
+    scaleAboutPoint66 = NXOpen.Point3d(-1.6975729427866142, -1.7844255119524486, 0.0)
+    viewCenter66 = NXOpen.Point3d(1.6975729427866455, 1.7844255119524681, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint66, viewCenter66)
+    
+    scaleAboutPoint67 = NXOpen.Point3d(-2.1219661784832695, -2.2305318899405622, 0.0)
+    viewCenter67 = NXOpen.Point3d(2.1219661784833037, 2.2305318899405835, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint67, viewCenter67)
+    
+    scaleAboutPoint68 = NXOpen.Point3d(-2.6277836977728892, -2.7881648624257052, 0.0)
+    viewCenter68 = NXOpen.Point3d(2.6277836977729234, 2.7881648624257251, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint68, viewCenter68)
+    
+    scaleAboutPoint69 = NXOpen.Point3d(-3.2230445588881165, -3.4852060780321334, 0.0)
+    viewCenter69 = NXOpen.Point3d(3.223044558888152, 3.4852060780321539, 0.0)
+    workPart.ModelingViews.WorkView.ZoomAboutPoint(0.80000000000000004, scaleAboutPoint69, viewCenter69)
+    
+    markId109 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Visible, "Start")
+    
+    theSession.SetUndoMarkName(markId109, "Name Parts Dialog")
+    
+    markId110 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Name Parts")
+    
+    theSession.DeleteUndoMark(markId110, None)
+    
+    markId111 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "Name Parts")
+    
+    workPart.AssignPermanentName("E:\\協同\W12\\W12\\model5.prt")
+    
+    theSession.DeleteUndoMark(markId111, None)
+    
+    theSession.SetUndoMarkName(markId109, "Name Parts")
+    
+    partSaveStatus1 = workPart.Save(NXOpen.BasePart.SaveComponents.TrueValue, NXOpen.BasePart.CloseAfterSave.FalseValue)
+    
+    partSaveStatus1.Dispose()
+    
+if __name__ == '__main__':
+    main()
