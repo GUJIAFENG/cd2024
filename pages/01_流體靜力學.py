@@ -1,0 +1,8 @@
+import streamlit as st
+
+st.title("實驗一: 流體靜力學")
+
+st.write("hello 我是第七組川哥。")
+
+# 在這裡添加實驗一的具體內容，如圖表、數據等
+st.image("82123.jpg", caption="這是一個示例圖片", width=500)
